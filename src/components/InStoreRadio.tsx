@@ -8,12 +8,12 @@ export default function InStoreRadio() {
     <section id="moj-radio" className="py-24 md:py-36 border-t border-stone-200 relative overflow-hidden bg-[#faf7f2]">
       {/* Full Photographic Section Background from /pokaz/ */}
       <div
-        className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-20 filter contrast-110 saturate-125"
+        className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-35 filter contrast-105"
         style={{
           backgroundImage: `url('/pokaz/studio-sound-mixing-stockcake.jpg')`,
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#faf7f2]/92 via-[#faf7f2]/84 to-[#faf7f2]/94 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#faf7f2]/85 via-[#faf7f2]/60 to-[#faf7f2]/85 pointer-events-none" />
 
       {/* Wide Container with Generous Air & Breathing Room */}
       <div className="w-full max-w-[1800px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">

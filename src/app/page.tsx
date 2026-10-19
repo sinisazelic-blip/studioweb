@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#140e0b] text-stone-100 flex flex-col selection:bg-studio-500/30 selection:text-amber-200">
+    <main className="min-h-screen bg-[#0a0b0e] text-slate-100 flex flex-col selection:bg-orange-500/30 selection:text-orange-200">
       <Header />
       <HeroStudio />
       <StudioSpaces />

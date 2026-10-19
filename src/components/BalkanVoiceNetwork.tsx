@@ -26,21 +26,21 @@ export default function BalkanVoiceNetwork() {
   const current = MARKETS.find((m) => m.code === selectedMarket) || MARKETS[0];
 
   return (
-    <section id="balkan-network" className="py-20 md:py-28 bg-[#0a0b0e] border-t border-zinc-800/80 relative">
+    <section id="balkan-network" className="py-20 md:py-28 bg-[#fbf9f5] border-t border-stone-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-400 text-xs font-semibold mb-4">
-            <Globe2 className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 border border-orange-200 text-orange-900 text-xs font-bold mb-4">
+            <Globe2 className="w-3.5 h-3.5 text-orange-600" />
             <span>Balkanska Voice-Over & Dubbing Mreža</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4 font-display uppercase">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-stone-950 tracking-tight mb-4 font-display uppercase">
             Glasovi za cijeli region. <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500">
               Jedno mjesto, 6 tržišta.
             </span>
           </h2>
-          <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
             Sarađujemo sa najvećim regionalnim agencijama i brendovima. 
             Kada snimate kampanju za čitav Balkan, Studio TAF obezbjeđuje vrhunske izvorne spikere 
             za svaku pojedinačnu državu, sa tačnom jezičkom adaptacijom i režijom.
@@ -55,27 +55,31 @@ export default function BalkanVoiceNetwork() {
               onClick={() => setSelectedMarket(m.code)}
               className={`p-4 rounded-2xl border transition-all cursor-pointer flex flex-col items-center text-center gap-2 ${
                 selectedMarket === m.code
-                  ? "bg-[#181b26] border-orange-500 shadow-xl shadow-orange-500/20 scale-102"
-                  : "bg-[#11131a] border-zinc-800 hover:border-zinc-700 text-zinc-300"
+                  ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white border-orange-500 shadow-xl shadow-orange-500/25 scale-102"
+                  : "bg-white border-stone-200 hover:border-orange-400 text-stone-800 shadow-xs"
               }`}
             >
               <span className="text-3xl">{m.flag}</span>
-              <div className="font-bold text-xs text-white tracking-tight">{m.country}</div>
-              <div className="text-[10px] text-orange-400 font-mono font-semibold">{m.sampleCount} Glasova</div>
+              <div className={`font-bold text-xs tracking-tight ${selectedMarket === m.code ? "text-white" : "text-stone-900"}`}>
+                {m.country}
+              </div>
+              <div className={`text-[10px] font-mono font-semibold ${selectedMarket === m.code ? "text-amber-100" : "text-orange-600"}`}>
+                {m.sampleCount} Glasova
+              </div>
             </button>
           ))}
         </div>
 
         {/* Selected Market Spotlight Card */}
-        <div className="rounded-3xl bg-[#11131a] border border-zinc-800 p-6 sm:p-10 shadow-2xl mb-12">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-zinc-800 mb-6">
+        <div className="rounded-3xl bg-white border border-stone-200/90 p-6 sm:p-10 shadow-xl mb-12">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-stone-100 mb-6">
             <div className="flex items-center gap-4">
               <span className="text-4xl sm:text-5xl">{current.flag}</span>
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white font-display uppercase">
+                <h3 className="text-xl sm:text-2xl font-bold text-stone-900 font-display uppercase">
                   {current.country} • Audio Baza
                 </h3>
-                <p className="text-xs sm:text-sm text-zinc-400">
+                <p className="text-xs sm:text-sm text-stone-600">
                   {current.dialects}
                 </p>
               </div>
@@ -93,42 +97,42 @@ export default function BalkanVoiceNetwork() {
 
           {/* Voice Categories Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-4 rounded-2xl bg-[#161822] border border-zinc-800">
-              <div className="text-xs font-bold text-orange-400 font-mono uppercase mb-1">
+            <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200">
+              <div className="text-xs font-bold text-orange-600 font-mono uppercase mb-1">
                 Muški Autoritativni
               </div>
-              <div className="text-sm font-semibold text-white mb-2">Korporativni & Auto Brendovi</div>
-              <p className="text-[11px] text-zinc-400 leading-snug">
+              <div className="text-sm font-semibold text-stone-900 mb-2">Korporativni & Auto Brendovi</div>
+              <p className="text-[11px] text-stone-600 leading-snug">
                 Dubok, siguran i uvjerljiv bariton za banke, telekome, automobile i zvanične kampanje.
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#161822] border border-zinc-800">
-              <div className="text-xs font-bold text-amber-400 font-mono uppercase mb-1">
+            <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200">
+              <div className="text-xs font-bold text-amber-600 font-mono uppercase mb-1">
                 Ženski Topli & Lifestyle
               </div>
-              <div className="text-sm font-semibold text-white mb-2">Kozmetika & Maloprodaja</div>
-              <p className="text-[11px] text-zinc-400 leading-snug">
+              <div className="text-sm font-semibold text-stone-900 mb-2">Kozmetika & Maloprodaja</div>
+              <p className="text-[11px] text-stone-600 leading-snug">
                 Mekan, prijateljski ton koji stvara trenutno povjerenje i emociju sa slušaocem.
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#161822] border border-zinc-800">
-              <div className="text-xs font-bold text-emerald-400 font-mono uppercase mb-1">
+            <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200">
+              <div className="text-xs font-bold text-emerald-600 font-mono uppercase mb-1">
                 Mladi & Energični
               </div>
-              <div className="text-sm font-semibold text-white mb-2">Festivali, Tech & Gaming</div>
-              <p className="text-[11px] text-zinc-400 leading-snug">
+              <div className="text-sm font-semibold text-stone-900 mb-2">Festivali, Tech & Gaming</div>
+              <p className="text-[11px] text-stone-600 leading-snug">
                 Brz, ritmičan i svjež glas za digitalne medije, radio akcije i promocije događaja.
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#161822] border border-zinc-800">
-              <div className="text-xs font-bold text-rose-400 font-mono uppercase mb-1">
+            <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200">
+              <div className="text-xs font-bold text-rose-600 font-mono uppercase mb-1">
                 Glumački & Dubbing
               </div>
-              <div className="text-sm font-semibold text-white mb-2">Crtani Filmovi & Teatar</div>
-              <p className="text-[11px] text-zinc-400 leading-snug">
+              <div className="text-sm font-semibold text-stone-900 mb-2">Crtani Filmovi & Teatar</div>
+              <p className="text-[11px] text-stone-600 leading-snug">
                 Profesionalni akademski glumci sposobni za brze promjene karaktera, humora i akcenta.
               </p>
             </div>
@@ -136,14 +140,14 @@ export default function BalkanVoiceNetwork() {
         </div>
 
         {/* Global Standard Callout */}
-        <div className="p-6 rounded-2xl bg-[#11131a] border border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
+        <div className="p-6 rounded-2xl bg-white border border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-600 shadow-sm">
           <div className="flex items-center gap-2.5">
-            <CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0" />
+            <CheckCircle2 className="w-5 h-5 text-orange-600 shrink-0" />
             <span>
               Svi glasovi su 100% izvorni govornici (Native speakers) sa garantovanim radio/TV autorskim pravima.
             </span>
           </div>
-          <span className="font-mono text-orange-400 font-bold whitespace-nowrap">
+          <span className="font-mono text-orange-600 font-bold whitespace-nowrap bg-orange-50 px-3 py-1 rounded-lg border border-orange-200">
             ISPORUKA U ROKU OD 24H
           </span>
         </div>

@@ -60,21 +60,21 @@ export default function HardwareVault() {
     : HARDWARE_ROSTER.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="oprema" className="py-20 md:py-28 bg-[#0e0f15] border-t border-zinc-800/80 relative">
+    <section id="oprema" className="py-20 md:py-28 bg-white border-t border-stone-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-400 text-xs font-semibold mb-4">
-            <Sliders className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 border border-orange-200 text-orange-900 text-xs font-bold mb-4">
+            <Sliders className="w-3.5 h-3.5 text-orange-600" />
             <span>Kreativni nered & hardverska arhiva</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4 font-display uppercase">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-stone-950 tracking-tight mb-4 font-display uppercase">
             Zvuk koji se pravi rukama, <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500">
               a ne kliktanjem na prompt.
             </span>
           </h2>
-          <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
             Danas svako sa računarom može generisati sintetički džingl na AI platformama. 
             Ali kada vam treba muzika koja nosi 40 godina teatarske drame, filmski napon, 
             ili radijski vokal koji u sekundi privlači pažnju kupca — tu presuđuju pravi hardver i zanat.
@@ -93,10 +93,10 @@ export default function HardwareVault() {
             <button
               key={tab.id}
               onClick={() => setActiveCategory(tab.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeCategory === tab.id
-                  ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg shadow-orange-500/25 font-bold"
-                  : "bg-[#141620] text-zinc-300 hover:text-white border border-zinc-800"
+                  ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/25"
+                  : "bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200"
               }`}
             >
               {tab.label}
@@ -109,40 +109,41 @@ export default function HardwareVault() {
           {filtered.map((item) => (
             <div
               key={item.id}
-              className="rounded-3xl bg-[#13151e] border border-zinc-800 hover:border-orange-500/50 shadow-2xl transition-all flex flex-col justify-between overflow-hidden relative group"
+              className="rounded-3xl bg-stone-50 border border-stone-200 hover:border-orange-500 shadow-lg hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden relative group"
             >
               {/* Photo Background */}
               <div
-                className="absolute inset-0 bg-cover bg-center opacity-30 filter contrast-115 group-hover:scale-105 transition-transform duration-700 pointer-events-none"
-                style={{ backgroundImage: `url('${item.bgPhoto}')` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#13151e] via-[#13151e]/85 to-transparent pointer-events-none" />
-
-              <div className="relative z-10 p-6 sm:p-8">
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="text-xs font-mono font-bold text-amber-300 bg-[#0a0b0e]/90 px-3.5 py-1.5 rounded-full border border-zinc-700 shadow-xs">
+                className="relative h-48 sm:h-56 overflow-hidden bg-stone-900"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700 opacity-90"
+                  style={{ backgroundImage: `url('${item.bgPhoto}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <span className="text-xs font-mono font-bold text-white bg-black/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 shadow-xs">
                     {item.badge}
                   </span>
-                  <div className="flex items-center gap-1.5 bg-[#0a0b0e]/80 px-2.5 py-1 rounded-full border border-zinc-800">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-[10px] font-mono text-zinc-400">Aktivan u studiju</span>
-                  </div>
                 </div>
-
-                <h3 className="text-xl font-bold text-white mb-2.5 group-hover:text-orange-400 transition-colors">
-                  {item.name}
-                </h3>
-                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
-                  {item.desc}
-                </p>
+                <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-black/75 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-[10px] font-mono text-white font-semibold">Aktivan u studiju</span>
+                </div>
               </div>
 
-              {/* Specs Chips */}
-              <div className="relative z-10 p-6 sm:p-8 pt-0">
-                <div className="pt-4 border-t border-zinc-800/80 grid grid-cols-2 gap-2">
+              <div className="p-6 sm:p-7">
+                <h3 className="text-xl font-bold text-stone-900 mb-2 group-hover:text-orange-600 transition-colors">
+                  {item.name}
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal mb-4">
+                  {item.desc}
+                </p>
+
+                {/* Specs Chips */}
+                <div className="pt-4 border-t border-stone-200 grid grid-cols-2 gap-2">
                   {item.specs.map((spec, idx) => (
-                    <div key={idx} className="flex items-center gap-1.5 text-[11px] text-zinc-400">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                    <div key={idx} className="flex items-center gap-1.5 text-[11px] text-stone-700 font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 shrink-0" />
                       <span>{spec}</span>
                     </div>
                   ))}
@@ -153,24 +154,24 @@ export default function HardwareVault() {
         </div>
 
         {/* Bottom Callout: Real Composition & Boris Relja "Revelation" Example */}
-        <div className="mt-12 p-6 sm:p-10 rounded-3xl bg-gradient-to-r from-[#161826] via-[#12141d] to-[#0e0f16] border border-zinc-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="mt-12 p-6 sm:p-10 rounded-3xl bg-gradient-to-r from-amber-50 via-orange-50 to-stone-50 border border-orange-200/90 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-2.5">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-orange-400 uppercase tracking-wider font-mono">
-              <Sparkles className="w-4 h-4" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-orange-700 uppercase tracking-wider font-mono">
+              <Sparkles className="w-4 h-4 text-orange-600" />
               <span>Autorska Proizvodnja Muzike vs. Brzi Džinglovi</span>
             </div>
-            <h4 className="text-lg sm:text-2xl font-bold text-white font-display uppercase">
+            <h4 className="text-lg sm:text-2xl font-bold text-stone-900 font-display uppercase">
               6+ Mjeseci, 16 Sati Dnevno — Albumi poput „Revelation” (Boris Relja)
             </h4>
-            <p className="text-xs sm:text-sm text-zinc-300 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-stone-700 max-w-2xl leading-relaxed">
               Kada se radi brzi akcijski spot za trgovački lanac, to je 2 sata čistog inženjerskog zanata. 
               Ali kada radimo autorski album ili muziku za pozorišnu predstavu, u tome se živi. 
               To je razlika između konfekcije i pravog umjetničkog autoriteta Studija TAF.
             </p>
           </div>
-          <div className="shrink-0 text-center md:text-right bg-[#0a0b0e] p-6 rounded-2xl border border-zinc-800 shadow-xl">
-            <div className="text-3xl font-black text-orange-500 font-mono">10.000+</div>
-            <div className="text-xs text-zinc-400">radova kroz 4 decenije</div>
+          <div className="shrink-0 text-center md:text-right bg-white p-6 rounded-2xl border border-orange-200 shadow-md">
+            <div className="text-3xl font-black text-orange-600 font-mono">10.000+</div>
+            <div className="text-xs text-stone-600 font-semibold">radova kroz 4 decenije</div>
           </div>
         </div>
       </div>

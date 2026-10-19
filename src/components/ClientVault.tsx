@@ -50,42 +50,42 @@ export default function ClientVault() {
   };
 
   return (
-    <section id="vault" className="py-20 md:py-28 bg-[#0e0f15] border-t border-zinc-800/80 relative">
+    <section id="vault" className="py-20 md:py-28 bg-white border-t border-stone-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-400 text-xs font-semibold mb-4">
-            <Server className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 border border-orange-200 text-orange-900 text-xs font-bold mb-4">
+            <Server className="w-3.5 h-3.5 text-orange-600" />
             <span>Klijentski Distributivni Hab</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4 font-display uppercase">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-stone-950 tracking-tight mb-4 font-display uppercase">
             Zaboravite WeTransfer linkove koji ističu. <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500">
               Vaš trajni radni audio trezor.
             </span>
           </h2>
-          <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
             Preslušajte mastere odmah u browseru bez preuzimanja gigabajta na telefon. 
             Segmentirajte materijale po tržištima (BiH, CRO, SRB) i jednim klikom proslijedite 
             namjenske linkove radio stanicama ili partnerskim studijima u Zagrebu i Beogradu.
           </p>
         </div>
 
-        {/* Vault Main Container Styled Like a Premium Analog/Mastering Console */}
-        <div className="rounded-3xl bg-[#12141d] border border-zinc-800 shadow-2xl p-6 sm:p-8 md:p-10 max-w-5xl mx-auto">
+        {/* Vault Main Container Styled Like a Premium Mastering Console */}
+        <div className="rounded-3xl bg-stone-50 border border-stone-200 shadow-xl p-6 sm:p-8 md:p-10 max-w-5xl mx-auto">
           {/* Top Project Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-zinc-800 mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-stone-200 mb-6">
             <div>
               <div className="flex items-center gap-2 mb-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-xs font-mono text-orange-400 font-bold uppercase tracking-wider">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-xs font-mono text-orange-600 font-bold uppercase tracking-wider">
                   Aktivna Kampanja • 3 Tržišta
                 </span>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-white font-display uppercase">
+              <h3 className="text-lg sm:text-xl font-bold text-stone-900 font-display uppercase">
                 Projekat: Jesenja Akcija — Master Hub
               </h3>
-              <p className="text-xs text-zinc-400">
+              <p className="text-xs text-stone-600">
                 Klijent: Regionalna Marketing Agencija • Snimanje: Studio TAF • Master: 24-bit Broadcast
               </p>
             </div>
@@ -103,13 +103,13 @@ export default function ClientVault() {
           </div>
 
           {/* Market Switcher Tabs */}
-          <div className="flex items-center gap-2 mb-6 p-1.5 rounded-2xl bg-[#0a0b0e] border border-zinc-800 w-fit">
+          <div className="flex items-center gap-2 mb-6 p-1.5 rounded-2xl bg-white border border-stone-200 w-fit shadow-xs">
             <button
               onClick={() => { setActiveMarket("bih"); setPlayingId("bih-tv"); }}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
                 activeMarket === "bih"
-                  ? "bg-orange-500 text-white shadow-md font-extrabold"
-                  : "text-zinc-400 hover:text-white"
+                  ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md font-extrabold"
+                  : "text-stone-600 hover:text-stone-950"
               }`}
             >
               <span>🇧🇦</span>
@@ -120,8 +120,8 @@ export default function ClientVault() {
               onClick={() => { setActiveMarket("cro"); setPlayingId("cro-tv"); }}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
                 activeMarket === "cro"
-                  ? "bg-orange-500 text-white shadow-md font-extrabold"
-                  : "text-zinc-400 hover:text-white"
+                  ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md font-extrabold"
+                  : "text-stone-600 hover:text-stone-950"
               }`}
             >
               <span>🇭🇷</span>
@@ -132,8 +132,8 @@ export default function ClientVault() {
               onClick={() => { setActiveMarket("srb"); setPlayingId("srb-tv"); }}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
                 activeMarket === "srb"
-                  ? "bg-orange-500 text-white shadow-md font-extrabold"
-                  : "text-zinc-400 hover:text-white"
+                  ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md font-extrabold"
+                  : "text-stone-600 hover:text-stone-950"
               }`}
             >
               <span>🇷🇸</span>
@@ -148,8 +148,8 @@ export default function ClientVault() {
                 key={track.id}
                 className={`p-4 sm:p-5 rounded-2xl border transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
                   playingId === track.id
-                    ? "bg-[#181a28] border-orange-500/70 shadow-xl shadow-orange-500/10"
-                    : "bg-[#0f1118] border-zinc-800 hover:border-zinc-700"
+                    ? "bg-orange-50/60 border-orange-400 shadow-md"
+                    : "bg-white border-stone-200 hover:border-stone-300 shadow-xs"
                 }`}
               >
                 <div className="flex items-center gap-4">
@@ -157,8 +157,8 @@ export default function ClientVault() {
                     onClick={() => togglePlay(track.id)}
                     className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 cursor-pointer transition-all ${
                       playingId === track.id
-                        ? "bg-gradient-to-br from-orange-500 to-amber-500 text-white shadow-lg scale-105"
-                        : "bg-[#1c1f2c] text-orange-400 hover:bg-[#252a3b]"
+                        ? "bg-gradient-to-br from-orange-500 to-amber-500 text-white shadow-md scale-105"
+                        : "bg-stone-100 text-stone-700 hover:bg-stone-200"
                     }`}
                   >
                     {playingId === track.id ? (
@@ -169,17 +169,17 @@ export default function ClientVault() {
                   </button>
 
                   <div>
-                    <div className="text-sm font-bold text-white flex items-center gap-2">
+                    <div className="text-sm font-bold text-stone-900 flex items-center gap-2">
                       <span>{track.title}</span>
                       {playingId === track.id && (
-                        <span className="text-[10px] text-emerald-400 font-mono flex items-center gap-1.5 bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-800/40">
-                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span className="text-[10px] text-emerald-800 font-mono flex items-center gap-1.5 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-300 font-bold">
+                          <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
                           <span>REPRODUKCIJA • 0:14 / {track.duration}</span>
                         </span>
                       )}
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-zinc-400 mt-1 font-mono">
-                      <span className="text-orange-400 font-medium">{track.type}</span>
+                    <div className="flex items-center gap-2 text-xs text-stone-500 mt-1 font-mono">
+                      <span className="text-orange-600 font-medium">{track.type}</span>
                       <span>•</span>
                       <span>{track.format}</span>
                       <span>•</span>
@@ -192,16 +192,16 @@ export default function ClientVault() {
                 <div className="flex items-center gap-2 self-end sm:self-center">
                   <button
                     onClick={() => copyShareLink(`https://studiotaf.ba/file/${track.id}`)}
-                    className="px-3.5 py-2 rounded-xl bg-[#181b26] text-zinc-300 hover:text-white text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer border border-zinc-800"
+                    className="px-3.5 py-2 rounded-xl bg-white text-stone-700 hover:text-stone-900 hover:bg-stone-50 text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer border border-stone-200 shadow-xs"
                     title="Kopiraj direktan share link samo za ovaj fajl"
                   >
-                    <Copy className="w-3.5 h-3.5 text-orange-400" />
+                    <Copy className="w-3.5 h-3.5 text-orange-600" />
                     <span>Share</span>
                   </button>
 
                   <button
                     onClick={() => alert(`Preuzimanje ${track.title} započeto u punom 24-bit kvalitetu.`)}
-                    className="px-4 py-2 rounded-xl bg-orange-500/15 hover:bg-orange-500/25 text-orange-300 text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer border border-orange-500/30"
+                    className="px-4 py-2 rounded-xl bg-orange-100 hover:bg-orange-200 text-orange-900 text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer border border-orange-200"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Preuzmi WAV</span>
@@ -212,30 +212,30 @@ export default function ClientVault() {
           </div>
 
           {/* Granular Studio Distribution Cards */}
-          <div className="pt-6 border-t border-zinc-800 grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="p-4 rounded-2xl bg-[#0a0b0e] border border-zinc-800 text-left">
-              <div className="text-xs font-bold text-orange-400 mb-1 font-display uppercase tracking-wider">
+          <div className="pt-6 border-t border-stone-200 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="p-4 rounded-2xl bg-white border border-stone-200 text-left shadow-xs">
+              <div className="text-xs font-bold text-orange-600 mb-1 font-display uppercase tracking-wider">
                 Za Radio Stanice
               </div>
-              <p className="text-xs text-zinc-400 leading-snug">
+              <p className="text-xs text-stone-600 leading-snug">
                 Šalje se samo finalni miks normiran po EBU R128 (-23 LUFS), spreman za trenutno emitovanje u etar.
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#0a0b0e] border border-zinc-800 text-left">
-              <div className="text-xs font-bold text-amber-400 mb-1 font-display uppercase tracking-wider">
+            <div className="p-4 rounded-2xl bg-white border border-stone-200 text-left shadow-xs">
+              <div className="text-xs font-bold text-amber-600 mb-1 font-display uppercase tracking-wider">
                 Za Studije u ZG & BG
               </div>
-              <p className="text-xs text-zinc-400 leading-snug">
+              <p className="text-xs text-stone-600 leading-snug">
                 Šalje se samo suvi vokal (Dry Voiceover) u 24-bit 48kHz za montažu u njihovom finalnom miksu.
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#0a0b0e] border border-zinc-800 text-left">
-              <div className="text-xs font-bold text-emerald-400 mb-1 font-display uppercase tracking-wider">
+            <div className="p-4 rounded-2xl bg-white border border-stone-200 text-left shadow-xs">
+              <div className="text-xs font-bold text-emerald-600 mb-1 font-display uppercase tracking-wider">
                 Za Klijente & Agencije
               </div>
-              <p className="text-xs text-zinc-400 leading-snug">
+              <p className="text-xs text-stone-600 leading-snug">
                 Jedan zbirni paket sa svim formatima, tekstualnim skriptama i potvrdom o autorskim pravima.
               </p>
             </div>

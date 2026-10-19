@@ -51,31 +51,31 @@ const MILESTONES: Milestone[] = [
 
 export default function HeritageTimeline() {
   return (
-    <section id="tradicija" className="py-20 md:py-28 bg-[#0e0f15] border-t border-zinc-800/80 relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-orange-600/10 rounded-full blur-[180px] pointer-events-none" />
+    <section id="tradicija" className="py-20 md:py-28 bg-white border-t border-stone-200 relative overflow-hidden">
+      {/* Light subtle glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-orange-100/50 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-400 text-xs font-semibold mb-4">
-            <History className="w-3.5 h-3.5 text-orange-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 border border-orange-200 text-orange-900 text-xs font-bold mb-4">
+            <History className="w-3.5 h-3.5 text-orange-600" />
             <span>Kontinuitet od 1982. godine • 40+ Godina Iskustva</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4 font-display uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-stone-950 tracking-tight mb-4 font-display uppercase">
             Četiri decenije u kojima se <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500">
               istinski živjelo za zvuk, muziku i inženjering.
             </span>
           </h2>
-          <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
             Tehnologije su se mijenjale — sa analognih traka na DAT kasete, sa analognih stolova u DAW, 
             sa ISDN linija na WebRTC. Ali uho, zanatska disciplina, radna etika i ljubav prema čistom tonu ostali su nepromijenjeni.
           </p>
         </div>
 
         {/* Timeline Stack */}
-        <div className="max-w-4xl mx-auto space-y-8 relative before:absolute before:inset-0 before:left-5 sm:before:left-1/2 before:w-0.5 before:bg-gradient-to-b before:from-orange-500 before:via-zinc-700 before:to-zinc-800 before:-translate-x-1/2">
+        <div className="max-w-4xl mx-auto space-y-8 relative before:absolute before:inset-0 before:left-5 sm:before:left-1/2 before:w-0.5 before:bg-gradient-to-b before:from-orange-500 before:via-amber-400 before:to-stone-300 before:-translate-x-1/2">
           {MILESTONES.map((m, idx) => (
             <div
               key={idx}
@@ -84,32 +84,32 @@ export default function HeritageTimeline() {
               }`}
             >
               {/* Timeline Center Node */}
-              <div className="absolute left-5 sm:left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-[#12141d] border-2 border-orange-500 flex items-center justify-center z-10 shadow-lg shadow-orange-500/20">
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+              <div className="absolute left-5 sm:left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-white border-2 border-orange-500 flex items-center justify-center z-10 shadow-md">
+                <span className="w-2.5 h-2.5 rounded-full bg-orange-500" />
               </div>
 
               {/* Card Content */}
-              <div className="ml-12 sm:ml-0 w-full sm:w-[calc(50%-2.2rem)] p-6 sm:p-7 rounded-2xl bg-[#12141d] border border-zinc-800 shadow-xl hover:border-orange-500/60 transition-all group">
+              <div className="ml-12 sm:ml-0 w-full sm:w-[calc(50%-2.2rem)] p-6 sm:p-7 rounded-2xl bg-stone-50 border border-stone-200 shadow-md hover:shadow-xl hover:border-orange-500 transition-all group">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="font-mono text-xs font-bold text-orange-400 bg-orange-500/10 px-2.5 py-0.5 rounded-lg border border-orange-500/25">
+                  <span className="font-mono text-xs font-bold text-orange-700 bg-orange-100 px-2.5 py-0.5 rounded-lg border border-orange-200">
                     {m.year}
                   </span>
-                  <span className="text-[10px] font-semibold text-amber-300 bg-[#1c1f2c] px-2.5 py-0.5 rounded-full border border-zinc-700">
+                  <span className="text-[10px] font-semibold text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded-full border border-amber-200">
                     {m.badge}
                   </span>
                 </div>
 
-                <h3 className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">
+                <h3 className="text-base sm:text-lg font-bold text-stone-900 mb-2 group-hover:text-orange-600 transition-colors">
                   {m.title}
                 </h3>
                 
-                <p className="text-xs text-zinc-300 leading-relaxed mb-3">
+                <p className="text-xs text-stone-600 leading-relaxed mb-3">
                   {m.desc}
                 </p>
 
                 {m.highlight && (
-                  <div className="pt-2.5 border-t border-zinc-800 flex items-center gap-1.5 text-[11px] font-mono text-amber-400">
-                    <Sparkles className="w-3 h-3 text-orange-400 shrink-0" />
+                  <div className="pt-2.5 border-t border-stone-200 flex items-center gap-1.5 text-[11px] font-mono text-orange-700 font-medium">
+                    <Sparkles className="w-3 h-3 text-orange-600 shrink-0" />
                     <span>{m.highlight}</span>
                   </div>
                 )}
@@ -119,9 +119,9 @@ export default function HeritageTimeline() {
         </div>
 
         {/* Selected Artist & Studio Heritage Wall */}
-        <div className="mt-16 pt-12 border-t border-zinc-800 max-w-4xl mx-auto text-center">
-          <div className="text-xs font-bold font-mono text-zinc-400 uppercase tracking-wider mb-4 flex items-center justify-center gap-2">
-            <Disc className="w-3.5 h-3.5 text-orange-500 animate-spin" style={{ animationDuration: "8s" }} />
+        <div className="mt-16 pt-12 border-t border-stone-200 max-w-4xl mx-auto text-center">
+          <div className="text-xs font-bold font-mono text-stone-500 uppercase tracking-wider mb-4 flex items-center justify-center gap-2">
+            <Disc className="w-3.5 h-3.5 text-orange-600 animate-spin" style={{ animationDuration: "8s" }} />
             <span>Muzički Partneri, Saradnje & Autorski Projekti</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2">
@@ -145,7 +145,7 @@ export default function HeritageTimeline() {
             ].map((name, i) => (
               <span
                 key={i}
-                className="px-3.5 py-1.5 rounded-xl bg-[#12141d] border border-zinc-800 text-zinc-300 text-xs font-medium hover:border-orange-500/60 hover:text-white hover:bg-orange-500/10 transition-all shadow-sm"
+                className="px-3.5 py-1.5 rounded-xl bg-white border border-stone-200 text-stone-800 text-xs font-medium hover:border-orange-500 hover:text-orange-600 transition-all shadow-xs"
               >
                 {name}
               </span>

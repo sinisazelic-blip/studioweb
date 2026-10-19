@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Volume2, Radio, Server, Mic2, ExternalLink, ArrowRight, Menu, X, Disc } from "lucide-react";
+import { Volume2, Radio, Server, Mic2, ExternalLink, ArrowRight, Menu, X, Disc, PhoneCall, Sparkles } from "lucide-react";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,177 +25,205 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300">
-      {/* Top Banner: Ecosystem Bridge */}
-      <div className="bg-[#070a12] border-b border-amber-950/40 text-[11px] text-amber-200/70 py-1.5 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="font-mono text-amber-300 font-semibold">STUDIO TAF BANJA LUKA</span>
-            <span className="hidden sm:inline text-slate-500">•</span>
-            <span className="hidden sm:inline text-slate-400">Autorska muzička produkcija, akustika & broadcast inženjering od 1982.</span>
+      {/* Top Banner: Regional Balkan Network Bar (TikTak/Petar Style) */}
+      <div className="bg-[#100a07] border-b border-amber-950/60 text-[11px] text-amber-200/80 py-2 px-4 sm:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2">
+          {/* Left: Regional Flags & Authority */}
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-1.5 text-base tracking-wider" title="Pokrivenost svih regionalnih tržišta">
+              <span>🇧🇦</span>
+              <span>🇭🇷</span>
+              <span>🇷🇸</span>
+              <span>🇲🇪</span>
+              <span>🇲🇰</span>
+              <span>🇸🇮</span>
+            </span>
+            <span className="text-amber-500/60">|</span>
+            <span className="font-semibold text-amber-400">Regionalni Voice-Over, Dubbing & Audio Režija</span>
+            <span className="hidden md:inline text-amber-200/50">•</span>
+            <span className="hidden md:inline text-amber-100/70">40+ godina kontinuiteta (1982–{new Date().getFullYear()})</span>
           </div>
-          <div className="flex items-center gap-4">
+
+          {/* Right: B2B Enterprise Link & Direct Studio Wire */}
+          <div className="flex items-center gap-4 text-xs">
+            <a
+              href="tel:+38765510000"
+              className="text-amber-300 hover:text-white flex items-center gap-1.5 font-mono transition-colors"
+            >
+              <PhoneCall className="w-3.5 h-3.5 text-studio-500" />
+              <span>Studio Desk: Banja Luka</span>
+            </a>
+            <span className="text-amber-900">|</span>
             <a
               href="http://localhost:3000"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-amber-300 flex items-center gap-1 transition-colors"
-              title="Pređite na FLUXA Enterprise poslovni portal"
+              className="text-amber-200/80 hover:text-white flex items-center gap-1 transition-colors"
+              title="Poslovna rješenja: fiskalni sistemi, kontrola pristupa i DMS"
             >
-              <span>Poslovna rješenja: FLUXA.ba</span>
-              <ExternalLink className="w-3 h-3 text-amber-400" />
+              <span>B2B Softver: FLUXA.ba</span>
+              <ExternalLink className="w-3 h-3 text-studio-500" />
             </a>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
+      {/* Main Glass Navigation Bar */}
       <nav
         className={`px-4 sm:px-8 py-3.5 transition-all duration-300 ${
           scrolled
-            ? "bg-[#0c101d]/90 backdrop-blur-md border-b border-slate-800/80 shadow-2xl"
-            : "bg-[#0b0f19]/80 backdrop-blur-sm border-b border-slate-800/40"
+            ? "bg-[#18110b]/92 backdrop-blur-md border-b border-amber-900/40 shadow-2xl"
+            : "bg-[#140e0a]/85 backdrop-blur-md border-b border-amber-950/40"
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Logo & Identity */}
-          <div className="flex items-center gap-3.5 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <div className="bg-slate-900/90 p-1.5 rounded-xl border border-amber-500/30 shadow-md flex items-center justify-center">
+          {/* Brand Logo & Heritage Title */}
+          <div
+            className="flex items-center gap-3.5 cursor-pointer group"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            <div className="bg-[#1f150e] p-1.5 rounded-2xl border border-amber-500/40 shadow-md group-hover:border-studio-500 transition-colors flex items-center justify-center">
               <img
                 src="/logos/taf-logo.jpg"
                 alt="Studio TAF Logo"
-                className="h-9 sm:h-11 w-auto object-contain rounded-lg"
+                className="h-10 sm:h-12 w-auto object-contain rounded-xl"
               />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-extrabold text-lg sm:text-xl tracking-tight text-white font-sans">
-                  Studio <span className="text-amber-400">TAF</span>
+                <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-white font-sans">
+                  Studio <span className="text-studio-500">TAF</span>
                 </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 font-bold uppercase">
-                  Est. 1982
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-studio-500/20 border border-studio-500/40 text-studio-400 font-bold uppercase">
+                  Banja Luka
                 </span>
               </div>
-              <div className="text-[11px] text-slate-400 font-medium tracking-wide hidden sm:block">
-                Sound Heritage & Creative Audio Hub
+              <div className="text-[11px] text-amber-200/70 font-medium tracking-wide hidden sm:block">
+                Master Audio Produkcija & Režija od 1982.
               </div>
             </div>
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center gap-7 text-xs font-semibold text-slate-300">
+          <div className="hidden xl:flex items-center gap-7 text-xs font-semibold text-amber-100/80">
+            <button
+              onClick={() => scrollTo("studio-prostor")}
+              className="hover:text-studio-400 transition-colors cursor-pointer"
+            >
+              Prostor & Akustika
+            </button>
+            <button
+              onClick={() => scrollTo("balkan-network")}
+              className="hover:text-studio-400 transition-colors cursor-pointer flex items-center gap-1"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-studio-500" />
+              <span>Voice & Dubbing</span>
+            </button>
             <button
               onClick={() => scrollTo("oprema")}
-              className="hover:text-amber-400 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="hover:text-studio-400 transition-colors cursor-pointer"
             >
-              <Disc className="w-3.5 h-3.5 text-amber-500" />
-              <span>Oprema & Sintovi</span>
+              Hardver & 10 Sintova
             </button>
             <button
               onClick={() => scrollTo("moj-radio")}
-              className="hover:text-amber-400 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="hover:text-studio-400 transition-colors cursor-pointer flex items-center gap-1"
             >
-              <Radio className="w-3.5 h-3.5 text-emerald-400" />
+              <Radio className="w-3.5 h-3.5 text-amber-400" />
               <span>Moj Radio (In-Store)</span>
             </button>
             <button
               onClick={() => scrollTo("vault")}
-              className="hover:text-amber-400 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="hover:text-studio-400 transition-colors cursor-pointer flex items-center gap-1"
             >
-              <Server className="w-3.5 h-3.5 text-sky-400" />
+              <Server className="w-3.5 h-3.5 text-amber-400" />
               <span>Klijentski Vault</span>
             </button>
             <button
               onClick={() => scrollTo("live-session")}
-              className="hover:text-amber-400 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="hover:text-studio-400 transition-colors cursor-pointer flex items-center gap-1"
             >
               <Mic2 className="w-3.5 h-3.5 text-rose-400" />
               <span>Live Režija</span>
             </button>
-            <button
-              onClick={() => scrollTo("tradicija")}
-              className="hover:text-amber-400 transition-colors flex items-center gap-1.5 cursor-pointer"
-            >
-              <Volume2 className="w-3.5 h-3.5 text-purple-400" />
-              <span>Tradicija & Projekti</span>
-            </button>
           </div>
 
-          {/* Right Action Buttons & VU Indicator */}
-          <div className="hidden md:flex items-center gap-3">
-            {/* Live VU Status Pill */}
-            <div className="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-[10px] font-mono text-slate-300">
-              <span className="text-slate-500">VU:</span>
+          {/* Right Action: Analog VU Indicator + Instant Booking CTA */}
+          <div className="hidden sm:flex items-center gap-3">
+            {/* Retro Analog Needle / VU Status */}
+            <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1b120c] border border-amber-900/50 text-[10px] font-mono text-amber-200">
+              <span className="text-amber-500 font-bold">STUDIO STATUS:</span>
               <div className="flex items-center gap-0.5">
-                <span className="w-1 h-2 rounded-xs bg-emerald-500" />
-                <span className="w-1 h-3 rounded-xs bg-emerald-500" />
-                <span className="w-1 h-2.5 rounded-xs bg-emerald-500" />
-                <span className="w-1 h-3.5 rounded-xs bg-amber-400" />
-                <span className="w-1 h-2 rounded-xs bg-rose-500 animate-pulse" />
+                <span className="w-1.5 h-2.5 rounded-xs bg-emerald-500" />
+                <span className="w-1.5 h-3.5 rounded-xs bg-emerald-500" />
+                <span className="w-1.5 h-3 rounded-xs bg-emerald-500" />
+                <span className="w-1.5 h-4 rounded-xs bg-amber-400" />
+                <span className="w-1.5 h-2.5 rounded-xs bg-studio-500 animate-pulse" />
               </div>
-              <span className="text-amber-400 font-bold ml-1">MASTER 0dB</span>
+              <span className="text-white font-bold ml-1">ON AIR</span>
             </div>
 
             <button
               onClick={() => scrollTo("vault")}
-              className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs tracking-wide shadow-lg shadow-amber-500/20 transition-all cursor-pointer flex items-center gap-1.5"
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-studio-500 to-amber-500 hover:from-studio-600 hover:to-amber-600 text-white font-bold text-xs tracking-wide shadow-lg shadow-studio-500/25 transition-all cursor-pointer flex items-center gap-2 group"
             >
               <span>Klijentski Hab</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl bg-slate-900 text-slate-300 border border-slate-800"
+            className="xl:hidden p-2 rounded-xl bg-[#22160e] text-amber-200 border border-amber-900/50"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden pt-4 pb-2 border-t border-slate-800/80 mt-3 space-y-2 text-sm">
+          <div className="xl:hidden pt-4 pb-2 border-t border-amber-950/60 mt-3 space-y-2 text-sm text-amber-100">
+            <button
+              onClick={() => scrollTo("studio-prostor")}
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#20150d] flex items-center gap-2"
+            >
+              <span>🎙️ Prostor, Akustika & Režija</span>
+            </button>
+            <button
+              onClick={() => scrollTo("balkan-network")}
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#20150d] flex items-center gap-2"
+            >
+              <span>✨ Balkanska Voice & Dubbing Mreža</span>
+            </button>
             <button
               onClick={() => scrollTo("oprema")}
-              className="w-full text-left px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-900 flex items-center gap-2"
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#20150d] flex items-center gap-2"
             >
-              <Disc className="w-4 h-4 text-amber-500" />
-              <span>Oprema & Hardver</span>
+              <span>🎹 Hardver, 10 Sintova & Lampaši</span>
             </button>
             <button
               onClick={() => scrollTo("moj-radio")}
-              className="w-full text-left px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-900 flex items-center gap-2"
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#20150d] flex items-center gap-2"
             >
-              <Radio className="w-4 h-4 text-emerald-400" />
-              <span>Moj Radio (In-Store Sistemi)</span>
+              <span>📻 Moj Radio (In-Store Sistemi)</span>
             </button>
             <button
               onClick={() => scrollTo("vault")}
-              className="w-full text-left px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-900 flex items-center gap-2"
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#20150d] flex items-center gap-2"
             >
-              <Server className="w-4 h-4 text-sky-400" />
-              <span>Klijentski Audio Vault</span>
+              <span>🗄️ Klijentski Audio Vault & Distribucija</span>
             </button>
             <button
               onClick={() => scrollTo("live-session")}
-              className="w-full text-left px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-900 flex items-center gap-2"
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#20150d] flex items-center gap-2"
             >
-              <Mic2 className="w-4 h-4 text-rose-400" />
-              <span>Live Režija (Remote)</span>
-            </button>
-            <button
-              onClick={() => scrollTo("tradicija")}
-              className="w-full text-left px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-900 flex items-center gap-2"
-            >
-              <Volume2 className="w-4 h-4 text-purple-400" />
-              <span>Tradicija & Projekti (1982–2026)</span>
+              <span>🔴 Live Režija (WebRTC Opus)</span>
             </button>
             <div className="pt-2">
               <button
                 onClick={() => scrollTo("vault")}
-                className="w-full py-2.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs text-center"
+                className="w-full py-2.5 rounded-xl bg-gradient-to-r from-studio-500 to-amber-500 text-white font-bold text-xs text-center"
               >
                 Otvori Klijentski Hab
               </button>

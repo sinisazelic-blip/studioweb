@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #0b0f19;
-  --foreground: #f8fafc;
+  --background: #140e0b;
+  --foreground: #fdfbf7;
 }
 
 body {
@@ -19,12 +19,34 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0f19;
+  background: #140e0b;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #3d2e24;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #ea580c;
+}
+
+/* Subtle warm analog glow utilities */
+.glow-amber {
+  box-shadow: 0 0 50px -10px rgba(245, 158, 11, 0.25);
+}
+
+.glow-terracotta {
+  box-shadow: 0 0 50px -10px rgba(255, 107, 43, 0.3);
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 16s linear infinite;
 }

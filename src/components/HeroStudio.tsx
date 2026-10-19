@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Disc, Mic, Radio, Server, Sparkles, ArrowRight, ShieldCheck, Play } from "lucide-react";
+import { Disc, Mic, Radio, Server, Sparkles, ArrowRight, ShieldCheck, Play, Award, Volume2 } from "lucide-react";
 
 export default function HeroStudio() {
   const scrollTo = (id: string) => {
@@ -10,153 +10,198 @@ export default function HeroStudio() {
   };
 
   return (
-    <section className="relative pt-12 pb-24 md:pt-20 md:pb-36 overflow-hidden bg-gradient-to-b from-[#0b0f19] via-[#0f172a] to-[#0b0f19]">
-      {/* Background Studio Photography with Warm Copper/Amber Glow */}
+    <section className="relative pt-12 pb-24 md:pt-20 md:pb-36 overflow-hidden bg-gradient-to-b from-[#140e0a] via-[#1c130d] to-[#140e0a]">
+      {/* High-Resolution Real Studio Photography with Warm Copper & Amber Lighting */}
       <div
-        className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-25 filter saturate-[1.2] contrast-[1.1]"
+        className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-35 filter saturate-[1.3] contrast-[1.1]"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=2400&q=90')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=2560&q=90')`,
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-[#0b0f19]/80 to-transparent pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
+      {/* Warm Ambient Vignette and Glow */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#140e0a] via-[#140e0a]/70 to-transparent pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-studio-500/15 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-10 right-10 w-[400px] h-[300px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
-        {/* Top Heritage Badge */}
-        <div className="flex flex-wrap items-center gap-2.5 mb-6 justify-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-semibold tracking-wide shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            <span>Četiri decenije zvuka & inženjeringa • 1982 – {new Date().getFullYear()}</span>
+        {/* Top Badges Row */}
+        <div className="flex flex-wrap items-center gap-3 mb-6 justify-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-studio-500/20 border border-studio-500/40 text-studio-300 text-xs font-bold tracking-wide shadow-md">
+            <Sparkles className="w-4 h-4 text-studio-400" />
+            <span>Četiri decenije tradicije • 1982 – {new Date().getFullYear()}</span>
           </div>
-          <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-300 text-xs font-mono">
-            <span>Banja Luka</span>
-            <span className="text-amber-500">•</span>
-            <span>Preko 6.000 završenih projekata</span>
+
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#20150d]/90 border border-amber-900/50 text-amber-200 text-xs font-mono">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Banja Luka • Regionalni Audio Hub</span>
+          </div>
+
+          <div className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#20150d]/90 border border-amber-900/50 text-amber-300 text-xs font-mono font-bold">
+            <span>6.000+ Realizovanih Projekata</span>
           </div>
         </div>
 
-        {/* Main Title & Manifesto */}
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-[1.15] mb-6">
-            Pravi analogni zvuk, <br className="hidden sm:inline" />
-            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">
-              autorska kompozicija
+        {/* Cinematic Headline & Statement */}
+        <div className="text-center max-w-5xl mx-auto">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1] mb-6 font-display uppercase">
+            Zvuk koji se pamti. <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-studio-400 via-amber-300 to-amber-500">
+              Prava akustika, analogni autoritet
             </span>{" "}
             i studijska disciplina.
           </h1>
 
-          <p className="text-slate-300 text-base sm:text-lg md:text-xl font-normal leading-relaxed max-w-3xl mx-auto mb-10">
-            Nismo samo računar i mikrofon. Studio TAF baštini kolekciju od 10 hardverskih sintisajzera,
-            autentične semplere i 40 godina kompozitorskog zanata — bez AI prečica. Od velikih pozorišnih i
-            filmskih partitura, do autonomne <strong className="text-amber-300 font-semibold">Moj Radio</strong> infrastrukture i
-            regionalnog distributivnog haba za vodeće agencije.
+          <p className="text-amber-100/90 text-base sm:text-lg md:text-xl font-normal leading-relaxed max-w-3xl mx-auto mb-10">
+            Nismo spavaća soba sa laptopom. Studio TAF je institucija sa 40 godina rezanja, 
+            snimanja i produkcije — 10 hardverskih sintisajzera, autentični lampaši, 
+            vrhunski regionalni glasovi i klijentski distributivni hab za najveće balkanske kampanje.
           </p>
 
-          {/* Quick CTA Actions */}
+          {/* Action Buttons */}
           <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
             <button
-              onClick={() => scrollTo("vault")}
-              className="px-6 py-3.5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm tracking-wide shadow-xl shadow-amber-500/25 transition-all cursor-pointer flex items-center gap-2 group"
+              onClick={() => scrollTo("balkan-network")}
+              className="px-7 py-4 rounded-2xl bg-gradient-to-r from-studio-500 to-amber-500 hover:from-studio-600 hover:to-amber-600 text-white font-extrabold text-sm tracking-wide shadow-2xl shadow-studio-500/30 transition-all cursor-pointer flex items-center gap-2.5 group"
             >
-              <Server className="w-4 h-4 text-slate-950" />
-              <span>Klijentski Distributivni Vault</span>
+              <Mic className="w-4 h-4 text-white" />
+              <span>Balkanska Voice & Dubbing Mreža</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
 
             <button
-              onClick={() => scrollTo("moj-radio")}
-              className="px-6 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-white font-semibold text-sm border border-slate-700/80 shadow-md transition-all cursor-pointer flex items-center gap-2"
+              onClick={() => scrollTo("vault")}
+              className="px-7 py-4 rounded-2xl bg-[#22160e]/95 hover:bg-[#2b1c12] text-amber-100 font-bold text-sm border border-amber-800/60 shadow-xl transition-all cursor-pointer flex items-center gap-2.5"
             >
-              <Radio className="w-4 h-4 text-emerald-400" />
-              <span>Moj Radio (In-Store Sistemi)</span>
+              <Server className="w-4 h-4 text-studio-400" />
+              <span>Klijentski Audio Vault (BiH / CRO / SRB)</span>
             </button>
 
             <button
-              onClick={() => scrollTo("live-session")}
-              className="px-6 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-white font-semibold text-sm border border-slate-700/80 shadow-md transition-all cursor-pointer flex items-center gap-2"
+              onClick={() => scrollTo("oprema")}
+              className="px-6 py-4 rounded-2xl bg-[#1b120c]/80 hover:bg-[#22160e] text-amber-200/90 font-semibold text-sm border border-amber-950/80 shadow-md transition-all cursor-pointer flex items-center gap-2"
             >
-              <Mic className="w-4 h-4 text-rose-400" />
-              <span>Remote Režija Uživo</span>
+              <Disc className="w-4 h-4 text-amber-400" />
+              <span>10 Sintova & Hardver</span>
             </button>
           </div>
         </div>
 
-        {/* 4 Pillars of Studio TAF Hardware & Operations */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {/* Tile 1: 10 Synth Hardware Rack */}
+        {/* 4 Grand Visual Cards with Warm Studio Photography */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {/* Card 1: Studio Prostor & Režija */}
+          <div
+            onClick={() => scrollTo("studio-prostor")}
+            className="rounded-3xl bg-[#1f150e]/80 border border-amber-900/40 hover:border-studio-500/60 transition-all duration-300 shadow-xl overflow-hidden cursor-pointer group flex flex-col justify-between min-h-[300px] relative"
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 filter saturate-[1.2] opacity-40"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80')`,
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#140e0a] via-[#140e0a]/60 to-transparent" />
+
+            <div className="relative z-10 p-5">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-studio-400 bg-studio-500/20 px-2.5 py-1 rounded-full border border-studio-500/30">
+                Acoustic Room
+              </span>
+            </div>
+
+            <div className="relative z-10 p-5 pt-0">
+              <h3 className="text-lg font-bold text-white group-hover:text-studio-400 transition-colors mb-1">
+                Akustika & Gluva Soba
+              </h3>
+              <p className="text-xs text-amber-100/70 leading-relaxed">
+                Namjenski građena akustika, prirodno drvo i kontrolisana difuzija za besprijekoran vokal.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2: Voice & Dubbing Network (TikTak style) */}
+          <div
+            onClick={() => scrollTo("balkan-network")}
+            className="rounded-3xl bg-[#1f150e]/80 border border-amber-900/40 hover:border-studio-500/60 transition-all duration-300 shadow-xl overflow-hidden cursor-pointer group flex flex-col justify-between min-h-[300px] relative"
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 filter saturate-[1.2] opacity-40"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80')`,
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#140e0a] via-[#140e0a]/60 to-transparent" />
+
+            <div className="relative z-10 p-5">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 bg-amber-500/20 px-2.5 py-1 rounded-full border border-amber-500/30">
+                Balkan Network
+              </span>
+            </div>
+
+            <div className="relative z-10 p-5 pt-0">
+              <h3 className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors mb-1">
+                Voiceover & Dubbing
+              </h3>
+              <p className="text-xs text-amber-100/70 leading-relaxed">
+                Vodeći spikeri za 6 tržišta. Režija Siniše Zelića kojoj vjeruju najveće regionalne agencije.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 3: 10 Synths & True Composition */}
           <div
             onClick={() => scrollTo("oprema")}
-            className="p-5 rounded-2xl bg-slate-900/60 backdrop-blur-md border border-slate-800/80 hover:border-amber-500/40 transition-all cursor-pointer group"
+            className="rounded-3xl bg-[#1f150e]/80 border border-amber-900/40 hover:border-studio-500/60 transition-all duration-300 shadow-xl overflow-hidden cursor-pointer group flex flex-col justify-between min-h-[300px] relative"
           >
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-3.5 group-hover:scale-105 transition-transform">
-              <Disc className="w-5 h-5" />
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 filter saturate-[1.2] opacity-40"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80')`,
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#140e0a] via-[#140e0a]/60 to-transparent" />
+
+            <div className="relative z-10 p-5">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-studio-400 bg-studio-500/20 px-2.5 py-1 rounded-full border border-studio-500/30">
+                10 Hardware Synths
+              </span>
             </div>
-            <div className="text-[11px] font-mono text-amber-400 font-bold uppercase tracking-wider mb-1">
-              Hardverski Studio
+
+            <div className="relative z-10 p-5 pt-0">
+              <h3 className="text-lg font-bold text-white group-hover:text-studio-400 transition-colors mb-1">
+                Autorska Kompozicija
+              </h3>
+              <p className="text-xs text-amber-100/70 leading-relaxed">
+                Pravi analogni sintisajzeri, sempleri i višemjesečni rad na albumima umjesto AI prečica.
+              </p>
             </div>
-            <h3 className="text-base font-bold text-white mb-1.5 group-hover:text-amber-300 transition-colors">
-              10 Sintisajzera & Sempleri
-            </h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Autentični analogni i digitalni tonovi od 80-tih do danas. Prava muzička produkcija umjesto generičkog AI zvuka.
-            </p>
           </div>
 
-          {/* Tile 2: Moj Radio Hardware & Streaming */}
+          {/* Card 4: Moj Radio In-Store */}
           <div
             onClick={() => scrollTo("moj-radio")}
-            className="p-5 rounded-2xl bg-slate-900/60 backdrop-blur-md border border-slate-800/80 hover:border-emerald-500/40 transition-all cursor-pointer group"
+            className="rounded-3xl bg-[#1f150e]/80 border border-amber-900/40 hover:border-studio-500/60 transition-all duration-300 shadow-xl overflow-hidden cursor-pointer group flex flex-col justify-between min-h-[300px] relative"
           >
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-3.5 group-hover:scale-105 transition-transform">
-              <Radio className="w-5 h-5" />
-            </div>
-            <div className="text-[11px] font-mono text-emerald-400 font-bold uppercase tracking-wider mb-1">
-              In-Store Infrastruktura
-            </div>
-            <h3 className="text-base font-bold text-white mb-1.5 group-hover:text-emerald-300 transition-colors">
-              Moj Radio & Zvučni Stubovi
-            </h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Vlastiti zvučni stubovi sa hornama, unutrašnjim zvučnicima i WiFi/IP pojačalima za markete i tržne centre.
-            </p>
-          </div>
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 filter saturate-[1.2] opacity-40"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=800&q=80')`,
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#140e0a] via-[#140e0a]/60 to-transparent" />
 
-          {/* Tile 3: Client Vault & Multi-Market Share */}
-          <div
-            onClick={() => scrollTo("vault")}
-            className="p-5 rounded-2xl bg-slate-900/60 backdrop-blur-md border border-slate-800/80 hover:border-sky-500/40 transition-all cursor-pointer group"
-          >
-            <div className="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center mb-3.5 group-hover:scale-105 transition-transform">
-              <Server className="w-5 h-5" />
+            <div className="relative z-10 p-5">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/20 px-2.5 py-1 rounded-full border border-emerald-500/30">
+                In-Store Audio
+              </span>
             </div>
-            <div className="text-[11px] font-mono text-sky-400 font-bold uppercase tracking-wider mb-1">
-              Distribucija Bez Gubitaka
-            </div>
-            <h3 className="text-base font-bold text-white mb-1.5 group-hover:text-sky-300 transition-colors">
-              Client Vault (BiH / CRO / SRB)
-            </h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Web preslušavanje bez trošenja gigabajta. Ciljani share linkovi za lokalne radio stanice i partnerske studije.
-            </p>
-          </div>
 
-          {/* Tile 4: Studio TAF Live Session */}
-          <div
-            onClick={() => scrollTo("live-session")}
-            className="p-5 rounded-2xl bg-slate-900/60 backdrop-blur-md border border-slate-800/80 hover:border-rose-500/40 transition-all cursor-pointer group"
-          >
-            <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center mb-3.5 group-hover:scale-105 transition-transform">
-              <Mic className="w-5 h-5" />
+            <div className="relative z-10 p-5 pt-0">
+              <h3 className="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors mb-1">
+                Moj Radio & Stubovi
+              </h3>
+              <p className="text-xs text-amber-100/70 leading-relaxed">
+                Vlastiti zvučni stubovi, vanjske horne i WiFi pojačala za markete: Konzum, Merkator, Tropic.
+              </p>
             </div>
-            <div className="text-[11px] font-mono text-rose-400 font-bold uppercase tracking-wider mb-1">
-              WebRTC Opus 48kHz
-            </div>
-            <h3 className="text-base font-bold text-white mb-1.5 group-hover:text-rose-300 transition-colors">
-              Remote Režija Uživo
-            </h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Direktno povezivanje klijenta u browser bez Zoom kompresije i bez skupih SessionLink/Source-Connect licenci.
-            </p>
           </div>
         </div>
       </div>

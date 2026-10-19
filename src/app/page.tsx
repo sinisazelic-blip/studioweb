@@ -1,5 +1,7 @@
 import Header from "@/components/Header";
 import HeroStudio from "@/components/HeroStudio";
+import StudioSpaces from "@/components/StudioSpaces";
+import BalkanVoiceNetwork from "@/components/BalkanVoiceNetwork";
 import HardwareVault from "@/components/HardwareVault";
 import InStoreRadio from "@/components/InStoreRadio";
 import ClientVault from "@/components/ClientVault";
@@ -9,9 +11,11 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col selection:bg-amber-500/30 selection:text-amber-200">
+    <main className="min-h-screen bg-[#140e0b] text-stone-100 flex flex-col selection:bg-studio-500/30 selection:text-amber-200">
       <Header />
       <HeroStudio />
+      <StudioSpaces />
+      <BalkanVoiceNetwork />
       <HardwareVault />
       <InStoreRadio />
       <ClientVault />

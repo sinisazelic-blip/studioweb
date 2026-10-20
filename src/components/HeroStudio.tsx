@@ -1,42 +1,26 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { ArrowDown } from "lucide-react";
 
 export default function HeroStudio() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoStarted, setVideoStarted] = useState<boolean>(false);
 
   useEffect(() => {
-    // Turtle animation starts automatically after 30 seconds
-    const startTimer = setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.play().catch(() => {});
-        setVideoStarted(true);
-
-        // Runs for 5 seconds and pauses/stays still
-        setTimeout(() => {
-          if (videoRef.current) {
-            videoRef.current.pause();
-          }
-        }, 5000);
-      }
-    }, 30000);
-
-    return () => clearTimeout(startTimer);
+    // Automatski startuje odmah na učitavanju
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
   }, []);
 
-  const manualPlayTurtle = () => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
-      setVideoStarted(true);
-      setTimeout(() => {
-        if (videoRef.current) {
-          videoRef.current.pause();
-        }
-      }, 5000);
-    }
+  // Kad video završi kompletnu animaciju (~10s), stoji u tom stanju 30 sekundi, pa ponovo kreće
+  const handleVideoEnded = () => {
+    setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+        videoRef.current.play().catch(() => {});
+      }
+    }, 30000);
   };
 
   const scrollTo = (id: string) => {
@@ -46,7 +30,7 @@ export default function HeroStudio() {
 
   return (
     <section className="relative min-h-[92vh] flex flex-col justify-between overflow-hidden bg-stone-950 text-white">
-      {/* Background Studio Visual / Atmosphere - The Studio Console Setup */}
+      {/* Background Studio Visual / Atmosphere - Original Console Setup with Desk Monitor */}
       <div
         className="absolute inset-0 bg-cover bg-center filter brightness-[0.75] contrast-[1.08] pointer-events-none transition-transform duration-1000"
         style={{
@@ -58,58 +42,25 @@ export default function HeroStudio() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-stone-950/95 pointer-events-none" />
 
       {/* Main Hero Content Area - 2-Column Grid */}
-      <div className="relative z-10 w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-16 pt-12 sm:pt-16 my-auto">
+      <div className="relative z-10 w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-16 pt-8 sm:pt-12 my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           
-          {/* LEFT: Studio Computer Monitor with Embedded Turtle Animation */}
+          {/* LEFT: Video tačno dimenzionisan i pozicioniran na ekran računara na mikseti */}
           <div className="lg:col-span-6 flex items-center justify-center lg:justify-start">
-            <div
-              onClick={manualPlayTurtle}
-              className="group relative w-full max-w-[480px] sm:max-w-[540px] aspect-[16/10] rounded-2xl sm:rounded-3xl bg-stone-900/90 border-4 sm:border-[6px] border-stone-800 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.9)] p-2 sm:p-2.5 transition-all duration-300 hover:scale-[1.01] cursor-pointer"
-              title="Kliknite za pokretanje Studio TAF kornjača animacije"
-            >
-              {/* Studio Display Screen Glass Frame */}
-              <div className="relative w-full h-full rounded-xl sm:rounded-2xl overflow-hidden bg-black flex items-center justify-center shadow-inner">
-                {/* On-screen status / timecode header */}
-                <div className="absolute top-2.5 left-3 z-20 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                  <span className="text-[10px] font-mono text-stone-300 font-bold bg-black/60 px-2 py-0.5 rounded backdrop-blur-xs">
-                    STUDIO TAF DISPLAY
-                  </span>
-                </div>
-
-                <video
-                  ref={videoRef}
-                  src="/TAFlogoMOVE.mp4"
-                  muted
-                  playsInline
-                  preload="auto"
-                  className="w-full h-full object-contain filter contrast-110"
-                />
-
-                {!videoStarted && (
-                  <div className="absolute inset-0 bg-stone-950/50 backdrop-blur-[1px] flex flex-col items-center justify-center text-center p-4 transition-opacity group-hover:opacity-85">
-                    <img
-                      src="/logos/taf-logo.jpg"
-                      alt="Studio TAF"
-                      className="h-14 sm:h-16 w-auto object-contain rounded-md mb-3 filter drop-shadow-lg"
-                    />
-                    <span className="text-xs font-mono text-stone-200 uppercase tracking-widest font-bold">
-                      Kornjača Animacija
-                    </span>
-                    <span className="text-[10px] text-stone-400 font-mono mt-1">
-                      (Startuje za 30s • Kliknite za trenutan prikaz)
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {/* Monitor Stand Bottom Chin */}
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-24 h-2 rounded-b-md bg-stone-700 shadow-md" />
+            <div className="relative w-full max-w-[340px] sm:max-w-[390px] lg:max-w-[420px] aspect-[16/10] -mt-4 lg:-mt-10 lg:ml-2 rounded-xl overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.8)] border border-stone-800/80 bg-black flex items-center justify-center">
+              <video
+                ref={videoRef}
+                src="/TAFlogoMOVE.mp4"
+                autoPlay
+                muted
+                playsInline
+                onEnded={handleVideoEnded}
+                className="w-full h-full object-cover filter contrast-105"
+              />
             </div>
           </div>
 
-          {/* RIGHT: Typography & Action Buttons - Centered Vertically */}
+          {/* RIGHT: Typography & Action Buttons - Vertikalno centrirano */}
           <div className="lg:col-span-6 flex flex-col justify-center items-start space-y-6">
             {/* Minimalist discreet tag */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-stone-200 text-[11px] font-mono tracking-widest uppercase shadow-sm">

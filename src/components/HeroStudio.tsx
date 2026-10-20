@@ -47,7 +47,7 @@ export default function HeroStudio() {
           
           {/* LEFT: Video tačno dimenzionisan i pozicioniran na ekran računara na mikseti */}
           <div className="lg:col-span-6 flex items-center justify-center lg:justify-start">
-            <div className="relative w-full max-w-[340px] sm:max-w-[390px] lg:max-w-[420px] aspect-[16/10] -mt-4 lg:-mt-10 lg:ml-2 rounded-xl overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.8)] border border-stone-800/80 bg-black flex items-center justify-center">
+            <div className="relative w-full max-w-[310px] sm:max-w-[350px] lg:max-w-[370px] aspect-[16/10] -mt-6 lg:-mt-20 lg:ml-28 rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.9)] border border-stone-800/90 bg-black flex items-center justify-center">
               <video
                 ref={videoRef}
                 src="/TAFlogoMOVE.mp4"
@@ -60,8 +60,8 @@ export default function HeroStudio() {
             </div>
           </div>
 
-          {/* RIGHT: Typography & Action Buttons - Vertikalno centrirano */}
-          <div className="lg:col-span-6 flex flex-col justify-center items-start space-y-6">
+          {/* RIGHT: Typography & Action Buttons - Pomjereno skroz desno na rekove kao na slici */}
+          <div className="lg:col-span-5 lg:col-start-8 flex flex-col justify-center items-start space-y-6 lg:ml-auto max-w-lg">
             {/* Minimalist discreet tag */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-stone-200 text-[11px] font-mono tracking-widest uppercase shadow-sm">
               <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />

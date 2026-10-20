@@ -41,22 +41,29 @@ export default function HeroStudio() {
       {/* Gentle transparent gradient so studio elements remain prominent and warm */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-stone-950/95 pointer-events-none" />
 
+      {/* DESKTOP EXACT PINNED VIDEO: Pozicioniran tačno u milimetar i piksel na ekran miksete izmjereno sa slike */}
+      <div
+        className="hidden lg:flex absolute z-20 rounded-sm overflow-hidden shadow-[0_12px_45px_rgba(0,0,0,0.95)] border border-stone-800/90 bg-black items-center justify-center pointer-events-none"
+        style={{
+          left: "26.37%",
+          top: "30.71%",
+          width: "15.43%",
+          height: "18.38%",
+        }}
+      >
+        <video
+          ref={videoRef}
+          src="/TAFlogoMOVE.mp4"
+          autoPlay
+          muted
+          playsInline
+          onEnded={handleVideoEnded}
+          className="w-full h-full object-cover filter contrast-105"
+        />
+      </div>
+
       {/* Main Hero Content Area - Puna širina ekrana */}
       <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 pt-8 sm:pt-12 my-auto">
-        
-        {/* DESKTOP EXACT PINNED VIDEO: Pozicioniran tačno u milimetar na ekran računara na mikseti */}
-        <div className="hidden lg:flex absolute left-[26.4%] top-[41.8%] w-[16.2%] min-w-[280px] max-w-[340px] aspect-[16/10] -translate-y-1/2 z-20 rounded-lg overflow-hidden shadow-[0_12px_45px_rgba(0,0,0,0.95)] border border-stone-800/90 bg-black items-center justify-center pointer-events-none">
-          <video
-            ref={videoRef}
-            src="/TAFlogoMOVE.mp4"
-            autoPlay
-            muted
-            playsInline
-            onEnded={handleVideoEnded}
-            className="w-full h-full object-cover filter contrast-105"
-          />
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* MOBILE/TABLET FALLBACK VIDEO: Vidljiv samo ispod lg rezolucije */}

@@ -26,8 +26,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 transition-all duration-300">
       {/* Top Banner: Member of Fluxa Group - Light seamlessly integrated into Header */}
-      <div className="bg-[#f8f9fa] border-b border-stone-200/80 text-[11px] text-stone-600 py-1.5 px-6 sm:px-12 lg:px-16 transition-colors">
-        <div className="w-full max-w-[1720px] mx-auto flex items-center justify-between gap-4">
+      <div className="bg-[#f8f9fa] border-b border-stone-200/80 text-[11px] text-stone-600 py-1.5 px-6 sm:px-12 lg:px-20 transition-colors">
+        <div className="w-full flex items-center justify-between gap-4">
           {/* Across the width: Member of Fluxa Group */}
           <div className="flex-1 text-center sm:text-left">
             <span className="font-mono text-xs tracking-widest uppercase font-bold text-stone-700">
@@ -53,13 +53,13 @@ export default function Header() {
 
       {/* Main Light Navigation Bar - Pure White / Light Shell so TAF Logo Blends Naturally */}
       <nav
-        className={`px-6 sm:px-12 lg:px-16 py-3 transition-all duration-300 ${
+        className={`px-6 sm:px-12 lg:px-20 py-3 transition-all duration-300 ${
           scrolled
             ? "bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm"
             : "bg-white border-b border-stone-200"
         }`}
       >
-        <div className="w-full max-w-[1720px] mx-auto flex items-center justify-between">
+        <div className="w-full flex items-center justify-between">
           {/* Brand Logo & Heritage Title */}
           <div
             className="flex items-center gap-3.5 cursor-pointer group"

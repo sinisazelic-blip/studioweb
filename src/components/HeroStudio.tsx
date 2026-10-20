@@ -41,13 +41,13 @@ export default function HeroStudio() {
       {/* Gentle transparent gradient so studio elements remain prominent and warm */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-stone-950/95 pointer-events-none" />
 
-      {/* Main Hero Content Area - 2-Column Grid */}
-      <div className="relative z-10 w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-16 pt-8 sm:pt-12 my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+      {/* Main Hero Content Area - Puna širina ekrana bez uskog max-w kontejnera */}
+      <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 pt-8 sm:pt-12 my-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* LEFT: Video tačno dimenzionisan i pozicioniran na ekran računara na mikseti */}
+          {/* LEFT: Video tačno pomjeren na monitor računara na mikseti */}
           <div className="lg:col-span-6 flex items-center justify-center lg:justify-start">
-            <div className="relative w-full max-w-[310px] sm:max-w-[350px] lg:max-w-[370px] aspect-[16/10] -mt-6 lg:-mt-20 lg:ml-28 rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.9)] border border-stone-800/90 bg-black flex items-center justify-center">
+            <div className="relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[380px] aspect-[16/10] -mt-10 lg:-mt-32 lg:ml-60 rounded-xl overflow-hidden shadow-[0_12px_45px_rgba(0,0,0,0.95)] border border-stone-800/90 bg-black flex items-center justify-center">
               <video
                 ref={videoRef}
                 src="/TAFlogoMOVE.mp4"
@@ -60,8 +60,8 @@ export default function HeroStudio() {
             </div>
           </div>
 
-          {/* RIGHT: Typography & Action Buttons - Pomjereno skroz desno na rekove kao na slici */}
-          <div className="lg:col-span-5 lg:col-start-8 flex flex-col justify-center items-start space-y-6 lg:ml-auto max-w-lg">
+          {/* RIGHT: Typography & Action Buttons - Pomjereno totalno desno preko rekova */}
+          <div className="lg:col-span-6 flex flex-col justify-center items-start lg:items-end space-y-6 lg:ml-auto max-w-xl text-left lg:text-left pr-0 lg:pr-12">
             {/* Minimalist discreet tag */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-stone-200 text-[11px] font-mono tracking-widest uppercase shadow-sm">
               <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
@@ -100,8 +100,8 @@ export default function HeroStudio() {
         </div>
       </div>
 
-      {/* Floating Key Numbers Bar */}
-      <div className="relative z-10 w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-16 pb-10 sm:pb-14 pt-8">
+      {/* Floating Key Numbers Bar - Puna širina ekrana */}
+      <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 pb-10 sm:pb-14 pt-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6 border-t border-white/15">
           <div>
             <div className="text-2xl sm:text-4xl font-light text-white font-mono tracking-tight">

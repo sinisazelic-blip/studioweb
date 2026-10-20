@@ -25,12 +25,12 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300">
-      {/* Top Banner: Member of Fluxa Group Full Width & Link to web.studiotaf.xyz */}
-      <div className="bg-stone-950 border-b border-stone-800 text-[11px] text-stone-300 py-2 px-6 sm:px-12 lg:px-16">
+      {/* Top Banner: Member of Fluxa Group - Light seamlessly integrated into Header */}
+      <div className="bg-[#f8f9fa] border-b border-stone-200/80 text-[11px] text-stone-600 py-1.5 px-6 sm:px-12 lg:px-16 transition-colors">
         <div className="w-full max-w-[1720px] mx-auto flex items-center justify-between gap-4">
           {/* Across the width: Member of Fluxa Group */}
           <div className="flex-1 text-center sm:text-left">
-            <span className="font-mono text-xs tracking-widest uppercase font-bold text-stone-300">
+            <span className="font-mono text-xs tracking-widest uppercase font-bold text-stone-700">
               Member of Fluxa Group
             </span>
           </div>
@@ -41,11 +41,11 @@ export default function Header() {
               href="https://web.studiotaf.xyz"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-stone-900 hover:bg-stone-800 text-stone-200 hover:text-white border border-stone-700 text-xs font-mono font-semibold transition-all shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white hover:bg-stone-50 text-stone-800 border border-stone-300 text-xs font-mono font-semibold transition-all shadow-xs"
               title="Posjetite web.studiotaf.xyz"
             >
               <span>web.studiotaf.xyz</span>
-              <ExternalLink className="w-3 h-3 text-cyan-400" />
+              <ExternalLink className="w-3 h-3 text-orange-600" />
             </a>
           </div>
         </div>
@@ -202,6 +202,9 @@ export default function Header() {
           </div>
         )}
       </nav>
+
+      {/* Soft gradient / raster transition into the dark hero background */}
+      <div className="h-5 w-full bg-gradient-to-b from-black/20 via-black/5 to-transparent pointer-events-none absolute -bottom-5 left-0" />
     </header>
   );
 }

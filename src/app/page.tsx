@@ -1,26 +1,22 @@
 import Header from "@/components/Header";
 import HeroStudio from "@/components/HeroStudio";
-import StudioSpaces from "@/components/StudioSpaces";
-import BalkanVoiceNetwork from "@/components/BalkanVoiceNetwork";
-import HardwareVault from "@/components/HardwareVault";
+import AboutUs from "@/components/AboutUs";
+import ServicesShowcase from "@/components/ServicesShowcase";
+import ClientsShowcase from "@/components/ClientsShowcase";
 import InStoreRadio from "@/components/InStoreRadio";
-import ClientVault from "@/components/ClientVault";
-import RemoteSession from "@/components/RemoteSession";
-import HeritageTimeline from "@/components/HeritageTimeline";
+import HeritageStory from "@/components/HeritageStory";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#08090d] text-zinc-100 flex flex-col selection:bg-orange-500/30 selection:text-orange-200">
+    <main className="min-h-screen bg-[#0c1017] text-white flex flex-col selection:bg-cyan-500/20 selection:text-cyan-200">
       <Header />
       <HeroStudio />
-      <StudioSpaces />
-      <BalkanVoiceNetwork />
-      <HardwareVault />
+      <AboutUs />
+      <ServicesShowcase />
+      <ClientsShowcase />
       <InStoreRadio />
-      <ClientVault />
-      <RemoteSession />
-      <HeritageTimeline />
+      <HeritageStory />
       <Footer />
     </main>
   );

@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Disc, ExternalLink, ArrowUp, Mail, Phone, MapPin, Radio, Server, Mic, Award } from "lucide-react";
+import { ExternalLink, ArrowUp, Mail, MapPin, Award } from "lucide-react";
+import { APP_CONFIG } from "@/config/appConfig";
 
 export default function Footer() {
   const scrollTo = (id: string) => {
@@ -14,51 +15,45 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#050609] border-t border-zinc-800/80 text-zinc-400 text-sm">
-      {/* Wide Container with Generous Air & Breathing Room */}
-      <div className="w-full max-w-[1700px] mx-auto px-6 sm:px-12 lg:px-16 py-16 sm:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+    <footer className="bg-[#faf8f3] border-t border-stone-200 text-stone-600 text-xs transition-colors">
+      <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-16 py-16 sm:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16">
+          
           {/* Col 1: Studio Identity */}
-          <div className="md:col-span-5 space-y-5">
-            <div className="flex items-center gap-3.5">
-              <div className="bg-[#12151e] p-2.5 rounded-2xl border border-zinc-800 shadow-xs">
+          <div className="md:col-span-5 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="bg-white p-1.5 border border-stone-200 rounded-xl shadow-xs">
                 <img
                   src="/logos/taf-logo.jpg"
                   alt="Studio TAF"
-                  className="h-12 w-auto object-contain rounded-xl"
+                  className="h-10 w-auto object-contain rounded-lg"
                 />
               </div>
               <div>
-                <span className="font-extrabold text-xl text-white font-sans block">
-                  Studio <span className="text-orange-500">TAF</span>
+                <span className="font-extrabold text-base text-stone-950 font-sans block">
+                  Studio <span className="text-orange-600">TAF</span>
                 </span>
-                <span className="text-xs text-orange-400 font-mono flex items-center gap-1.5 font-bold">
-                  <Award className="w-4 h-4 text-orange-500" />
+                <span className="text-[11px] text-stone-500 font-mono flex items-center gap-1.5 font-bold">
+                  <Award className="w-3.5 h-3.5 text-orange-600" />
                   <span>Četiri decenije zvuka & produkcije (1982–{new Date().getFullYear()})</span>
                 </span>
               </div>
             </div>
 
-            <p className="text-zinc-300 leading-relaxed text-sm max-w-md font-normal">
-              Pravi analogni temelj i digitalna superiornost. 10 hardverskih sintisajzera, 
-              akustički tretirani prostori, in-store zvučna infrastruktura „Moj Radio”, 
-              web audio distribucija i P2P režija. Znanje i zanat rođeni u Banja Luci za cijeli region.
+            <p className="text-stone-600 leading-relaxed text-xs max-w-md font-light">
+              Pravi analogni temelj i digitalna superiornost. Akustički tretirani prostori, 
+              in-store zvučna B2B infrastruktura sa autonomnim zvučnim stubovima, 
+              namjenska audio distribucija i online režija u realnom vremenu.
             </p>
 
-            <div className="space-y-2 pt-2 text-xs sm:text-sm text-zinc-300 font-medium">
-              <div className="flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-orange-500" />
+            <div className="space-y-1.5 pt-2 text-[11px] text-stone-700 font-medium">
+              <div className="flex items-center gap-2">
+                <MapPin className="w-3.5 h-3.5 text-orange-600" />
                 <span>Banja Luka, Bosna i Hercegovina</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-orange-500" />
-                <a href="tel:+38765519071" className="hover:text-orange-400 transition-colors">
-                  +387 (0)65 519 071 • Siniša Zelić (Direktna linija)
-                </a>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-orange-500" />
-                <a href="mailto:info@studiotaf.ba" className="hover:text-orange-400 transition-colors">
+              <div className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-orange-600" />
+                <a href="mailto:info@studiotaf.ba" className="hover:text-orange-600 transition-colors">
                   info@studiotaf.ba • podrska@studiotaf.ba
                 </a>
               </div>
@@ -66,107 +61,91 @@ export default function Footer() {
           </div>
 
           {/* Col 2: Studio Nav */}
-          <div className="md:col-span-3 space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white font-mono">
-              Studio & Usluge
+          <div className="md:col-span-3 space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-stone-950 font-mono">
+              Studio & Sekcije
             </h4>
-            <ul className="space-y-2.5 text-zinc-300 font-medium text-sm">
+            <ul className="space-y-2 text-stone-600">
               <li>
-                <button onClick={() => scrollTo("studio-prostor")} className="hover:text-orange-400 transition-colors cursor-pointer text-left">
-                  Akustika & Studio Prostori
+                <button onClick={() => scrollTo("about")} className="hover:text-orange-600 transition-colors cursor-pointer text-left">
+                  About Us (O Studiju & Timu)
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("balkan-network")} className="hover:text-orange-400 transition-colors cursor-pointer text-left">
-                  Balkanska Spikerska Mreža (6 Tržišta)
+                <button onClick={() => scrollTo("what-we-do")} className="hover:text-orange-600 transition-colors cursor-pointer text-left">
+                  What We Do (Audio Ponuda)
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("oprema")} className="hover:text-orange-400 transition-colors cursor-pointer text-left">
-                  Hardverski Sintisajzeri & Analogni Rack
+                <button onClick={() => scrollTo("clients")} className="hover:text-orange-600 transition-colors cursor-pointer text-left">
+                  Clients (Referentna Lista)
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("moj-radio")} className="hover:text-orange-400 transition-colors cursor-pointer text-left">
-                  Moj Radio (In-Store Sistemi & Horne)
+                <button onClick={() => scrollTo("moj-radio")} className="hover:text-orange-600 transition-colors cursor-pointer text-left">
+                  B2B In-Store & Audio Stubovi
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("vault")} className="hover:text-orange-400 transition-colors cursor-pointer text-left">
-                  Klijentski Vault & Master Player
+                <button onClick={() => scrollTo("timeline")} className="hover:text-orange-600 transition-colors cursor-pointer text-left">
+                  Our Story (Hronologija 1982–Danas)
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("live-session")} className="hover:text-orange-400 transition-colors cursor-pointer text-left">
-                  Studio TAF Live (WebRTC Režija)
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollTo("tradicija")} className="hover:text-orange-400 transition-colors cursor-pointer text-left">
-                  Tradicija & Projekti (1982–{new Date().getFullYear()})
-                </button>
+                <a href="/client-portal" className="hover:text-orange-600 font-semibold text-stone-900 transition-colors cursor-pointer text-left block">
+                  Klijentski Portal & Video Režija ↗
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: B2B Ecosystem */}
-          <div className="md:col-span-4 space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white font-mono">
-              FLUXA Tehnološki Ekosistem
-            </h4>
-            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
-              Studio TAF je kreativni temelj i inženjerski garant za cjelokupnu FLUXA softversku i hardversku platformu:
+          {/* Col 3: Member of Fluxa Group */}
+          <div className="md:col-span-4 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-100 text-stone-800 border border-stone-300 text-[10px] font-mono uppercase font-bold tracking-wider">
+              <span>Member of Fluxa Group</span>
+            </div>
+            <p className="text-xs text-stone-600 leading-relaxed font-light">
+              Studio TAF je audio kreativni temelj i nosilac zvučne produkcije unutar Fluxa grupacije.
             </p>
-            <ul className="space-y-2 text-zinc-300 pt-1 text-sm font-medium">
-              <li>
-                <a
-                  href="http://localhost:3000"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-blue-400 flex items-center gap-2 transition-colors font-bold text-white"
-                >
-                  <ExternalLink className="w-4 h-4 text-blue-400" />
-                  <span>FLUXA.ba • Poslovna rješenja i tehnologija</span>
-                </a>
-              </li>
-              <li>
-                <span className="text-zinc-400">• FluxaPOS • Maloprodajna kasa bez zastoja</span>
-              </li>
-              <li>
-                <span className="text-zinc-400">• EnterSYS & ARGUS • Kontrola pristupa i tripodi</span>
-              </li>
-              <li>
-                <span className="text-zinc-400">• DokumentArt • DMS, Nabavke & Kripto potpis</span>
-              </li>
-              <li>
-                <span className="text-zinc-400">• SOCCS • Swiss Timing sportska borilišta</span>
-              </li>
-            </ul>
+            <div className="pt-2">
+              <a
+                href="https://web.studiotaf.xyz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-stone-100 text-stone-900 font-mono text-xs font-semibold border border-stone-300 shadow-xs transition-all"
+              >
+                <span>web.studiotaf.xyz</span>
+                <ExternalLink className="w-3.5 h-3.5 text-orange-600" />
+              </a>
+            </div>
           </div>
+
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-10 mt-12 border-t border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-5 text-zinc-500 text-xs sm:text-sm">
-          <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-start">
+        <div className="pt-8 mt-12 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-stone-500 text-[11px]">
+          <div className="flex items-center gap-2.5 flex-wrap justify-center sm:justify-start">
             <span>
-              © 1982 – {new Date().getFullYear()} <strong className="text-zinc-200 font-bold">Studio TAF</strong>. Sva prava zadržana.
+              © 1982 – {new Date().getFullYear()} <strong className="text-stone-900 font-semibold">Studio TAF</strong>. Sva prava zadržana.
             </span>
             <span
-              className="font-mono text-orange-400 select-none tracking-wider px-2.5 py-1 rounded bg-[#12151e] border border-zinc-800 shadow-xs font-bold text-xs"
-              title="StudioWEB Release Build (Port 1991)"
+              className="font-mono text-orange-700 select-none tracking-wider px-2 py-0.5 rounded bg-white border border-stone-200 shadow-xs font-bold"
+              title="StudioWEB Trenutni Build"
             >
-              build v1.0.0 • :1991
+              build {APP_CONFIG.build} • :1991
             </span>
           </div>
 
-          <div className="flex items-center gap-5">
-            <span className="text-zinc-400 font-medium">Pravi autorski zvuk • Inženjering • Bez kompromisa</span>
+          <div className="flex items-center gap-4">
+            <span className="text-stone-600 font-medium hidden md:inline">
+              Autorski zvuk • Inženjering • Bez kompromisa
+            </span>
             <button
               onClick={scrollToTop}
-              className="p-2.5 rounded-2xl bg-[#12151e] hover:bg-orange-600 hover:text-white text-orange-400 transition-colors cursor-pointer border border-zinc-800 shadow-xs"
+              className="p-2 rounded-xl bg-white hover:bg-stone-950 hover:text-white text-stone-700 transition-colors cursor-pointer border border-stone-200 shadow-xs"
               title="Nazad na vrh"
             >
-              <ArrowUp className="w-4 h-4" />
+              <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>

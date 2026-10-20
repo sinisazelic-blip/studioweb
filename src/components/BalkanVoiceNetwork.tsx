@@ -26,123 +26,113 @@ export default function BalkanVoiceNetwork() {
   const current = MARKETS.find((m) => m.code === selectedMarket) || MARKETS[0];
 
   return (
-    <section id="balkan-network" className="py-24 md:py-36 bg-[#08090d] border-t border-zinc-800/80 relative overflow-hidden">
-      {/* Full Photographic Section Background from /pokaz/ */}
-      <div
-        className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-20 filter contrast-125"
-        style={{
-          backgroundImage: `url('/pokaz/studio-condenser-microphone-equipment-live-recording-close-up-pop-filter-anti-vibration-mount-color-lights-82782057.webp')`,
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#08090d] via-[#08090d]/90 to-[#08090d] pointer-events-none" />
-
-      {/* Wide Container with Generous Air & Breathing Room */}
-      <div className="w-full max-w-[1700px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
+    <section id="balkan-network" className="py-20 md:py-28 bg-[#fbf9f5] border-t border-stone-200 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
-        <div className="max-w-4xl mx-auto text-center mb-18">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#12151f] border border-orange-500/30 text-orange-400 text-xs sm:text-sm font-bold mb-5 shadow-sm">
-            <Globe2 className="w-4 h-4 text-orange-500" />
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 border border-orange-200 text-orange-900 text-xs font-bold mb-4">
+            <Globe2 className="w-3.5 h-3.5 text-orange-600" />
             <span>Balkanska Voice-Over & Dubbing Mreža</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-6 font-display uppercase">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-stone-950 tracking-tight mb-4 font-display uppercase">
             Glasovi za cijeli region. <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500">
               Jedno mjesto, 6 tržišta.
             </span>
           </h2>
-          <p className="text-zinc-300 text-base sm:text-lg md:text-xl leading-relaxed font-normal max-w-3xl mx-auto">
+          <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
             Sarađujemo sa najvećim regionalnim agencijama i brendovima. 
             Kada snimate kampanju za čitav Balkan, Studio TAF obezbjeđuje vrhunske izvorne spikere 
             za svaku pojedinačnu državu, sa tačnom jezičkom adaptacijom i režijom.
           </p>
         </div>
 
-        {/* Market Selector Flags Bar - Wide Layout with large airy cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 mb-14">
+        {/* Market Selector Flags Bar (TikTak level of energy) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-12">
           {MARKETS.map((m) => (
             <button
               key={m.code}
               onClick={() => setSelectedMarket(m.code)}
-              className={`p-6 rounded-3xl border transition-all cursor-pointer flex flex-col items-center text-center gap-3 ${
+              className={`p-4 rounded-2xl border transition-all cursor-pointer flex flex-col items-center text-center gap-2 ${
                 selectedMarket === m.code
-                  ? "bg-gradient-to-r from-orange-500 via-orange-600 to-amber-500 text-white border-orange-400 shadow-xl shadow-orange-500/25 scale-103"
-                  : "bg-[#11131c] border-zinc-800 hover:border-orange-500/40 text-zinc-300 shadow-md hover:shadow-lg"
+                  ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white border-orange-500 shadow-xl shadow-orange-500/25 scale-102"
+                  : "bg-white border-stone-200 hover:border-orange-400 text-stone-800 shadow-xs"
               }`}
             >
-              <span className="text-4xl">{m.flag}</span>
-              <div className={`font-bold text-sm tracking-tight ${selectedMarket === m.code ? "text-white" : "text-zinc-200"}`}>
+              <span className="text-3xl">{m.flag}</span>
+              <div className={`font-bold text-xs tracking-tight ${selectedMarket === m.code ? "text-white" : "text-stone-900"}`}>
                 {m.country}
               </div>
-              <div className={`text-xs font-mono font-semibold ${selectedMarket === m.code ? "text-amber-100" : "text-orange-400"}`}>
+              <div className={`text-[10px] font-mono font-semibold ${selectedMarket === m.code ? "text-amber-100" : "text-orange-600"}`}>
                 {m.sampleCount} Glasova
               </div>
             </button>
           ))}
         </div>
 
-        {/* Selected Market Spotlight Card - Wide Container */}
-        <div className="rounded-3xl bg-[#11131c] border border-zinc-800 p-8 sm:p-14 shadow-2xl mb-14">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-zinc-800 mb-8">
-            <div className="flex items-center gap-5">
-              <span className="text-5xl sm:text-6xl">{current.flag}</span>
+        {/* Selected Market Spotlight Card */}
+        <div className="rounded-3xl bg-white border border-stone-200/90 p-6 sm:p-10 shadow-xl mb-12">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-stone-100 mb-6">
+            <div className="flex items-center gap-4">
+              <span className="text-4xl sm:text-5xl">{current.flag}</span>
               <div>
-                <h3 className="text-2xl sm:text-3xl font-black text-white font-display uppercase">
+                <h3 className="text-xl sm:text-2xl font-bold text-stone-900 font-display uppercase">
                   {current.country} • Audio Baza
                 </h3>
-                <p className="text-sm sm:text-base text-zinc-400 font-medium">
+                <p className="text-xs sm:text-sm text-stone-600">
                   {current.dialects}
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <button
                 onClick={() => alert(`Zahtjev za casting listu za ${current.country} poslat!`)}
-                className="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-sm tracking-wide shadow-lg shadow-orange-500/25 transition-all cursor-pointer"
+                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-xs tracking-wide shadow-md transition-all cursor-pointer"
               >
                 Zatražite Casting Listu
               </button>
             </div>
           </div>
 
-          {/* Voice Categories Grid - Wide layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-            <div className="p-6 rounded-2xl bg-[#161924] border border-zinc-800/80 shadow-xs">
-              <div className="text-xs font-bold text-orange-400 font-mono uppercase mb-1.5">
+          {/* Voice Categories Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200">
+              <div className="text-xs font-bold text-orange-600 font-mono uppercase mb-1">
                 Muški Autoritativni
               </div>
-              <div className="text-base font-bold text-white mb-2">Korporativni & Auto Brendovi</div>
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+              <div className="text-sm font-semibold text-stone-900 mb-2">Korporativni & Auto Brendovi</div>
+              <p className="text-[11px] text-stone-600 leading-snug">
                 Dubok, siguran i uvjerljiv bariton za banke, telekome, automobile i zvanične kampanje.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#161924] border border-zinc-800/80 shadow-xs">
-              <div className="text-xs font-bold text-amber-400 font-mono uppercase mb-1.5">
+            <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200">
+              <div className="text-xs font-bold text-amber-600 font-mono uppercase mb-1">
                 Ženski Topli & Lifestyle
               </div>
-              <div className="text-base font-bold text-white mb-2">Kozmetika & Maloprodaja</div>
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+              <div className="text-sm font-semibold text-stone-900 mb-2">Kozmetika & Maloprodaja</div>
+              <p className="text-[11px] text-stone-600 leading-snug">
                 Mekan, prijateljski ton koji stvara trenutno povjerenje i emociju sa slušaocem.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#161924] border border-zinc-800/80 shadow-xs">
-              <div className="text-xs font-bold text-emerald-400 font-mono uppercase mb-1.5">
+            <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200">
+              <div className="text-xs font-bold text-emerald-600 font-mono uppercase mb-1">
                 Mladi & Energični
               </div>
-              <div className="text-base font-bold text-white mb-2">Festivali, Tech & Gaming</div>
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+              <div className="text-sm font-semibold text-stone-900 mb-2">Festivali, Tech & Gaming</div>
+              <p className="text-[11px] text-stone-600 leading-snug">
                 Brz, ritmičan i svjež glas za digitalne medije, radio akcije i promocije događaja.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#161924] border border-zinc-800/80 shadow-xs">
-              <div className="text-xs font-bold text-rose-400 font-mono uppercase mb-1.5">
+            <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200">
+              <div className="text-xs font-bold text-rose-600 font-mono uppercase mb-1">
                 Glumački & Dubbing
               </div>
-              <div className="text-base font-bold text-white mb-2">Crtani Filmovi & Teatar</div>
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+              <div className="text-sm font-semibold text-stone-900 mb-2">Crtani Filmovi & Teatar</div>
+              <p className="text-[11px] text-stone-600 leading-snug">
                 Profesionalni akademski glumci sposobni za brze promjene karaktera, humora i akcenta.
               </p>
             </div>
@@ -150,14 +140,14 @@ export default function BalkanVoiceNetwork() {
         </div>
 
         {/* Global Standard Callout */}
-        <div className="p-7 sm:p-9 rounded-3xl bg-[#11131c] border border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-5 text-sm text-zinc-300 shadow-md">
-          <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-6 h-6 text-orange-500 shrink-0" />
-            <span className="font-medium text-base text-zinc-200">
+        <div className="p-6 rounded-2xl bg-white border border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-600 shadow-sm">
+          <div className="flex items-center gap-2.5">
+            <CheckCircle2 className="w-5 h-5 text-orange-600 shrink-0" />
+            <span>
               Svi glasovi su 100% izvorni govornici (Native speakers) sa garantovanim radio/TV autorskim pravima.
             </span>
           </div>
-          <span className="font-mono text-orange-400 font-bold whitespace-nowrap bg-orange-950/60 px-4 py-2 rounded-xl border border-orange-500/30 text-sm">
+          <span className="font-mono text-orange-600 font-bold whitespace-nowrap bg-orange-50 px-3 py-1 rounded-lg border border-orange-200">
             ISPORUKA U ROKU OD 24H
           </span>
         </div>

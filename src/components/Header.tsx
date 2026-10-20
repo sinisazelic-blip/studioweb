@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Volume2, Radio, Server, Mic2, ExternalLink, ArrowRight, Menu, X, Disc, PhoneCall, Sparkles } from "lucide-react";
+import { Volume2, Radio, Server, Mic2, ExternalLink, ArrowRight, Menu, X, Disc, PhoneCall, Sparkles, Lock } from "lucide-react";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,184 +25,179 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300">
-      {/* Top Banner: Peaceful Studio Postcard Strip */}
-      <div className="bg-[#050608] border-b border-zinc-800/80 text-[11px] text-zinc-400 py-2.5 px-6 sm:px-12 lg:px-16">
-        <div className="w-full max-w-[1700px] mx-auto flex items-center justify-between flex-wrap gap-2">
-          {/* Left: Artist & Studio Seal */}
-          <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-amber-400" />
-            <span className="font-semibold text-zinc-200">SINIŠA ZELIĆ • STUDIO TAF BANJA LUKA</span>
-            <span className="text-zinc-700">|</span>
-            <span className="text-zinc-400 font-mono">40+ godina u muzici, notama i inženjeringu (1982–{new Date().getFullYear()})</span>
+      {/* Top Banner: Member of Fluxa Group Full Width & Link to web.studiotaf.xyz */}
+      <div className="bg-stone-950 border-b border-stone-800 text-[11px] text-stone-300 py-2 px-6 sm:px-12 lg:px-16">
+        <div className="w-full max-w-[1720px] mx-auto flex items-center justify-between gap-4">
+          {/* Across the width: Member of Fluxa Group */}
+          <div className="flex-1 text-center sm:text-left">
+            <span className="font-mono text-xs tracking-widest uppercase font-bold text-stone-300">
+              Member of Fluxa Group
+            </span>
           </div>
 
-          {/* Right: B2B Ecosystem & Direct Desk */}
-          <div className="flex items-center gap-5 text-xs font-medium">
+          {/* Right Top Corner: Direct Link to web.studiotaf.xyz */}
+          <div>
             <a
-              href="tel:+38765519071"
-              className="text-zinc-300 hover:text-amber-300 flex items-center gap-1.5 font-mono transition-colors"
-            >
-              <PhoneCall className="w-3.5 h-3.5 text-amber-400" />
-              <span>Siniša Zelić: (+387 65 519 071)</span>
-            </a>
-            <span className="text-zinc-700">|</span>
-            <a
-              href="http://localhost:3000"
+              href="https://web.studiotaf.xyz"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-400 hover:text-blue-400 flex items-center gap-1.5 transition-colors"
-              title="Softverski ekosistem koji je izrastao iz Studija TAF"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-stone-900 hover:bg-stone-800 text-stone-200 hover:text-white border border-stone-700 text-xs font-mono font-semibold transition-all shadow-xs"
+              title="Posjetite web.studiotaf.xyz"
             >
-              <span>Softver & Ekosistem: FLUXA.ba</span>
-              <ExternalLink className="w-3 h-3 text-blue-400" />
+              <span>web.studiotaf.xyz</span>
+              <ExternalLink className="w-3 h-3 text-cyan-400" />
             </a>
           </div>
         </div>
       </div>
 
-      {/* Main Studio Navigation Bar */}
+      {/* Main Light Navigation Bar - Pure White / Light Shell so TAF Logo Blends Naturally */}
       <nav
-        className={`px-6 sm:px-12 lg:px-16 py-4 transition-all duration-300 ${
+        className={`px-6 sm:px-12 lg:px-16 py-3 transition-all duration-300 ${
           scrolled
-            ? "bg-[#090b10]/95 backdrop-blur-md border-b border-zinc-800 shadow-xl"
-            : "bg-[#090b10]/85 backdrop-blur-md border-b border-zinc-800/60"
+            ? "bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm"
+            : "bg-white border-b border-stone-200"
         }`}
       >
-        <div className="w-full max-w-[1700px] mx-auto flex items-center justify-between">
+        <div className="w-full max-w-[1720px] mx-auto flex items-center justify-between">
           {/* Brand Logo & Heritage Title */}
           <div
-            className="flex items-center gap-4 cursor-pointer group"
+            className="flex items-center gap-3.5 cursor-pointer group"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <div className="bg-[#12151e] p-2 rounded-2xl border border-zinc-800 group-hover:border-amber-500 transition-colors flex items-center justify-center">
+            {/* Natural integration of Studio TAF logo on light background */}
+            <div className="flex items-center justify-center p-0.5">
               <img
                 src="/logos/taf-logo.jpg"
                 alt="Studio TAF Logo"
-                className="h-11 sm:h-13 w-auto object-contain rounded-xl"
+                className="h-11 sm:h-12 w-auto object-contain rounded-md"
               />
             </div>
             <div>
-              <div className="flex items-center gap-2.5">
-                <span className="font-extrabold text-2xl sm:text-3xl tracking-tight text-white font-sans">
-                  Studio <span className="text-amber-400">TAF</span>
+              <div className="flex items-center gap-2">
+                <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-stone-950 font-sans">
+                  Studio <span className="text-orange-600">TAF</span>
                 </span>
-                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-amber-950/80 text-amber-300 border border-amber-500/30 font-bold uppercase tracking-wider">
-                  Banja Luka
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-300 font-bold uppercase tracking-wider">
+                  Member of Fluxa Group
                 </span>
               </div>
-              <div className="text-xs text-zinc-400 font-mono tracking-wide hidden sm:block">
-                Muzička & Audio Ostavština • 1982–{new Date().getFullYear()}
+              <div className="text-[11px] text-stone-500 font-medium tracking-wide hidden sm:block">
+                Master Audio Produkcija & Režija od 1982.
               </div>
             </div>
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden xl:flex items-center gap-8 text-sm font-semibold text-zinc-300">
+          <div className="hidden xl:flex items-center gap-7 text-xs font-bold text-stone-700">
             <button
-              onClick={() => scrollTo("kreativni-nered")}
-              className="hover:text-amber-400 transition-colors cursor-pointer"
+              onClick={() => scrollTo("about")}
+              className="hover:text-orange-600 transition-colors cursor-pointer"
             >
-              Kreativni Nered
+              About Us
             </button>
             <button
-              onClick={() => scrollTo("studio-prostor")}
-              className="hover:text-amber-400 transition-colors cursor-pointer"
+              onClick={() => scrollTo("what-we-do")}
+              className="hover:text-orange-600 transition-colors cursor-pointer flex items-center gap-1.5"
             >
-              Akustika & Sobe
+              <Sparkles className="w-3.5 h-3.5 text-orange-600" />
+              <span>What We Do</span>
             </button>
             <button
-              onClick={() => scrollTo("oprema")}
-              className="hover:text-amber-400 transition-colors cursor-pointer"
+              onClick={() => scrollTo("clients")}
+              className="hover:text-orange-600 transition-colors cursor-pointer"
             >
-              10 Sintova & Hardver
+              Clients
             </button>
             <button
               onClick={() => scrollTo("moj-radio")}
-              className="hover:text-amber-400 transition-colors cursor-pointer flex items-center gap-1.5"
+              className="hover:text-orange-600 transition-colors cursor-pointer flex items-center gap-1.5"
             >
-              <Radio className="w-4 h-4 text-amber-400" />
-              <span>In-Store Sistemi</span>
+              <Radio className="w-3.5 h-3.5 text-orange-600" />
+              <span>B2B In-Store & Stubovi</span>
             </button>
             <button
-              onClick={() => scrollTo("tradicija")}
-              className="hover:text-amber-400 transition-colors cursor-pointer flex items-center gap-1.5"
+              onClick={() => scrollTo("timeline")}
+              className="hover:text-orange-600 transition-colors cursor-pointer"
             >
-              <Disc className="w-4 h-4 text-amber-400" />
-              <span>40 Godina Priče</span>
+              Our Story
             </button>
           </div>
 
-          {/* Right Action: Studio Indicator & Contact */}
-          <div className="hidden sm:flex items-center gap-4">
-            <div className="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#12151e] border border-zinc-800 text-xs font-mono text-zinc-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span className="text-zinc-400">STUDIO AKTIVAN</span>
+          {/* Right Action: Studio Live Status & Client Portal Link */}
+          <div className="hidden sm:flex items-center gap-3">
+            {/* Retro Analog Needle / VU Status */}
+            <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-stone-100 border border-stone-300 text-[10px] font-mono text-stone-800">
+              <span className="text-stone-500 font-bold">STUDIO:</span>
+              <div className="flex items-center gap-0.5">
+                <span className="w-1.5 h-2.5 rounded-xs bg-emerald-500" />
+                <span className="w-1.5 h-3.5 rounded-xs bg-emerald-500" />
+                <span className="w-1.5 h-3 rounded-xs bg-emerald-500" />
+                <span className="w-1.5 h-4 rounded-xs bg-amber-500" />
+                <span className="w-1.5 h-2.5 rounded-xs bg-red-500 animate-pulse" />
+              </div>
+              <span className="text-red-600 font-bold ml-1">ON AIR</span>
             </div>
 
             <a
-              href="tel:+38765519071"
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-stone-950 font-bold text-xs sm:text-sm tracking-wide shadow-lg shadow-amber-500/20 transition-all cursor-pointer flex items-center gap-2"
+              href="/client-portal"
+              className="px-5 py-2.5 rounded-xl bg-stone-950 hover:bg-stone-800 text-white font-bold text-xs tracking-wide shadow-md transition-all cursor-pointer flex items-center gap-2"
             >
-              <PhoneCall className="w-4 h-4 text-stone-950" />
-              <span>Pozovi Studio</span>
+              <Lock className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Klijent Portal</span>
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2.5 rounded-xl bg-[#12151e] text-zinc-200 border border-zinc-800"
+            className="xl:hidden p-2 rounded-xl bg-stone-100 text-stone-800 border border-stone-300"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
         {/* Mobile Dropdown */}
         {mobileMenuOpen && (
-          <div className="xl:hidden pt-4 pb-2 border-t border-stone-200 mt-3 space-y-2 text-sm text-stone-800">
+          <div className="xl:hidden pt-4 pb-2 border-t border-stone-200 mt-3 space-y-2 text-sm text-stone-700">
             <button
-              onClick={() => scrollTo("studio-prostor")}
-              className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-stone-100 flex items-center gap-2"
+              onClick={() => scrollTo("about")}
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2"
             >
-              <span>🎙️ Prostor, Akustika & Režija</span>
+              <span>About Us</span>
             </button>
             <button
-              onClick={() => scrollTo("balkan-network")}
-              className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-stone-100 flex items-center gap-2"
+              onClick={() => scrollTo("what-we-do")}
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2"
             >
-              <span>✨ Balkanska Voice & Dubbing Mreža</span>
+              <span>What We Do</span>
             </button>
             <button
-              onClick={() => scrollTo("oprema")}
-              className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-stone-100 flex items-center gap-2"
+              onClick={() => scrollTo("clients")}
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2"
             >
-              <span>🎹 Hardver, 10 Sintova & Lampaši</span>
+              <span>Clients</span>
             </button>
             <button
               onClick={() => scrollTo("moj-radio")}
-              className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-stone-100 flex items-center gap-2"
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2"
             >
-              <span>📻 Moj Radio (In-Store Sistemi)</span>
+              <span>B2B In-Store & Audio Stubovi</span>
             </button>
             <button
-              onClick={() => scrollTo("vault")}
-              className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-stone-100 flex items-center gap-2"
+              onClick={() => scrollTo("timeline")}
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2"
             >
-              <span>🗄️ Klijentski Audio Vault & Distribucija</span>
-            </button>
-            <button
-              onClick={() => scrollTo("live-session")}
-              className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-stone-100 flex items-center gap-2"
-            >
-              <span>🔴 Live Režija (WebRTC Opus)</span>
+              <span>Our Story (1982–Danas)</span>
             </button>
             <div className="pt-2">
-              <button
-                onClick={() => scrollTo("vault")}
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold text-sm text-center"
+              <a
+                href="/client-portal"
+                className="w-full py-2.5 rounded-xl bg-stone-950 hover:bg-stone-800 text-white font-bold text-xs text-center flex items-center justify-center gap-2"
               >
-                Otvori Klijentski Hab
-              </button>
+                <Lock className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Otvori Klijent Portal</span>
+              </a>
             </div>
           </div>
         )}

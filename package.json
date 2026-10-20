@@ -1,6 +1,6 @@
 {
   "name": "studiotaf-web",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "private": true,
   "scripts": {
     "dev": "next dev -p 1991",

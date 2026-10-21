@@ -454,17 +454,6 @@ export default function ClientPortalPage() {
                       SINHRONIZOVANO • 18ms LATENCIJA
                     </span>
                   </div>
-
-                  {currentRole === "studio_director" && (
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => alert("Screen Capture API: Odaberite video prozor za dijeljenje.")}
-                        className="px-2.5 py-1 rounded bg-stone-800 hover:bg-stone-700 text-stone-200 text-[11px] cursor-pointer"
-                      >
-                        Promijeni Video Prozor
-                      </button>
-                    </div>
-                  )}
                 </div>
 
                 {/* Real Video Sync Video Screen Area */}
@@ -655,8 +644,8 @@ export default function ClientPortalPage() {
                             <span className="text-[10px] text-stone-400">{p.role}</span>
                           </div>
 
-                          {/* Mute toggle button (Only director or agency can mute others) */}
-                          {currentRole === "studio_director" ? (
+                          {/* Mute toggle button (Agency or participant) */}
+                          {currentRole === "agency_tenant" ? (
                             <button
                               onClick={() => toggleParticipantMute(p.id)}
                               className={`px-2.5 py-1 rounded-lg text-[10px] font-bold cursor-pointer transition-all ${
@@ -674,8 +663,8 @@ export default function ClientPortalPage() {
                           )}
                         </div>
 
-                        {/* Studio Director Volume Fader for each participant */}
-                        {currentRole === "studio_director" && (
+                        {/* Volume Fader for participant */}
+                        {currentRole === "agency_tenant" && (
                           <div className="flex items-center gap-2 pt-1">
                             <Volume2 className="w-3.5 h-3.5 text-stone-500" />
                             <input

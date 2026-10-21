@@ -85,7 +85,7 @@ export default function StudioDirectorConsole({ onSyncToFluxa }: StudioDirectorC
   const [isScreenSharing, setIsScreenSharing] = useState<boolean>(false);
 
   // =========================================================================
-  // DANTE MULTI-HARDWARE MATRIX ENGINE STATE
+  // FLUXAX MULTI-HARDWARE MATRIX ENGINE STATE
   // =========================================================================
   const [sampleRate, setSampleRate] = useState<string>("48000");
   const [bufferSize, setBufferSize] = useState<string>("128");
@@ -95,10 +95,10 @@ export default function StudioDirectorConsole({ onSyncToFluxa }: StudioDirectorC
     { id: "rme_fireface_802", name: "RME Fireface 800 / 802 / UFX", driver: "RME Fireface ASIO Pro" },
     { id: "maudio_air_192", name: "M-Audio AIR 192|14", driver: "M-Audio AIR ASIO Driver" },
     { id: "behringer_flow8", name: "Behringer Flow 8", driver: "Behringer Flow 8 USB Audio" },
-    { id: "dante_console", name: "Dante Virtual Soundcard / Digital Console", driver: "Audinate Dante Virtual Soundcard (DVS)" },
+    { id: "fluxax_net_audio", name: "FluxaX Virtual Soundcard / Network Console (FluxaX Audio Protocol)", driver: "FluxaX Low-Latency Net Audio Core (16x16)" },
   ]);
   const [currentDeviceId, setCurrentDeviceId] = useState<string>("rme_uc");
-  const [danteMatrix, setDanteMatrix] = useState<Record<number, Record<number, boolean>>>({});
+  const [fluxaxMatrix, setFluxaxMatrix] = useState<Record<number, Record<number, boolean>>>({});
 
   // Inputs of the Active Interface
   const [rmeInputs, setRmeInputs] = useState<RmeInputChannel[]>([
@@ -156,7 +156,7 @@ export default function StudioDirectorConsole({ onSyncToFluxa }: StudioDirectorC
           if (msg.type === "FULL_STATE" && msg.data) {
             if (msg.data.availableDevices) setAvailableDevices(msg.data.availableDevices);
             if (msg.data.currentDeviceId) setCurrentDeviceId(msg.data.currentDeviceId);
-            if (msg.data.danteMatrix) setDanteMatrix(msg.data.danteMatrix);
+            if (msg.data.fluxaxMatrix || msg.data.danteMatrix) setFluxaxMatrix(msg.data.fluxaxMatrix || msg.data.danteMatrix);
             if (msg.data.activeProfile) {
               if (msg.data.activeProfile.defaultInputs) {
                 setRmeInputs(msg.data.activeProfile.defaultInputs.map((i: any) => ({
@@ -214,8 +214,8 @@ export default function StudioDirectorConsole({ onSyncToFluxa }: StudioDirectorC
               hearsStudio: true,
             })));
           }
-          if (msg.type === "MATRIX_UPDATED" && msg.danteMatrix) {
-            setDanteMatrix(msg.danteMatrix);
+          if ((msg.type === "MATRIX_UPDATED") && (msg.fluxaxMatrix || msg.danteMatrix)) {
+            setFluxaxMatrix(msg.fluxaxMatrix || msg.danteMatrix);
           }
         } catch {}
       };
@@ -240,7 +240,7 @@ export default function StudioDirectorConsole({ onSyncToFluxa }: StudioDirectorC
   };
 
   const toggleCrosspointPatch = (inpId: number, outId: number) => {
-    setDanteMatrix((prev) => ({
+    setFluxaxMatrix((prev) => ({
       ...prev,
       [inpId]: {
         ...prev[inpId],
@@ -857,7 +857,7 @@ export default function StudioDirectorConsole({ onSyncToFluxa }: StudioDirectorC
       )}
 
       {/* ========================================================================= */}
-      {/* TAB 2: DANTE CONTROLLER MATRICA RUTIRANJA & IZBOR HARDVERA               */}
+      {/* TAB 2: FLUXAX MATRICA RUTIRANJA & IZBOR HARDVERA                        */}
       {/* ========================================================================= */}
       {activeConsoleTab === "rme_hardware" && (
         <div className="space-y-6">
@@ -866,17 +866,37 @@ export default function StudioDirectorConsole({ onSyncToFluxa }: StudioDirectorC
           <div className="p-6 rounded-3xl bg-[#111622] border border-cyan-500/30 shadow-2xl flex flex-wrap items-center justify-between gap-6">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold block mb-1">
-                Dante Matrix Controller • Studio TAF
+                FluxaX Matrix Controller • Studio TAF
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-white">
-                Hardverska Matrica Rutiranja & Upravljanje Signalom
+                FluxaX Hardverska Matrica Rutiranja & Upravljanje Signalom
               </h3>
               <p className="text-xs text-stone-400 font-mono mt-1">
-                Odaberite fizički interfejs i slobodno patch-ujte bilo koji ulaz na bilo koji izlaz ili sabirnicu.
+                Odaberite fizički interfejs ili automatski skenirajte OS hardver za dinamički patch signala.
               </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
+              {/* OS Hardware Auto-Scan Trigger */}
+              <button
+                type="button"
+                onClick={async () => {
+                  try {
+                    const host = typeof window !== "undefined" ? window.location.hostname : "127.0.0.1";
+                    const res = await fetch(`http://${host}:4040/api/hardware/scan`);
+                    const data = await res.json();
+                    if (data && data.devices) {
+                      alert(`FluxaX Auto-Skener detektovao:\n${data.devices.map((d: any) => `• ${d.name} (${d.inferredIn} In / ${d.inferredOut} Out)`).join('\n')}`);
+                    }
+                  } catch {
+                    alert("StudioBridge nije dostupan na portu :4040 za skeniranje.");
+                  }
+                }}
+                className="px-3 py-2 rounded-xl bg-orange-500/20 hover:bg-orange-500/30 text-orange-300 border border-orange-500/40 font-bold cursor-pointer transition-all flex items-center gap-1.5"
+              >
+                <span>🔍 Skeniraj Hardver (OS)</span>
+              </button>
+
               {/* Hardware Device Picker */}
               <div className="bg-stone-900 p-2 rounded-xl border border-stone-700">
                 <label className="text-[10px] text-orange-400 font-bold block mb-1 uppercase tracking-wider">
@@ -937,13 +957,13 @@ export default function StudioDirectorConsole({ onSyncToFluxa }: StudioDirectorC
             </span>
           </div>
 
-          {/* DANTE CONTROLLER 2D CROSSLINK ROUTING MATRIX */}
+          {/* FLUXAX 2D CROSSLINK ROUTING MATRIX */}
           <div className="rounded-3xl bg-[#111622] border border-stone-800 p-6 shadow-2xl">
             <div className="flex items-center justify-between pb-4 border-b border-stone-800 mb-6">
               <div className="flex items-center gap-2">
                 <Cpu className="w-5 h-5 text-cyan-400" />
                 <h4 className="text-base font-bold text-white font-sans">
-                  Dante Controller 2D Matrica Ukrštanja (Crosspoint Grid)
+                  FluxaX 2D Matrica Ukrštanja (Crosspoint Grid)
                 </h4>
               </div>
               <span className="text-xs font-mono text-stone-400">
@@ -985,7 +1005,7 @@ export default function StudioDirectorConsole({ onSyncToFluxa }: StudioDirectorC
                         </div>
                       </td>
                       {rmeOutputs.map((out) => {
-                        const isPatched = !!danteMatrix[inp.id]?.[out.id];
+                        const isPatched = !!fluxaxMatrix[inp.id]?.[out.id];
                         return (
                           <td key={out.id} className="p-2 border border-stone-800 text-center">
                             <button
@@ -1076,10 +1096,10 @@ export default function StudioDirectorConsole({ onSyncToFluxa }: StudioDirectorC
             </span>
             <div className="flex items-center gap-3">
               <button
-                onClick={() => alert("Dante matrica i nazivi kanala su trajno sačuvani u StudioBridge servisu!")}
+                onClick={() => alert("FluxaX matrica i nazivi kanala su trajno sačuvani u StudioBridge servisu!")}
                 className="px-5 py-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-stone-950 font-bold cursor-pointer shadow-md"
               >
-                Sačuvaj Dante Konfiguraciju
+                Sačuvaj FluxaX Konfiguraciju
               </button>
             </div>
           </div>

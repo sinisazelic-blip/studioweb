@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import StudioDirectorConsole from "@/components/StudioDirectorConsole";
+import FluxaxNetLogo from "@/components/FluxaxNetLogo";
 import { APP_CONFIG } from "@/config/appConfig";
 import {
   Lock,
@@ -233,12 +234,12 @@ export default function ClientPortalPage() {
         </div>
 
         <div className="w-full max-w-md mx-auto p-8 rounded-3xl bg-[#11161f] border border-stone-800 shadow-2xl text-center">
-          <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mx-auto mb-6 shadow-[0_0_20px_rgba(34,211,238,0.2)]">
-            <Lock className="w-7 h-7" />
+          <div className="mb-6 flex justify-center">
+            <FluxaxNetLogo size="lg" />
           </div>
 
           <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-cyan-400 font-bold block mb-2">
-            Privatni Klijentski Hab
+            FluxaX Net • Privatni Klijentski Hab
           </span>
           <h1 className="text-2xl font-bold text-white mb-2">
             Prijava u Klijentsku Zonu
@@ -302,18 +303,22 @@ export default function ClientPortalPage() {
               <ArrowLeft className="w-4 h-4" />
             </Link>
 
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-base tracking-tight text-white font-sans">
-                  Studio <span className="text-orange-500">TAF</span>
-                </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-bold uppercase">
-                  Klijent Portal
-                </span>
-              </div>
-              <div className="text-[11px] text-stone-400 font-mono flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Naručilac: Agencija Media Focus (Tenant: {tenantCodeInput})</span>
+            <div className="flex items-center gap-3">
+              <FluxaxNetLogo size="sm" />
+              <div className="h-6 w-px bg-stone-800 hidden sm:block" />
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-extrabold text-xs tracking-tight text-white font-sans hidden sm:inline-block">
+                    Studio <span className="text-orange-500">TAF</span>
+                  </span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-bold uppercase">
+                    Klijent Portal
+                  </span>
+                </div>
+                <div className="text-[10px] text-stone-400 font-mono flex items-center gap-1.5 mt-0.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Naručilac: Agencija Media Focus ({tenantCodeInput})</span>
+                </div>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import FluxaxNetLogo from "@/components/FluxaxNetLogo";
 import {
   Sliders,
   Volume2,
@@ -338,14 +339,13 @@ export default function StudioDirectorConsole({ onSyncToFluxa }: StudioDirectorC
       {/* 0. DIRECTOR CONSOLE HEADER & HARDWARE BAR                                   */}
       {/* ========================================================================= */}
       <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-[#0e141f] border border-stone-800">
-        <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-orange-500/20 text-orange-400 border border-orange-500/30">
-            <Cpu className="w-5 h-5" />
-          </div>
+        <div className="flex items-center gap-4">
+          <FluxaxNetLogo size="sm" />
+          <div className="h-7 w-px bg-stone-800 hidden sm:block" />
           <div>
             <div className="flex items-center gap-2">
               <span className="font-bold text-white text-sm font-sans">
-                Studio Režija & RME Audio Interfejs
+                Studio Režija & FluxaX Interfejs
               </span>
               <span
                 className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold border transition-colors ${
@@ -355,7 +355,7 @@ export default function StudioDirectorConsole({ onSyncToFluxa }: StudioDirectorC
                 }`}
                 title="Lokalni StudioBridge servis na http://127.0.0.1:4040"
               >
-                {isDaemonConnected ? "● RME BRIDGE AKTIVAN (:4040)" : "○ RME SIMULATOR"}
+                {isDaemonConnected ? "● FLUXAX NET AKTIVAN (:4040)" : "○ SIMULATOR"}
               </span>
             </div>
             <span className="text-[11px] font-mono text-stone-400">

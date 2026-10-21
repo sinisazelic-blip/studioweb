@@ -140,7 +140,9 @@ export default function Header() {
             </div>
 
             <a
-              href="/client-portal"
+              href="http://192.168.70.150:1991"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-xl bg-stone-950 hover:bg-stone-800 text-white font-bold text-xs tracking-wide shadow-md transition-all cursor-pointer flex items-center gap-2"
             >
               <Lock className="w-3.5 h-3.5 text-cyan-400" />
@@ -192,7 +194,9 @@ export default function Header() {
             </button>
             <div className="pt-2">
               <a
-                href="/client-portal"
+                href="http://192.168.70.150:1991"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full py-2.5 rounded-xl bg-stone-950 hover:bg-stone-800 text-white font-bold text-xs text-center flex items-center justify-center gap-2"
               >
                 <Lock className="w-3.5 h-3.5 text-cyan-400" />

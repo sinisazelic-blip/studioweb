@@ -1,10 +1,10 @@
 @echo off
 chcp 65001 > nul
-title STUDIO TAF Web Platform - Port 1991
+title STUDIO TAF Web Platform - Port 1990
 color 0E
 
 echo ==============================================================================
-echo    STUDIO TAF Web Platform - Next.js Production Server (Port 1991)
+echo    STUDIO TAF Web Platform - Next.js Production Server (Port 1990)
 echo ==============================================================================
 echo.
 
@@ -17,11 +17,11 @@ if not exist ".next" (
 )
 
 echo.
-echo [2/2] Pokrecem Next.js server na portu 1991...
-echo Adresa lokalno: http://localhost:1991
+echo [2/2] Pokrecem Next.js server na portu 1990...
+echo Adresa lokalno: http://localhost:1990
 echo.
 
-npm run start -- -p 1991
+npm run start -- -p 1990
 
 if %errorlevel% neq 0 (
     echo.

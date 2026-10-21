@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import StudioDirectorConsole from "@/components/StudioDirectorConsole";
 import { APP_CONFIG } from "@/config/appConfig";
@@ -31,7 +31,9 @@ import {
   Tv,
   FileText,
   FileVideo,
-  Key
+  Key,
+  Copy,
+  Laptop
 } from "lucide-react";
 
 type UserRole = "agency_tenant" | "guest_participant" | "studio_director";
@@ -52,60 +54,111 @@ export default function ClientPortalPage() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
   const [tenantCodeInput, setTenantCodeInput] = useState<string>("TAF-AGENCY-2026");
   
-  // Current active preview role
+  // Current active preview role & client name
   const [currentRole, setCurrentRole] = useState<UserRole>("agency_tenant");
+  const [clientDisplayName, setClientDisplayName] = useState<string>("Naručilac (Agencija)");
 
   // Session state
-  const [isRecording, setIsRecording] = useState<boolean>(true);
+  const [isRecording, setIsRecording] = useState<boolean>(false);
   const [talkActive, setTalkActive] = useState<boolean>(false);
-  const [selectedTake, setSelectedTake] = useState<number>(2);
+  const [selectedTake, setSelectedTake] = useState<number>(1);
   const [activeTab, setActiveTab] = useState<"live" | "new_session" | "archive">("live");
 
-  // Video stream simulation
-  const [isVideoStreaming, setIsVideoStreaming] = useState<boolean>(true);
+  // Video stream state (Clean Real Feed)
+  const [isVideoStreaming, setIsVideoStreaming] = useState<boolean>(false);
   const [videoWindowName, setVideoWindowName] = useState<string>("Studio Video Sync • Broadcast Feed (1080p25)");
 
-  // Participants list (controlled by Agency Tenant & Studio)
-  const [participants, setParticipants] = useState<Participant[]>([
-    {
-      id: "p1",
-      name: "Marko Jovanović",
-      role: "Glavni Naručilac (Agencija)",
-      email: "marko@agencija-media.ba",
-      confirmed: true,
-      online: true,
-      volume: 80,
-      isMuted: false,
-    },
-    {
-      id: "p2",
-      name: "Ana Marić",
-      role: "Brend Menadžer (Gost)",
-      email: "ana.maric@klijent-corp.com",
-      confirmed: true,
-      online: true,
-      volume: 75,
-      isMuted: false,
-    },
-    {
-      id: "p3",
-      name: "Goran Simić",
-      role: "Copywriter (Gost)",
-      email: "goran@agencija-media.ba",
-      confirmed: true,
-      online: true,
-      volume: 70,
-      isMuted: true,
-    },
-  ]);
+  // Real participants list (Zero-mock, populated via StudioBridge WebSocket or real invites)
+  const [participants, setParticipants] = useState<Participant[]>([]);
 
-  // Chat messages
+  // Real Chat messages (Empty clean start)
   const [chatMessages, setChatMessages] = useState<{ sender: string; text: string; time: string; isDirector?: boolean }[]>([
-    { sender: "Siniša Zelić (Režija)", text: "Dobar dan svima. Spiker je u gluvozvučnoj sobi, Studio Video preview je povezan.", time: "10:02", isDirector: true },
-    { sender: "Marko (Agencija)", text: "Odlično, čujemo vas kristalno. Možemo krenuti sa Tejkom 1 po scenariju.", time: "10:03" },
-    { sender: "Ana (Brend)", text: "Molim vas samo da u drugom dijelu naglasimo datum akcije.", time: "10:04" },
+    { sender: "Sistem", text: "Sesija je pokrenuta na čistom početnom stanju. Čeka se povezivanje laptopa.", time: "LIVE", isDirector: true }
   ]);
   const [newChatText, setNewChatText] = useState("");
+  const [copiedLink, setCopiedLink] = useState(false);
+
+  // StudioBridge WebSocket connection for real multi-device testing
+  const wsRef = useRef<WebSocket | null>(null);
+
+  useEffect(() => {
+    // Detect URL query params if any (?role=guest&name=Laptop1)
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const roleParam = params.get("role") as UserRole;
+      const nameParam = params.get("name");
+      if (roleParam) setCurrentRole(roleParam);
+      if (nameParam) setClientDisplayName(nameParam);
+      else if (roleParam === "guest_participant") setClientDisplayName("Gost (Laptop 1)");
+      else if (roleParam === "agency_tenant") setClientDisplayName("Naručilac (Laptop 2)");
+      else if (roleParam === "studio_director") setClientDisplayName("Siniša (Režija)");
+
+      // Connect to StudioBridge WebSocket on current host or LAN IP
+      const host = window.location.hostname || "127.0.0.1";
+      const wsUrl = `ws://${host}:4040/ws`;
+      let ws: WebSocket | null = null;
+      try {
+        ws = new WebSocket(wsUrl);
+        wsRef.current = ws;
+
+        ws.onopen = () => {
+          // Register this browser / laptop as a real client
+          const myId = `client_${Math.random().toString(36).substring(7)}`;
+          ws?.send(
+            JSON.stringify({
+              type: "REGISTER_CLIENT",
+              id: myId,
+              name: nameParam || (roleParam === "guest_participant" ? "Gost (Laptop 1)" : roleParam === "studio_director" ? "Siniša Zelić" : "Naručilac (Agencija)"),
+              role: roleParam || "agency_tenant",
+              email: "test@lan.local",
+            })
+          );
+        };
+
+        ws.onmessage = (event) => {
+          try {
+            const msg = JSON.parse(event.data);
+            if (msg.type === "FULL_STATE" && msg.data) {
+              if (msg.data.connectedClients) {
+                setParticipants(msg.data.connectedClients.map((c: any) => ({
+                  id: c.id,
+                  name: c.name,
+                  role: c.role === "agency_tenant" ? "Naručilac (Agencija)" : c.role === "guest_participant" ? "Pozvani Gost" : "Studio Režija",
+                  email: c.email || "lan@studiotaf.xyz",
+                  confirmed: true,
+                  online: true,
+                  volume: c.volume || 80,
+                  isMuted: c.isMuted || false,
+                })));
+              }
+              if (msg.data.chatLog && msg.data.chatLog.length > 0) {
+                setChatMessages(msg.data.chatLog);
+              }
+            }
+            if (msg.type === "CLIENTS_UPDATED" && msg.clients) {
+              setParticipants(msg.clients.map((c: any) => ({
+                id: c.id,
+                name: c.name,
+                role: c.role === "agency_tenant" ? "Naručilac (Agencija)" : c.role === "guest_participant" ? "Pozvani Gost" : "Studio Režija",
+                email: c.email || "lan@studiotaf.xyz",
+                confirmed: true,
+                online: true,
+                volume: c.volume || 80,
+                isMuted: c.isMuted || false,
+              })));
+            }
+            if (msg.type === "CHAT_MESSAGE" && msg.message) {
+              setChatMessages((prev) => [...prev, msg.message]);
+            }
+          } catch {}
+        };
+      } catch {}
+
+      return () => {
+        if (ws) ws.close();
+      };
+    }
+  }, []);
 
   // New Project / Session Form state
   const [newProject, setNewProject] = useState({
@@ -122,21 +175,35 @@ export default function ClientPortalPage() {
     if (!newChatText.trim()) return;
     const senderName =
       currentRole === "agency_tenant"
-        ? "Marko (Agencija)"
+        ? clientDisplayName || "Naručilac (Agencija)"
         : currentRole === "guest_participant"
-        ? "Ana (Gost)"
+        ? clientDisplayName || "Pozvani Gost"
         : "Siniša Zelić (Režija)";
 
-    setChatMessages((prev) => [
-      ...prev,
-      {
-        sender: senderName,
-        text: newChatText.trim(),
-        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-        isDirector: currentRole === "studio_director",
-      },
-    ]);
+    const newMsg = {
+      sender: senderName,
+      role: currentRole,
+      text: newChatText.trim(),
+      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      isDirector: currentRole === "studio_director",
+    };
+
+    // Broadcast through StudioBridge WebSocket
+    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ type: "CHAT_MESSAGE", ...newMsg }));
+    } else {
+      setChatMessages((prev) => [...prev, newMsg]);
+    }
+
     setNewChatText("");
+  };
+
+  const copyGuestLink = () => {
+    const origin = typeof window !== "undefined" ? window.location.origin : "http://192.168.70.150:1991";
+    const link = `${origin}/client-portal?role=guest_participant&name=Laptop 1`;
+    navigator.clipboard.writeText(link);
+    setCopiedLink(true);
+    setTimeout(() => setCopiedLink(false), 3000);
   };
 
   const toggleParticipantMute = (id: string) => {
@@ -395,40 +462,54 @@ export default function ClientPortalPage() {
                   )}
                 </div>
 
-                {/* Simulated Video Sync Video Screen Area (Čist spot bez timeline-a i traka!) */}
+                {/* Real Video Sync Video Screen Area */}
                 <div className="relative aspect-video bg-black flex items-center justify-center overflow-hidden group">
-                  {/* Atmospheric Video Background Mock */}
-                  <img
-                    src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80"
-                    alt="Video Sync Video Frame"
-                    className="w-full h-full object-cover filter brightness-75 contrast-110"
-                  />
+                  {isVideoStreaming ? (
+                    <div className="w-full h-full flex items-center justify-center bg-stone-950">
+                      <video id="remote-studio-video" autoPlay playsInline className="w-full h-full object-contain" />
+                    </div>
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-radial from-stone-900 to-black p-8 text-center select-none">
+                      <div className="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-4 shadow-[0_0_30px_rgba(34,211,238,0.15)]">
+                        <Tv className="w-8 h-8" />
+                      </div>
+                      <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold mb-2">
+                        Studio Video Sync • Broadcast Feed
+                      </span>
+                      <h4 className="text-lg font-bold text-white mb-2">
+                        Čeka se pokretanje video stream-a iz režije
+                      </h4>
+                      <p className="text-xs text-stone-400 max-w-md mx-auto font-mono leading-relaxed mb-6 font-light">
+                        Kada režija odabere video pregled iz Vegas Pro-a, slika se pojavljuje ovdje u 1080p25 formatu sa ultra-niskom latencijom (&lt;20ms).
+                      </p>
+                      
+                      <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-stone-900/90 border border-stone-800 text-[11px] font-mono text-stone-300">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>Klijentski audio prijem: <strong className="text-emerald-400">Spreman</strong> (Neumann U87)</span>
+                      </div>
+                    </div>
+                  )}
 
-                  {/* On-Screen Professional Timecode & Rec Indicator */}
+                  {/* On-Screen Status Indicator */}
                   <div className="absolute top-4 left-4 flex items-center gap-3">
-                    <span className="px-3 py-1 rounded-lg bg-black/80 backdrop-blur-md text-red-500 font-mono font-bold text-xs flex items-center gap-2 border border-red-500/30">
-                      <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                      <span>REC 00:00:19:12</span>
+                    <span className={`px-3 py-1 rounded-lg backdrop-blur-md font-mono font-bold text-xs flex items-center gap-2 border ${
+                      isRecording 
+                        ? "bg-red-950/80 text-red-400 border-red-500/40" 
+                        : "bg-black/80 text-stone-400 border-white/10"
+                    }`}>
+                      <span className={`w-2 h-2 rounded-full ${isRecording ? "bg-red-500 animate-pulse" : "bg-stone-500"}`} />
+                      <span>{isRecording ? "REC ON AIR" : "STANDBY"}</span>
                     </span>
                     <span className="px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md text-stone-300 font-mono text-xs border border-white/10">
-                      TC: 10:24:19:00 (25 fps)
+                      1080p25 • 48 kHz
                     </span>
                   </div>
 
                   <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 rounded-lg bg-black/80 backdrop-blur-md text-amber-300 font-mono text-xs border border-amber-400/30 font-bold">
-                      Tejk 2 u toku (Spiker čita)
+                    <span className="px-3 py-1 rounded-lg bg-black/80 backdrop-blur-md text-cyan-300 font-mono text-xs border border-cyan-400/30 font-bold">
+                      Tejk {selectedTake}
                     </span>
                   </div>
-
-                  {/* Big Central Overlay on Pause */}
-                  {!isRecording && (
-                    <div className="absolute inset-0 bg-black/70 backdrop-blur-xs flex flex-col items-center justify-center text-stone-300 font-mono space-y-2">
-                      <Pause className="w-12 h-12 text-amber-400 animate-pulse" />
-                      <span className="text-sm font-bold">VIDEO PREGLED JE PAUZIRAN</span>
-                      <span className="text-xs text-stone-500">Čeka se priprema sledećeg tejka u režiji</span>
-                    </div>
-                  )}
                 </div>
 
                 {/* Bottom Stream Controls Bar */}
@@ -538,53 +619,74 @@ export default function ClientPortalPage() {
 
                 {/* Participants list with individual volume & mute */}
                 <div className="space-y-3">
-                  {participants.map((p) => (
-                    <div
-                      key={p.id}
-                      className="p-3.5 rounded-2xl bg-stone-900/80 border border-stone-800 space-y-2 text-xs font-mono"
-                    >
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <span className="text-white font-bold block">{p.name}</span>
-                          <span className="text-[10px] text-stone-400">{p.role}</span>
+                  {participants.length === 0 ? (
+                    <div className="p-5 rounded-2xl bg-stone-900/60 border border-dashed border-stone-800 text-center space-y-3">
+                      <div className="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mx-auto">
+                        <Laptop className="w-5 h-5" />
+                      </div>
+                      <div className="text-xs font-mono font-bold text-white">
+                        Čeka se povezivanje laptopa
+                      </div>
+                      <p className="text-[11px] text-stone-400 leading-relaxed font-mono">
+                        Otvorite sesiju na vašem laptopu preko lokalne mreže:
+                      </p>
+                      <button
+                        onClick={copyGuestLink}
+                        className="w-full py-2 px-3 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-[11px] font-mono font-bold flex items-center justify-center gap-2 cursor-pointer transition-all"
+                      >
+                        <Copy className="w-3.5 h-3.5" />
+                        <span>{copiedLink ? "✓ Link kopiran!" : "Kopiraj Link za Laptop (Gost)"}</span>
+                      </button>
+                    </div>
+                  ) : (
+                    participants.map((p) => (
+                      <div
+                        key={p.id}
+                        className="p-3.5 rounded-2xl bg-stone-900/80 border border-stone-800 space-y-2 text-xs font-mono"
+                      >
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <span className="text-white font-bold block">{p.name}</span>
+                            <span className="text-[10px] text-stone-400">{p.role}</span>
+                          </div>
+
+                          {/* Mute toggle button (Only director or agency can mute others) */}
+                          {currentRole === "studio_director" ? (
+                            <button
+                              onClick={() => toggleParticipantMute(p.id)}
+                              className={`px-2.5 py-1 rounded-lg text-[10px] font-bold cursor-pointer transition-all ${
+                                p.isMuted
+                                  ? "bg-red-600 text-white"
+                                  : "bg-stone-800 text-stone-300 hover:bg-stone-700"
+                              }`}
+                            >
+                              {p.isMuted ? "MUTIRAN" : "MUTE"}
+                            </button>
+                          ) : (
+                            <span className={`text-[10px] font-bold ${p.isMuted ? "text-red-400" : "text-emerald-400"}`}>
+                              {p.isMuted ? "MUTED" : "AKTIVAN"}
+                            </span>
+                          )}
                         </div>
 
-                        {/* Mute toggle button (Only director or agency can mute others) */}
-                        {currentRole === "studio_director" ? (
-                          <button
-                            onClick={() => toggleParticipantMute(p.id)}
-                            className={`px-2.5 py-1 rounded-lg text-[10px] font-bold cursor-pointer transition-all ${
-                              p.isMuted
-                                ? "bg-red-600 text-white"
-                                : "bg-stone-800 text-stone-300 hover:bg-stone-700"
-                            }`}
-                          >
-                            {p.isMuted ? "MUTIRAN" : "MUTE"}
-                          </button>
-                        ) : (
-                          <span className={`text-[10px] font-bold ${p.isMuted ? "text-red-400" : "text-emerald-400"}`}>
-                            {p.isMuted ? "MUTED" : "AKTIVAN"}
-                          </span>
+                        {/* Studio Director Volume Fader for each participant */}
+                        {currentRole === "studio_director" && (
+                          <div className="flex items-center gap-2 pt-1">
+                            <Volume2 className="w-3.5 h-3.5 text-stone-500" />
+                            <input
+                              type="range"
+                              min="0"
+                              max="100"
+                              value={p.volume}
+                              onChange={(e) => changeParticipantVolume(p.id, Number(e.target.value))}
+                              className="w-full accent-cyan-400 cursor-pointer h-1.5 bg-stone-800 rounded-lg"
+                            />
+                            <span className="text-[10px] text-stone-400 w-8 text-right">{p.volume}%</span>
+                          </div>
                         )}
                       </div>
-
-                      {/* Studio Director Volume Fader for each participant */}
-                      {currentRole === "studio_director" && (
-                        <div className="flex items-center gap-2 pt-1">
-                          <Volume2 className="w-3.5 h-3.5 text-stone-500" />
-                          <input
-                            type="range"
-                            min="0"
-                            max="100"
-                            value={p.volume}
-                            onChange={(e) => changeParticipantVolume(p.id, Number(e.target.value))}
-                            className="w-full accent-cyan-400 cursor-pointer h-1.5 bg-stone-800 rounded-lg"
-                          />
-                          <span className="text-[10px] text-stone-400 w-8 text-right">{p.volume}%</span>
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                    ))
+                  )}
                 </div>
 
                 {/* If Agency Tenant, show button to invite more guests */}

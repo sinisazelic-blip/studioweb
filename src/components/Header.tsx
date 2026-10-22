@@ -104,6 +104,13 @@ export default function Header() {
               <span>What We Do</span>
             </button>
             <button
+              onClick={() => scrollTo("fluxax")}
+              className="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-600 border border-amber-500/20 hover:bg-amber-500/20 transition-all cursor-pointer flex items-center gap-1.5 font-bold"
+            >
+              <Radio className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+              <span>FluxaX HUB</span>
+            </button>
+            <button
               onClick={() => scrollTo("clients")}
               className="hover:text-orange-600 transition-colors cursor-pointer"
             >

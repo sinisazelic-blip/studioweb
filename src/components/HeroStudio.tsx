@@ -49,15 +49,22 @@ export default function HeroStudio() {
       {/* Gentle transparent gradient so physical console and studio lighting remain authentic */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-stone-950/95 pointer-events-none" />
 
-      {/* DESKTOP PERSPECTIVE-MAPPED VIDEO ON CONSOLE SCREEN */}
+      {/* Top-Right Pill Tag: Studio TAF - A Member of Fluxa Group - Est. 1982 */}
+      <div className="absolute top-6 right-6 lg:top-8 lg:right-16 z-30 pointer-events-auto">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-stone-200 text-[11px] font-mono tracking-widest uppercase shadow-lg">
+          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+          <span>Studio TAF • A Member of Fluxa Group • Est. 1982</span>
+        </div>
+      </div>
+
+      {/* DESKTOP PERSPECTIVE-MAPPED VIDEO ON CONSOLE SCREEN (PIXEL-PERFECT INNER DISPLAY) */}
       <div
-        className="hidden lg:flex absolute z-20 rounded-[4px] overflow-hidden bg-black/90 pointer-events-none shadow-[inset_0_0_15px_rgba(0,0,0,0.9),0_4px_25px_rgba(0,0,0,0.85)] border border-stone-800/60"
+        className="hidden lg:flex absolute z-20 rounded-[2px] overflow-hidden bg-black pointer-events-none shadow-[inset_0_0_25px_rgba(0,0,0,0.98),0_2px_12px_rgba(0,0,0,0.9)] border border-black/80"
         style={{
-          left: "26.75%",
-          top: "29.75%",
-          width: "14.65%",
-          height: "17.45%",
-          transform: "rotate(-0.4deg)",
+          left: "26.33%",
+          top: "29.31%",
+          width: "15.17%",
+          height: "19.12%",
         }}
       >
         <video
@@ -67,10 +74,10 @@ export default function HeroStudio() {
           muted
           playsInline
           onEnded={handleVideoEnded}
-          className="w-full h-full object-cover filter brightness-[0.86] contrast-[1.12] saturate-[0.92]"
+          className="w-full h-full object-cover filter brightness-[0.76] contrast-[1.22] saturate-[0.85]"
         />
-        {/* Soft Inner Screen Glare Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/10 pointer-events-none" />
+        {/* CRT / Soft Inner Screen Glare and Phosphor Falloff */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-black/50 via-transparent to-white/10 pointer-events-none" />
       </div>
 
       {/* Main Hero Content Area */}
@@ -86,7 +93,7 @@ export default function HeroStudio() {
                 muted
                 playsInline
                 onEnded={handleVideoEnded}
-                className="w-full h-full object-cover filter brightness-[0.88] contrast-105"
+                className="w-full h-full object-cover filter brightness-[0.82] contrast-110"
               />
             </div>
           </div>
@@ -94,40 +101,36 @@ export default function HeroStudio() {
           {/* DESKTOP LEFT SPACER */}
           <div className="hidden lg:block lg:col-span-6 pointer-events-none" />
 
-          {/* RIGHT: Typography & Action Buttons */}
-          <div className="lg:col-span-6 flex flex-col justify-center items-start lg:items-end space-y-6 lg:ml-auto max-w-xl text-left lg:text-left pr-0 lg:pr-12 z-20">
-            {/* Minimalist discreet tag */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-stone-200 text-[11px] font-mono tracking-widest uppercase shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-              <span>Studio TAF • Režija & Produkcija od 1982.</span>
-            </div>
+          {/* RIGHT: Typography & Action Buttons in a Borderless Dark Translucent Glass Card */}
+          <div className="lg:col-span-6 flex flex-col justify-center items-start lg:ml-auto max-w-xl z-20">
+            <div className="bg-black/60 backdrop-blur-xl p-8 sm:p-10 rounded-3xl shadow-2xl border border-white/5 space-y-6">
+              {/* Clean, Elegant, Minimalist Typography */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.1] font-sans drop-shadow-md">
+                Snimanje, miks <br />
+                <span className="font-semibold text-amber-400">i zvučni dizajn.</span>
+              </h1>
 
-            {/* Clean, Elegant, Minimalist Typography */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.08] font-sans drop-shadow-md">
-              Snimanje, miks <br />
-              <span className="font-semibold text-stone-100">i zvučni dizajn.</span>
-            </h1>
+              <p className="text-stone-200 text-sm sm:text-base font-light leading-relaxed font-sans drop-shadow-sm">
+                Četiri decenije rada sa zvukom, analognom opremom i namenskom akustikom. 
+                Bez suvišnih riječi — posao radimo tiho, precizno i na vrijeme.
+              </p>
 
-            <p className="text-stone-200 text-base sm:text-lg font-light leading-relaxed max-w-xl font-sans drop-shadow-sm">
-              Četiri decenije rada sa zvukom, analognom opremom i namenskom akustikom. 
-              Bez suvišnih riječi — posao radimo tiho, precizno i na vrijeme.
-            </p>
-
-            {/* Action Links */}
-            <div className="flex items-center gap-4 flex-wrap pt-2">
-              <button
-                onClick={() => scrollTo("about")}
-                className="px-6 py-3.5 rounded-xl bg-white text-stone-950 hover:bg-stone-200 text-xs sm:text-sm font-semibold tracking-wide transition-all cursor-pointer flex items-center gap-2 shadow-lg"
-              >
-                <span>Upoznajte Studio & Istorijat</span>
-                <ArrowDown className="w-3.5 h-3.5" />
-              </button>
-              <button
-                onClick={() => scrollTo("what-we-do")}
-                className="px-6 py-3.5 rounded-xl bg-white/15 hover:bg-white/25 text-white border border-white/25 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md transition-all cursor-pointer shadow-sm"
-              >
-                Usluge & Produkcija
-              </button>
+              {/* Action Links */}
+              <div className="flex items-center gap-4 flex-wrap pt-2">
+                <button
+                  onClick={() => scrollTo("about")}
+                  className="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs sm:text-sm font-semibold tracking-wide transition-all cursor-pointer flex items-center gap-2 shadow-lg"
+                >
+                  <span>Upoznajte Tim & Istorijat</span>
+                  <ArrowDown className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={() => scrollTo("what-we-do")}
+                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md transition-all cursor-pointer shadow-sm"
+                >
+                  Usluge i Produkcija
+                </button>
+              </div>
             </div>
           </div>
 

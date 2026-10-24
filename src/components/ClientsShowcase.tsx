@@ -1,391 +1,344 @@
 "use client";
 
 import React, { useState } from "react";
+import { Star, ShieldCheck, Sparkles, Building2 } from "lucide-react";
 
 interface ClientBrand {
   id: string;
   name: string;
-  tier: "national" | "multinational";
+  category: "retail" | "finance" | "beverage_food" | "fmcg" | "events" | "telco";
   logoUrl?: string;
-  customLogo?: {
-    text: string;
-    sub?: string;
-    badgeStyle?: string;
-  };
+  tagline?: string;
+  brandColor?: string;
+  isFeatured?: boolean;
 }
 
-const nationalClients: ClientBrand[] = [
+const verifiedClientsList: ClientBrand[] = [
+  // 1. TELCO & INSTITUTIONS
   {
     id: "mtel",
     name: "m:tel",
-    tier: "national",
+    category: "telco",
     logoUrl: "/images/clients/mts1-50x50-s.jpg",
-    customLogo: {
-      text: "m:tel",
-      sub: "TELEKOM",
-      badgeStyle: "font-bold text-rose-600 font-sans lowercase",
-    },
+    tagline: "Telekomunikacije",
+    brandColor: "#e11d48",
+    isFeatured: true,
   },
+  {
+    id: "gob",
+    name: "Gradski Olimpijski Bazen",
+    category: "events",
+    logoUrl: "/images/clients/gob_logo.png",
+    tagline: "Sportska Borilišta",
+    brandColor: "#0284c7",
+    isFeatured: true,
+  },
+  {
+    id: "aquana",
+    name: "JP Aquana",
+    category: "events",
+    logoUrl: "/images/clients/aquana_logo.png",
+    tagline: "Vodeni Park & Sport",
+    brandColor: "#0d9488",
+    isFeatured: true,
+  },
+
+  // 2. BANKARSKI SEKTOR & FINANSIJE
   {
     id: "nova-banka",
     name: "Nova Banka",
-    tier: "national",
-    customLogo: {
-      text: "NOVA BANKA",
-      sub: "AD BANJA LUKA",
-      badgeStyle: "font-black tracking-wide text-blue-800 font-sans",
-    },
+    category: "finance",
+    tagline: "Bankarstvo & Krediti",
+    brandColor: "#1e40af",
+    isFeatured: true,
   },
   {
     id: "addiko-bank",
     name: "Addiko Bank",
-    tier: "national",
-    customLogo: {
-      text: "Addiko Bank",
-      sub: "FINANCE",
-      badgeStyle: "font-bold tracking-tight text-stone-900 font-sans",
-    },
+    category: "finance",
+    tagline: "Finansije & Kampanje",
+    brandColor: "#ea580c",
+    isFeatured: true,
   },
   {
     id: "nlb-banka",
     name: "NLB Banka",
-    tier: "national",
-    customLogo: {
-      text: "NLB Banka",
-      sub: "GROUP",
-      badgeStyle: "font-black tracking-tight text-purple-900 font-sans",
-    },
-  },
-  {
-    id: "fructa",
-    name: "Fructa Trade / Kort",
-    tier: "national",
-    customLogo: {
-      text: "FRUCTA TRADE",
-      sub: "KORT MARKETA",
-      badgeStyle: "font-black tracking-wider text-red-600 font-sans",
-    },
-  },
-  {
-    id: "centrum",
-    name: "Centrum Trade",
-    tier: "national",
-    customLogo: {
-      text: "CENTRUM",
-      sub: "HOME & TRADE",
-      badgeStyle: "font-black tracking-widest text-orange-600 font-sans",
-    },
-  },
-  {
-    id: "hemofarm",
-    name: "Hemofarm",
-    tier: "national",
-    logoUrl: "/images/clients/hemofarm-50x50.jpg",
-    customLogo: {
-      text: "HEMOFARM",
-      sub: "STADA GROUP",
-      badgeStyle: "font-extrabold tracking-wide text-blue-900 font-sans",
-    },
-  },
-  {
-    id: "tropic",
-    name: "Tropic & Crvena Jabuka",
-    tier: "national",
-    customLogo: {
-      text: "TROPIC",
-      sub: "CRVENA JABUKA",
-      badgeStyle: "font-extrabold tracking-wider text-emerald-700 font-sans",
-    },
-  },
-  {
-    id: "bl-pivara",
-    name: "Banjalučka Pivara / Nektar",
-    tier: "national",
-    logoUrl: "/images/clients/jelenpivo-50x50-s.jpg",
-    customLogo: {
-      text: "NEKTAR",
-      sub: "BL PIVARA",
-      badgeStyle: "font-black tracking-widest text-amber-700 font-serif",
-    },
-  },
-  {
-    id: "demofest",
-    name: "Demofest",
-    tier: "national",
-    customLogo: {
-      text: "DEMOFEST",
-      sub: "ROCK FESTIVAL",
-      badgeStyle: "font-black tracking-widest text-stone-900 font-mono",
-    },
+    category: "finance",
+    tagline: "NLB Grupa",
+    brandColor: "#581c87",
+    isFeatured: true,
   },
   {
     id: "eki",
-    name: "EKI Mikrokrediti",
-    tier: "national",
-    customLogo: {
-      text: "EKI",
-      sub: "MIKROKREDITI",
-      badgeStyle: "font-black tracking-wider text-blue-700 font-sans",
-    },
+    name: "MKF EKI",
+    category: "finance",
+    tagline: "Mikrokrediti",
+    brandColor: "#15803d",
+    isFeatured: true,
   },
   {
     id: "forza",
-    name: "Forza BiH",
-    tier: "national",
-    customLogo: {
-      text: "FORZA",
-      sub: "CREDIT",
-      badgeStyle: "font-extrabold tracking-wide text-amber-600 font-sans",
-    },
+    name: "Forza Kredit",
+    category: "finance",
+    tagline: "Finansijske Usluge",
+    brandColor: "#b91c1c",
+    isFeatured: true,
   },
-  {
-    id: "aquana",
-    name: "Aquana JP",
-    tier: "national",
-    customLogo: {
-      text: "AQUANA",
-      sub: "VODENI PARK",
-      badgeStyle: "font-black tracking-widest text-cyan-600 font-sans",
-    },
-  },
-  {
-    id: "banja-vrucica",
-    name: "Banja Vrućica",
-    tier: "national",
-    customLogo: {
-      text: "BANJA VRUĆICA",
-      sub: "ZDRAVSTVENI CENTAR",
-      badgeStyle: "font-extrabold tracking-wider text-sky-800 font-sans",
-    },
-  },
-  {
-    id: "bonito",
-    name: "Bonito",
-    tier: "national",
-    customLogo: {
-      text: "BONITO",
-      sub: "PREHRAMBENA IND.",
-      badgeStyle: "font-black tracking-tight text-amber-600 font-sans",
-    },
-  },
-  {
-    id: "bosnalijek",
-    name: "Bosnalijek",
-    tier: "national",
-    customLogo: {
-      text: "BOSNALIJEK",
-      sub: "PHARMA",
-      badgeStyle: "font-bold tracking-wider text-emerald-800 font-sans",
-    },
-  },
-];
 
-const multinationalClients: ClientBrand[] = [
-  {
-    id: "coca-cola",
-    name: "Coca-Cola",
-    tier: "multinational",
-    logoUrl: "/images/clients/CocaC-50x50.jpg",
-    customLogo: {
-      text: "Coca-Cola",
-      badgeStyle: "font-serif italic font-black text-red-600 text-xl tracking-tight",
-    },
-  },
+  // 3. FMCG & PREHRAMBENI GIGANTI
   {
     id: "ledo",
     name: "Ledo",
-    tier: "multinational",
-    customLogo: {
-      text: "LEDO",
-      sub: "SLADOLEDI & SMRZNUTO",
-      badgeStyle: "font-black tracking-wider text-blue-600 font-sans",
-    },
+    category: "fmcg",
+    tagline: "Sladoledi & Smrznuto",
+    brandColor: "#0284c7",
+    isFeatured: true,
   },
   {
     id: "plazma",
-    name: "Plazma (Bambi)",
-    tier: "multinational",
+    name: "Bambi Plazma",
+    category: "fmcg",
     logoUrl: "/images/clients/bambi-50x50.jpg",
-    customLogo: {
-      text: "PLAZMA",
-      sub: "BAMBI",
-      badgeStyle: "font-black text-red-600 font-sans tracking-wide",
-    },
+    tagline: "Konditorska Industrija",
+    brandColor: "#dc2626",
+    isFeatured: true,
   },
   {
     id: "smoki",
     name: "Smoki (Štark)",
-    tier: "multinational",
-    customLogo: {
-      text: "SMOKI",
-      sub: "ŠTARK",
-      badgeStyle: "font-black text-amber-600 font-sans tracking-tight",
-    },
+    category: "fmcg",
+    tagline: "Atlantic Grupa",
+    brandColor: "#d97706",
+    isFeatured: true,
   },
   {
     id: "chipsi",
-    name: "Chipsi (PepsiCo / Marbo)",
-    tier: "multinational",
-    customLogo: {
-      text: "CHIPSI",
-      sub: "PEPSICO",
-      badgeStyle: "font-black tracking-wide text-yellow-600 font-sans",
-    },
+    name: "Chipsi (Marbo / PepsiCo)",
+    category: "fmcg",
+    tagline: "Snack Brend",
+    brandColor: "#ca8a04",
+    isFeatured: true,
   },
   {
     id: "doritos",
     name: "Doritos",
-    tier: "multinational",
-    customLogo: {
-      text: "DORITOS",
-      sub: "PEPSICO GLOBAL",
-      badgeStyle: "font-black tracking-wider text-red-700 font-sans",
-    },
-  },
-  {
-    id: "garnier",
-    name: "Garnier",
-    tier: "multinational",
-    logoUrl: "/images/clients/50x50-garnier.jpg",
-    customLogo: {
-      text: "GARNIER",
-      sub: "PARIS",
-      badgeStyle: "font-medium tracking-[0.25em] text-emerald-800 font-sans",
-    },
+    category: "fmcg",
+    tagline: "Global PepsiCo",
+    brandColor: "#ea580c",
+    isFeatured: true,
   },
   {
     id: "pepsi",
-    name: "Pepsi",
-    tier: "multinational",
-    customLogo: {
-      text: "PEPSI",
-      sub: "GLOBAL",
-      badgeStyle: "font-black tracking-widest text-blue-700 font-sans",
-    },
+    name: "Pepsi Global",
+    category: "beverage_food",
+    logoUrl: "/images/clients/CocaC-50x50.jpg",
+    tagline: "Napici & Kampanje",
+    brandColor: "#1d4ed8",
+    isFeatured: true,
   },
   {
-    id: "nestle",
-    name: "Nestlé",
-    tier: "multinational",
-    logoUrl: "/images/clients/nestle-50x50-s.jpg",
-    customLogo: {
-      text: "Nestlé",
-      badgeStyle: "font-bold text-stone-800 font-sans tracking-wide",
-    },
-  },
-  {
-    id: "grand-kafa",
-    name: "Grand Kafa",
-    tier: "multinational",
-    logoUrl: "/images/clients/grandK-50x50.jpg",
-    customLogo: {
-      text: "GRAND KAFA",
-      badgeStyle: "font-extrabold text-amber-900 font-serif tracking-wider",
-    },
+    id: "garnier",
+    name: "Garnier (L'Oréal)",
+    category: "fmcg",
+    logoUrl: "/images/clients/50x50-garnier.jpg",
+    tagline: "Beauty & Cosmetics",
+    brandColor: "#15803d",
+    isFeatured: true,
   },
   {
     id: "knjaz-milos",
     name: "Knjaz Miloš",
-    tier: "multinational",
-    customLogo: {
-      text: "KNJAZ MILOŠ",
-      sub: "MINERALNA VODA",
-      badgeStyle: "font-serif font-black text-blue-900 tracking-wider",
-    },
+    category: "beverage_food",
+    tagline: "Mineralne Vode",
+    brandColor: "#1e3a8a",
+    isFeatured: true,
   },
   {
-    id: "banca-intesa",
-    name: "Banca Intesa",
-    tier: "multinational",
-    logoUrl: "/images/clients/bancaintesa-50x50.jpg",
-    customLogo: {
-      text: "BANCA INTESA",
-      badgeStyle: "font-bold text-stone-800 font-sans tracking-tight",
-    },
+    id: "grand-kafa",
+    name: "Grand Kafa",
+    category: "beverage_food",
+    logoUrl: "/images/clients/grandK-50x50.jpg",
+    tagline: "Kafa & Brend",
+    brandColor: "#78350f",
+    isFeatured: true,
+  },
+  {
+    id: "hemofarm",
+    name: "Hemofarm (STADA)",
+    category: "fmcg",
+    logoUrl: "/images/clients/hemofarm-50x50.jpg",
+    tagline: "Farmacija",
+    brandColor: "#1d4ed8",
+  },
+  {
+    id: "bonito",
+    name: "Bonito",
+    category: "fmcg",
+    tagline: "Prehrambena Industrija",
+    brandColor: "#dc2626",
+  },
+
+  // 4. RETAIL & TRGOVINSKI LANCI
+  {
+    id: "fructa-trade",
+    name: "Fructa Trade / Kort",
+    category: "retail",
+    tagline: "Maloprodajni Lanac",
+    brandColor: "#b91c1c",
+    isFeatured: true,
+  },
+  {
+    id: "tropic",
+    name: "Tropic & Crvena Jabuka",
+    category: "retail",
+    tagline: "Supermarketi",
+    brandColor: "#047857",
+  },
+  {
+    id: "centrum",
+    name: "Centrum Trade",
+    category: "retail",
+    tagline: "Home & Garden Centri",
+    brandColor: "#ea580c",
+  },
+
+  // 5. MANIFESTACIJE & ZDRAVSTVENI TURIZAM
+  {
+    id: "demofest",
+    name: "Demofest",
+    category: "events",
+    tagline: "Najveći Demo Rock Festival",
+    brandColor: "#0f172a",
+    isFeatured: true,
+  },
+  {
+    id: "balkan-summer",
+    name: "Balkan Summer Summit",
+    category: "events",
+    tagline: "Regionalni Samit",
+    brandColor: "#2563eb",
+  },
+  {
+    id: "banja-vrucica",
+    name: "ZTC Banja Vrućica",
+    category: "events",
+    tagline: "Zdravstveni Turizam",
+    brandColor: "#047857",
   },
   {
     id: "mccann",
-    name: "McCann",
-    tier: "multinational",
+    name: "McCann Worldgroup",
+    category: "events",
     logoUrl: "/images/clients/mccann-50x50-s.jpg",
-    customLogo: {
-      text: "McCANN",
-      sub: "WORLDGROUP",
-      badgeStyle: "font-extrabold text-stone-900 font-sans tracking-tight",
-    },
+    tagline: "Kreativna Agencija",
+    brandColor: "#09090b",
   },
   {
     id: "publicis",
     name: "Publicis Groupe",
-    tier: "multinational",
-    customLogo: {
-      text: "PUBLICIS",
-      sub: "GROUPE",
-      badgeStyle: "font-black text-stone-900 font-serif tracking-widest",
-    },
+    category: "events",
+    tagline: "Globalna Agencija",
+    brandColor: "#713f12",
   },
 ];
 
 export default function ClientsShowcase() {
-  const [activeTab, setActiveTab] = useState<"all" | "national" | "multinational">("all");
+  const [filter, setFilter] = useState<string>("all");
 
-  const displayedList =
-    activeTab === "all"
-      ? [...nationalClients, ...multinationalClients]
-      : activeTab === "national"
-      ? nationalClients
-      : multinationalClients;
+  const filtered =
+    filter === "all"
+      ? verifiedClientsList
+      : verifiedClientsList.filter((c) => c.category === filter);
 
   return (
-    <section id="clients" className="py-24 sm:py-32 bg-white text-stone-900 border-b border-stone-200/80 relative overflow-hidden">
-      <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-16">
+    <section id="clients" className="py-24 sm:py-32 bg-[#faf9f5] text-stone-900 border-b border-stone-200/90 relative overflow-hidden">
+      {/* Soft warm background glows */}
+      <div className="absolute top-10 left-1/3 w-[600px] h-[300px] bg-amber-200/30 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-stone-500 font-bold block mb-2">
-            Referentna Lista & Dugogodišnji Partneri
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-stone-950 tracking-tight uppercase font-sans">
-            Klijenti & Reference
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 border border-amber-200 text-amber-900 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            <span>Referentna Lista • Preko 120 Stalnih Komitenata</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light text-stone-950 tracking-tight font-sans">
+            Klijenti & <span className="font-semibold text-amber-600">Reference</span>
           </h2>
-          <div className="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full shadow-[0_0_12px_rgba(245,158,11,0.6)]" />
+          <div className="w-20 h-1 bg-amber-500 mx-auto mt-4 rounded-full shadow-[0_0_12px_rgba(245,158,11,0.5)]" />
+          <p className="text-stone-600 text-sm sm:text-base leading-relaxed mt-4 max-w-2xl mx-auto font-normal">
+            Četiri decenije povjerenja najvećih domaćih i multinacionalnih brendova, bankarskih institucija, prehrambenih lidera i međunarodnih manifestacija.
+          </p>
         </div>
 
-        {/* Freestanding Monochrome Logos Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-x-8 gap-y-10 items-center justify-items-center max-w-[1600px] mx-auto py-6">
-          {[...nationalClients, ...multinationalClients].map((client) => (
+        {/* Category Filter Pills */}
+        <div className="flex items-center justify-center gap-2 flex-wrap mb-12">
+          {[
+            { id: "all", label: "Sve Reference" },
+            { id: "fmcg", label: "Prehrana & FMCG" },
+            { id: "finance", label: "Banke & Finansije" },
+            { id: "retail", label: "Maloprodaja" },
+            { id: "events", label: "Sport & Događaji" },
+            { id: "telco", label: "Telekomunikacije" },
+          ].map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setFilter(cat.id)}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                filter === cat.id
+                  ? "bg-stone-950 text-white shadow-md shadow-stone-950/20"
+                  : "bg-white hover:bg-stone-100 text-stone-600 border border-stone-200"
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Uniform High-End Client Brand Cards Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5 max-w-[1600px] mx-auto">
+          {filtered.map((client) => (
             <div
               key={client.id}
-              className="w-36 h-16 flex items-center justify-center text-center group cursor-default transition-all duration-300 hover:scale-105"
-              title={client.name}
+              className="group relative bg-white hover:bg-stone-50 border border-stone-200/90 hover:border-amber-500/70 rounded-2xl p-5 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center text-center min-h-[110px] cursor-default"
             >
               {client.logoUrl ? (
-                <img
-                  src={client.logoUrl}
-                  alt={client.name}
-                  className="max-h-10 max-w-[120px] object-contain filter grayscale contrast-125 opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
-                />
-              ) : client.customLogo ? (
-                <span className={`text-[13px] sm:text-[14px] leading-tight text-stone-600 group-hover:text-stone-950 transition-colors uppercase font-bold tracking-wider ${client.customLogo.badgeStyle}`}>
-                  {client.customLogo.text}
-                </span>
+                <div className="h-10 w-full flex items-center justify-center mb-2">
+                  <img
+                    src={client.logoUrl}
+                    alt={client.name}
+                    className="max-h-9 max-w-[110px] object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
               ) : (
-                <span className="text-xs font-bold text-stone-600 uppercase tracking-wider">
+                <div
+                  className="text-base sm:text-lg font-black tracking-tight uppercase leading-none mb-2 group-hover:scale-105 transition-transform duration-300 font-sans"
+                  style={{ color: client.brandColor || "#1c1917" }}
+                >
                   {client.name}
-                </span>
+                </div>
+              )}
+
+              <div className="text-[10px] font-mono font-medium text-stone-400 group-hover:text-stone-600 uppercase tracking-wide">
+                {client.tagline}
+              </div>
+
+              {client.isFeatured && (
+                <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-amber-500" title="Dugogodišnji partner" />
               )}
             </div>
           ))}
         </div>
 
         {/* Bottom Trust Stat Bar */}
-        <div className="mt-16 pt-8 border-t border-stone-200/80 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-stone-500">
+        <div className="mt-16 pt-8 border-t border-stone-200 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-stone-500">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>Četiri decenije kontinuirane audio produkcije, radio i TV emitovanja</span>
           </div>
           <div className="flex items-center gap-6">
-            <span>6.012 realizovanih projekata</span>
+            <strong className="text-stone-900 font-bold">6.012 realizovanih projekata</strong>
             <span className="text-stone-300">•</span>
             <span>Preko 120 stalnih komitenata u sistemu</span>
           </div>

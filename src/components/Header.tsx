@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Volume2, Radio, Server, Mic2, ExternalLink, ArrowRight, Menu, X, Disc, PhoneCall, Sparkles, Lock } from "lucide-react";
+import { ExternalLink, Menu, X, Radio } from "lucide-react";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,33 +25,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300">
-      {/* Top Banner: Member of Fluxa Group - Light seamlessly integrated into Header */}
-      <div className="bg-[#f8f9fa] border-b border-stone-200/80 text-[11px] text-stone-600 py-1.5 px-6 sm:px-12 lg:px-20 transition-colors">
-        <div className="w-full flex items-center justify-between gap-4">
-          {/* Across the width: Member of Fluxa Group */}
-          <div className="flex-1 text-center sm:text-left">
-            <span className="font-mono text-xs tracking-widest uppercase font-bold text-stone-700">
-              Member of Fluxa Group
-            </span>
-          </div>
-
-          {/* Right Top Corner: Direct Link to web.studiotaf.xyz */}
-          <div>
-            <a
-              href="https://web.studiotaf.xyz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white hover:bg-stone-50 text-stone-800 border border-stone-300 text-xs font-mono font-semibold transition-all shadow-xs"
-              title="Posjetite web.studiotaf.xyz"
-            >
-              <span>web.studiotaf.xyz</span>
-              <ExternalLink className="w-3 h-3 text-orange-600" />
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Light Navigation Bar - Pure White / Light Shell so TAF Logo Blends Naturally */}
+      {/* Main Light Navigation Bar */}
       <nav
         className={`px-6 sm:px-12 lg:px-20 py-3 transition-all duration-300 ${
           scrolled
@@ -60,29 +34,25 @@ export default function Header() {
         }`}
       >
         <div className="w-full flex items-center justify-between">
-          {/* Brand Logo & Heritage Title */}
+          {/* Brand Logo & Authentic Custom Font Title */}
           <div
             className="flex items-center gap-3.5 cursor-pointer group"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            {/* Natural integration of Studio TAF logo on light background */}
             <div className="flex items-center justify-center p-0.5">
               <img
                 src="/logos/taf-logo.jpg"
                 alt="Studio TAF Logo"
-                className="h-11 sm:h-12 w-auto object-contain rounded-md"
+                className="h-10 sm:h-12 w-auto object-contain rounded-md"
               />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-stone-950 font-sans">
-                  Studio <span className="text-orange-600">TAF</span>
-                </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-300 font-bold uppercase tracking-wider">
-                  Member of Fluxa Group
+                <span className="font-taf text-2xl sm:text-3xl tracking-wide text-stone-950 font-normal leading-none">
+                  Studio TAF
                 </span>
               </div>
-              <div className="text-[11px] text-stone-500 font-medium tracking-wide hidden sm:block">
+              <div className="text-[11px] text-stone-500 font-medium tracking-wide hidden sm:block mt-0.5">
                 Master Audio Produkcija & Režija od 1982.
               </div>
             </div>
@@ -92,68 +62,56 @@ export default function Header() {
           <div className="hidden xl:flex items-center gap-7 text-xs font-bold text-stone-700">
             <button
               onClick={() => scrollTo("about")}
-              className="hover:text-orange-600 transition-colors cursor-pointer"
+              className="hover:text-amber-600 transition-colors cursor-pointer"
             >
-              About Us
+              O Nama
             </button>
             <button
               onClick={() => scrollTo("what-we-do")}
-              className="hover:text-orange-600 transition-colors cursor-pointer flex items-center gap-1.5"
+              className="hover:text-amber-600 transition-colors cursor-pointer"
             >
-              <Sparkles className="w-3.5 h-3.5 text-orange-600" />
-              <span>What We Do</span>
+              Šta Radimo
             </button>
             <button
-              onClick={() => scrollTo("fluxax")}
-              className="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-600 border border-amber-500/20 hover:bg-amber-500/20 transition-all cursor-pointer flex items-center gap-1.5 font-bold"
+              onClick={() => scrollTo("omega")}
+              className="hover:text-red-700 transition-colors cursor-pointer flex items-center gap-1.5"
             >
-              <Radio className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-              <span>FluxaX HUB</span>
+              <span className="text-[#C4001A] font-serif font-black text-xs">Ω</span>
+              <span>Omega / Swiss Timing</span>
             </button>
             <button
               onClick={() => scrollTo("clients")}
-              className="hover:text-orange-600 transition-colors cursor-pointer"
+              className="hover:text-amber-600 transition-colors cursor-pointer"
             >
-              Clients
+              Klijenti & Reference
             </button>
             <button
-              onClick={() => scrollTo("moj-radio")}
-              className="hover:text-orange-600 transition-colors cursor-pointer flex items-center gap-1.5"
+              onClick={() => scrollTo("heritage")}
+              className="hover:text-amber-600 transition-colors cursor-pointer"
             >
-              <Radio className="w-3.5 h-3.5 text-orange-600" />
-              <span>B2B In-Store & Stubovi</span>
-            </button>
-            <button
-              onClick={() => scrollTo("timeline")}
-              className="hover:text-orange-600 transition-colors cursor-pointer"
-            >
-              Our Story
+              Istorijat (1982–Danas)
             </button>
           </div>
 
-          {/* Right Action: Studio Live Status & Client Portal Link */}
+          {/* Right Action: Studio Live Status & FluxaX Redirection */}
           <div className="hidden sm:flex items-center gap-3">
-            {/* Retro Analog Needle / VU Status */}
-            <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-stone-100 border border-stone-300 text-[10px] font-mono text-stone-800">
-              <span className="text-stone-500 font-bold">STUDIO:</span>
-              <div className="flex items-center gap-0.5">
-                <span className="w-1.5 h-2.5 rounded-xs bg-emerald-500" />
-                <span className="w-1.5 h-3.5 rounded-xs bg-emerald-500" />
-                <span className="w-1.5 h-3 rounded-xs bg-emerald-500" />
-                <span className="w-1.5 h-4 rounded-xs bg-amber-500" />
-                <span className="w-1.5 h-2.5 rounded-xs bg-red-500 animate-pulse" />
-              </div>
-              <span className="text-red-600 font-bold ml-1">ON AIR</span>
+            {/* Subtle Studio Status Indicator */}
+            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-stone-100 border border-stone-200 text-[10px] font-mono text-stone-700">
+              <span className="w-2 h-2 rounded-full bg-slate-400" />
+              <span className="font-bold">STUDIO STANDBY</span>
             </div>
 
+            {/* FluxaX Portal Link */}
             <a
-              href="http://192.168.70.150:1991"
+              href="https://fluxax.eu"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-stone-950 hover:bg-stone-800 text-white font-bold text-xs tracking-wide shadow-md transition-all cursor-pointer flex items-center gap-2"
+              className="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs tracking-wide shadow-sm hover:shadow transition-all cursor-pointer flex items-center gap-1.5"
+              title="FluxaX Audio & Video Screening Platforma"
             >
-              <Lock className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Klijent Portal</span>
+              <Radio className="w-3.5 h-3.5 text-teal-300" />
+              <span>FluxaX</span>
+              <ExternalLink className="w-3 h-3 text-teal-300 ml-0.5" />
             </a>
           </div>
 
@@ -171,51 +129,52 @@ export default function Header() {
           <div className="xl:hidden pt-4 pb-2 border-t border-stone-200 mt-3 space-y-2 text-sm text-stone-700">
             <button
               onClick={() => scrollTo("about")}
-              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2"
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2 font-medium"
             >
-              <span>About Us</span>
+              <span>O Nama</span>
             </button>
             <button
               onClick={() => scrollTo("what-we-do")}
-              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2"
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2 font-medium"
             >
-              <span>What We Do</span>
+              <span>Šta Radimo</span>
+            </button>
+            <button
+              onClick={() => scrollTo("omega")}
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2 font-medium"
+            >
+              <span className="text-[#C4001A] font-serif font-black text-xs">Ω</span>
+              <span>Omega / Swiss Timing</span>
             </button>
             <button
               onClick={() => scrollTo("clients")}
-              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2"
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2 font-medium"
             >
-              <span>Clients</span>
+              <span>Klijenti & Reference</span>
             </button>
             <button
-              onClick={() => scrollTo("moj-radio")}
-              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2"
+              onClick={() => scrollTo("heritage")}
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2 font-medium"
             >
-              <span>B2B In-Store & Audio Stubovi</span>
-            </button>
-            <button
-              onClick={() => scrollTo("timeline")}
-              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2"
-            >
-              <span>Our Story (1982–Danas)</span>
+              <span>Istorijat (1982–Danas)</span>
             </button>
             <div className="pt-2">
               <a
-                href="http://192.168.70.150:1991"
+                href="https://fluxax.eu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 rounded-xl bg-stone-950 hover:bg-stone-800 text-white font-bold text-xs text-center flex items-center justify-center gap-2"
+                className="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs text-center flex items-center justify-center gap-2"
               >
-                <Lock className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Otvori Klijent Portal</span>
+                <Radio className="w-3.5 h-3.5 text-teal-300" />
+                <span>Otvori FluxaX</span>
+                <ExternalLink className="w-3.5 h-3.5 text-teal-300" />
               </a>
             </div>
           </div>
         )}
       </nav>
 
-      {/* Soft gradient / raster transition into the dark hero background */}
-      <div className="h-5 w-full bg-gradient-to-b from-black/20 via-black/5 to-transparent pointer-events-none absolute -bottom-5 left-0" />
+      <div className="h-4 w-full bg-gradient-to-b from-black/15 via-black/5 to-transparent pointer-events-none absolute -bottom-4 left-0" />
     </header>
   );
 }

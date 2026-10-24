@@ -16,6 +16,47 @@ interface ClientBrand {
 
 const nationalClients: ClientBrand[] = [
   {
+    id: "mtel",
+    name: "m:tel",
+    tier: "national",
+    logoUrl: "/images/clients/mts1-50x50-s.jpg",
+    customLogo: {
+      text: "m:tel",
+      sub: "TELEKOM",
+      badgeStyle: "font-bold text-rose-600 font-sans lowercase",
+    },
+  },
+  {
+    id: "nova-banka",
+    name: "Nova Banka",
+    tier: "national",
+    customLogo: {
+      text: "NOVA BANKA",
+      sub: "AD BANJA LUKA",
+      badgeStyle: "font-black tracking-wide text-blue-800 font-sans",
+    },
+  },
+  {
+    id: "addiko-bank",
+    name: "Addiko Bank",
+    tier: "national",
+    customLogo: {
+      text: "Addiko Bank",
+      sub: "FINANCE",
+      badgeStyle: "font-bold tracking-tight text-stone-900 font-sans",
+    },
+  },
+  {
+    id: "nlb-banka",
+    name: "NLB Banka",
+    tier: "national",
+    customLogo: {
+      text: "NLB Banka",
+      sub: "GROUP",
+      badgeStyle: "font-black tracking-tight text-purple-900 font-sans",
+    },
+  },
+  {
     id: "fructa",
     name: "Fructa Trade / Kort",
     tier: "national",
@@ -47,17 +88,6 @@ const nationalClients: ClientBrand[] = [
     },
   },
   {
-    id: "mtel",
-    name: "m:tel",
-    tier: "national",
-    logoUrl: "/images/clients/mts1-50x50-s.jpg",
-    customLogo: {
-      text: "m:tel",
-      sub: "TELEKOM",
-      badgeStyle: "font-bold text-rose-600 font-sans lowercase",
-    },
-  },
-  {
     id: "tropic",
     name: "Tropic & Crvena Jabuka",
     tier: "national",
@@ -65,26 +95,6 @@ const nationalClients: ClientBrand[] = [
       text: "TROPIC",
       sub: "CRVENA JABUKA",
       badgeStyle: "font-extrabold tracking-wider text-emerald-700 font-sans",
-    },
-  },
-  {
-    id: "konzum",
-    name: "Konzum",
-    tier: "national",
-    customLogo: {
-      text: "KONZUM",
-      sub: "MALOPRODAJA",
-      badgeStyle: "font-black tracking-tight text-red-600 font-sans",
-    },
-  },
-  {
-    id: "mercator",
-    name: "Mercator",
-    tier: "national",
-    customLogo: {
-      text: "mercator",
-      sub: "REGIONAL",
-      badgeStyle: "font-bold tracking-tight text-red-700 font-sans",
     },
   },
   {
@@ -99,43 +109,43 @@ const nationalClients: ClientBrand[] = [
     },
   },
   {
-    id: "bosnalijek",
-    name: "Bosnalijek",
+    id: "demofest",
+    name: "Demofest",
     tier: "national",
     customLogo: {
-      text: "BOSNALIJEK",
-      sub: "PHARMA",
-      badgeStyle: "font-bold tracking-wider text-emerald-800 font-sans",
+      text: "DEMOFEST",
+      sub: "ROCK FESTIVAL",
+      badgeStyle: "font-black tracking-widest text-stone-900 font-mono",
     },
   },
   {
-    id: "atos-bank",
-    name: "Atos Bank",
+    id: "eki",
+    name: "EKI Mikrokrediti",
     tier: "national",
     customLogo: {
-      text: "ATOS BANK",
-      sub: "BANJA LUKA",
-      badgeStyle: "font-black tracking-tight text-teal-700 font-sans",
+      text: "EKI",
+      sub: "MIKROKREDITI",
+      badgeStyle: "font-black tracking-wider text-blue-700 font-sans",
     },
   },
   {
-    id: "nova-banka",
-    name: "Nova Banka",
+    id: "forza",
+    name: "Forza BiH",
     tier: "national",
     customLogo: {
-      text: "NOVA BANKA",
-      sub: "AD BANJA LUKA",
-      badgeStyle: "font-black tracking-wide text-blue-800 font-sans",
+      text: "FORZA",
+      sub: "CREDIT",
+      badgeStyle: "font-extrabold tracking-wide text-amber-600 font-sans",
     },
   },
   {
-    id: "addiko-bank",
-    name: "Addiko Bank",
+    id: "aquana",
+    name: "Aquana JP",
     tier: "national",
     customLogo: {
-      text: "Addiko Bank",
-      sub: "FINANCE",
-      badgeStyle: "font-bold tracking-tight text-stone-900 font-sans",
+      text: "AQUANA",
+      sub: "VODENI PARK",
+      badgeStyle: "font-black tracking-widest text-cyan-600 font-sans",
     },
   },
   {
@@ -159,63 +169,13 @@ const nationalClients: ClientBrand[] = [
     },
   },
   {
-    id: "blicnet",
-    name: "BlicNet",
+    id: "bosnalijek",
+    name: "Bosnalijek",
     tier: "national",
     customLogo: {
-      text: "blicnet",
-      sub: "TELECOM & NET",
-      badgeStyle: "font-black tracking-tighter text-blue-600 font-sans",
-    },
-  },
-  {
-    id: "aquana",
-    name: "Aquana JP",
-    tier: "national",
-    customLogo: {
-      text: "AQUANA",
-      sub: "VODENI PARK & DOKUMENT",
-      badgeStyle: "font-black tracking-widest text-cyan-600 font-sans",
-    },
-  },
-  {
-    id: "bl-berza",
-    name: "Banjalučka Berza",
-    tier: "national",
-    customLogo: {
-      text: "BL BERZA",
-      sub: "STOCK EXCHANGE",
-      badgeStyle: "font-black tracking-wider text-slate-800 font-mono",
-    },
-  },
-  {
-    id: "argeta",
-    name: "Argeta",
-    tier: "national",
-    customLogo: {
-      text: "ARGETA",
-      sub: "ATLANTIC GRUPA",
-      badgeStyle: "font-black tracking-wider text-orange-600 font-sans",
-    },
-  },
-  {
-    id: "banski-dvor",
-    name: "Banski Dvor",
-    tier: "national",
-    customLogo: {
-      text: "BANSKI DVOR",
-      sub: "KULTURNI CENTAR",
-      badgeStyle: "font-bold tracking-widest text-stone-800 font-serif",
-    },
-  },
-  {
-    id: "alfa-plam",
-    name: "Alfa Plam",
-    tier: "national",
-    customLogo: {
-      text: "ALFA PLAM",
-      sub: "INDUSTRY",
-      badgeStyle: "font-black tracking-wider text-red-800 font-sans",
+      text: "BOSNALIJEK",
+      sub: "PHARMA",
+      badgeStyle: "font-bold tracking-wider text-emerald-800 font-sans",
     },
   },
 ];
@@ -232,13 +192,54 @@ const multinationalClients: ClientBrand[] = [
     },
   },
   {
-    id: "pepsi",
-    name: "Pepsi",
+    id: "ledo",
+    name: "Ledo",
     tier: "multinational",
     customLogo: {
-      text: "PEPSI",
-      sub: "GLOBAL",
-      badgeStyle: "font-black tracking-widest text-blue-700 font-sans",
+      text: "LEDO",
+      sub: "SLADOLEDI & SMRZNUTO",
+      badgeStyle: "font-black tracking-wider text-blue-600 font-sans",
+    },
+  },
+  {
+    id: "plazma",
+    name: "Plazma (Bambi)",
+    tier: "multinational",
+    logoUrl: "/images/clients/bambi-50x50.jpg",
+    customLogo: {
+      text: "PLAZMA",
+      sub: "BAMBI",
+      badgeStyle: "font-black text-red-600 font-sans tracking-wide",
+    },
+  },
+  {
+    id: "smoki",
+    name: "Smoki (Štark)",
+    tier: "multinational",
+    customLogo: {
+      text: "SMOKI",
+      sub: "ŠTARK",
+      badgeStyle: "font-black text-amber-600 font-sans tracking-tight",
+    },
+  },
+  {
+    id: "chipsi",
+    name: "Chipsi (PepsiCo / Marbo)",
+    tier: "multinational",
+    customLogo: {
+      text: "CHIPSI",
+      sub: "PEPSICO",
+      badgeStyle: "font-black tracking-wide text-yellow-600 font-sans",
+    },
+  },
+  {
+    id: "doritos",
+    name: "Doritos",
+    tier: "multinational",
+    customLogo: {
+      text: "DORITOS",
+      sub: "PEPSICO GLOBAL",
+      badgeStyle: "font-black tracking-wider text-red-700 font-sans",
     },
   },
   {
@@ -253,6 +254,16 @@ const multinationalClients: ClientBrand[] = [
     },
   },
   {
+    id: "pepsi",
+    name: "Pepsi",
+    tier: "multinational",
+    customLogo: {
+      text: "PEPSI",
+      sub: "GLOBAL",
+      badgeStyle: "font-black tracking-widest text-blue-700 font-sans",
+    },
+  },
+  {
     id: "nestle",
     name: "Nestlé",
     tier: "multinational",
@@ -260,17 +271,6 @@ const multinationalClients: ClientBrand[] = [
     customLogo: {
       text: "Nestlé",
       badgeStyle: "font-bold text-stone-800 font-sans tracking-wide",
-    },
-  },
-  {
-    id: "bambi",
-    name: "Bambi",
-    tier: "multinational",
-    logoUrl: "/images/clients/bambi-50x50.jpg",
-    customLogo: {
-      text: "bambi",
-      sub: "PLAZMA",
-      badgeStyle: "font-black text-red-600 font-sans",
     },
   },
   {
@@ -284,13 +284,13 @@ const multinationalClients: ClientBrand[] = [
     },
   },
   {
-    id: "barcaffe",
-    name: "Barcaffè",
+    id: "knjaz-milos",
+    name: "Knjaz Miloš",
     tier: "multinational",
-    logoUrl: "/images/clients/barcaffe-50x50.jpg",
     customLogo: {
-      text: "Barcaffè",
-      badgeStyle: "font-bold text-stone-900 font-sans italic",
+      text: "KNJAZ MILOŠ",
+      sub: "MINERALNA VODA",
+      badgeStyle: "font-serif font-black text-blue-900 tracking-wider",
     },
   },
   {
@@ -312,28 +312,6 @@ const multinationalClients: ClientBrand[] = [
       text: "McCANN",
       sub: "WORLDGROUP",
       badgeStyle: "font-extrabold text-stone-900 font-sans tracking-tight",
-    },
-  },
-  {
-    id: "idea-plus",
-    name: "Idea Plus",
-    tier: "multinational",
-    logoUrl: "/images/clients/ideaC-50x50.jpg",
-    customLogo: {
-      text: "idea+",
-      sub: "COMMUNICATIONS",
-      badgeStyle: "font-black text-stone-900 font-sans",
-    },
-  },
-  {
-    id: "philip-morris",
-    name: "Philip Morris",
-    tier: "multinational",
-    logoUrl: "/images/clients/50x50-phillip.png",
-    customLogo: {
-      text: "PHILIP MORRIS",
-      sub: "INTERNATIONAL",
-      badgeStyle: "font-medium text-stone-800 font-serif tracking-wider",
     },
   },
   {
@@ -362,19 +340,18 @@ export default function ClientsShowcase() {
     <section id="clients" className="py-24 sm:py-32 bg-white text-stone-900 border-b border-stone-200/80 relative overflow-hidden">
       <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-16">
         
-        {/* Section Header - Clean, Crisp & Optimistic */}
+        {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-mono uppercase tracking-[0.25em] text-stone-500 font-bold block mb-2">
             Referentna Lista & Dugogodišnji Partneri
           </span>
           <h2 className="text-3xl sm:text-5xl font-black text-stone-950 tracking-tight uppercase font-sans">
-            CLIENTS
+            Klijenti & Reference
           </h2>
-          {/* Subtle orange underline accent */}
-          <div className="w-16 h-1 bg-orange-500 mx-auto mt-4 rounded-full shadow-[0_0_12px_rgba(249,115,22,0.6)]" />
+          <div className="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full shadow-[0_0_12px_rgba(245,158,11,0.6)]" />
         </div>
 
-        {/* Freestanding Monochrome B/W Logos Grid (Uniformna veličina, sivo na bijelom, bez viška teksta) */}
+        {/* Freestanding Monochrome Logos Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-x-8 gap-y-10 items-center justify-items-center max-w-[1600px] mx-auto py-6">
           {[...nationalClients, ...multinationalClients].map((client) => (
             <div
@@ -408,7 +385,7 @@ export default function ClientsShowcase() {
             <span>Četiri decenije kontinuirane audio produkcije, radio i TV emitovanja</span>
           </div>
           <div className="flex items-center gap-6">
-            <span>6.000+ realizovanih kampanja</span>
+            <span>6.012 realizovanih projekata</span>
             <span className="text-stone-300">•</span>
             <span>Preko 120 stalnih komitenata u sistemu</span>
           </div>

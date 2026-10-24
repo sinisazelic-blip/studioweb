@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ExternalLink, ArrowUp, Mail, MapPin, Award } from "lucide-react";
+import { ExternalLink, ArrowUp, Mail, MapPin, Award, Phone } from "lucide-react";
 import { APP_CONFIG } from "@/config/appConfig";
 
 export default function Footer() {
@@ -30,11 +30,11 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <span className="font-extrabold text-base text-stone-950 font-sans block">
-                  Studio <span className="text-orange-600">TAF</span>
+                <span className="font-taf text-2xl text-stone-950 block leading-none">
+                  Studio TAF
                 </span>
-                <span className="text-[11px] text-stone-500 font-mono flex items-center gap-1.5 font-bold">
-                  <Award className="w-3.5 h-3.5 text-orange-600" />
+                <span className="text-[11px] text-stone-500 font-mono flex items-center gap-1.5 font-bold mt-1">
+                  <Award className="w-3.5 h-3.5 text-amber-600" />
                   <span>Četiri decenije zvuka & produkcije (1982–{new Date().getFullYear()})</span>
                 </span>
               </div>
@@ -42,19 +42,24 @@ export default function Footer() {
 
             <p className="text-stone-600 leading-relaxed text-xs max-w-md font-light">
               Pravi analogni temelj i digitalna superiornost. Akustički tretirani prostori, 
-              in-store zvučna B2B infrastruktura sa autonomnim zvučnim stubovima, 
-              namjenska audio distribucija i online režija u realnom vremenu.
+              namjenska audio produkcija, broadcast standardi i online režija u realnom vremenu.
             </p>
 
             <div className="space-y-1.5 pt-2 text-[11px] text-stone-700 font-medium">
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-orange-600" />
+                <MapPin className="w-3.5 h-3.5 text-amber-600" />
                 <span>Banja Luka, Bosna i Hercegovina</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-orange-600" />
-                <a href="mailto:info@studiotaf.ba" className="hover:text-orange-600 transition-colors">
-                  info@studiotaf.ba • podrska@studiotaf.ba
+                <Mail className="w-3.5 h-3.5 text-amber-600" />
+                <a href="mailto:info@studiotaf.xyz" className="hover:text-amber-600 transition-colors">
+                  info@studiotaf.xyz
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5 text-amber-600" />
+                <a href="tel:+38751456456" className="hover:text-amber-600 transition-colors">
+                  +387 (0) 51 456 456
                 </a>
               </div>
             </div>
@@ -67,55 +72,56 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-stone-600">
               <li>
-                <button onClick={() => scrollTo("about")} className="hover:text-orange-600 transition-colors cursor-pointer text-left">
-                  About Us (O Studiju & Timu)
+                <button onClick={() => scrollTo("about")} className="hover:text-amber-600 transition-colors cursor-pointer text-left">
+                  O Nama (O Studiju & Timu)
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("what-we-do")} className="hover:text-orange-600 transition-colors cursor-pointer text-left">
-                  What We Do (Audio Ponuda)
+                <button onClick={() => scrollTo("what-we-do")} className="hover:text-amber-600 transition-colors cursor-pointer text-left">
+                  Šta Radimo (Usluge & Produkcija)
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("clients")} className="hover:text-orange-600 transition-colors cursor-pointer text-left">
-                  Clients (Referentna Lista)
+                <button onClick={() => scrollTo("omega")} className="hover:text-red-700 transition-colors cursor-pointer text-left flex items-center gap-1.5">
+                  <span className="text-[#C4001A] font-serif font-black text-xs">Ω</span>
+                  <span>Omega / Swiss Timing</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("moj-radio")} className="hover:text-orange-600 transition-colors cursor-pointer text-left">
-                  B2B In-Store & Audio Stubovi
+                <button onClick={() => scrollTo("clients")} className="hover:text-amber-600 transition-colors cursor-pointer text-left">
+                  Klijenti & Reference
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("timeline")} className="hover:text-orange-600 transition-colors cursor-pointer text-left">
-                  Our Story (Hronologija 1982–Danas)
+                <button onClick={() => scrollTo("heritage")} className="hover:text-amber-600 transition-colors cursor-pointer text-left">
+                  Istorijat (1982–Danas)
                 </button>
               </li>
               <li>
-                <a href="/client-portal" className="hover:text-orange-600 font-semibold text-stone-900 transition-colors cursor-pointer text-left block">
-                  Klijentski Portal & Video Režija ↗
+                <a href="https://fluxax.eu" target="_blank" rel="noopener noreferrer" className="hover:text-teal-700 font-semibold text-stone-900 transition-colors cursor-pointer text-left flex items-center gap-1">
+                  <span>FluxaX Audio & Video Screening</span>
+                  <ExternalLink className="w-3 h-3 text-teal-600" />
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Member of Fluxa Group */}
+          {/* Col 3: Švicarsko Partnerstvo */}
           <div className="md:col-span-4 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-100 text-stone-800 border border-stone-300 text-[10px] font-mono uppercase font-bold tracking-wider">
-              <span>Member of Fluxa Group</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-800 border border-red-200 text-[10px] font-mono uppercase font-bold tracking-wider">
+              <span className="text-[#C4001A] font-serif font-black text-xs leading-none">Ω</span>
+              <span>Swiss Timing Zvanični Partner</span>
             </div>
             <p className="text-xs text-stone-600 leading-relaxed font-light">
-              Studio TAF je audio kreativni temelj i nosilac zvučne produkcije unutar Fluxa grupacije.
+              Specijalizovano vođenje borilišta i automatizacija plivačkih i sportskih takmičenja uz punu podršku za Quantum Timer, touchpads i live semafore.
             </p>
             <div className="pt-2">
               <a
-                href="https://web.studiotaf.xyz"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:info@studiotaf.xyz"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-stone-100 text-stone-900 font-mono text-xs font-semibold border border-stone-300 shadow-xs transition-all"
               >
-                <span>web.studiotaf.xyz</span>
-                <ExternalLink className="w-3.5 h-3.5 text-orange-600" />
+                <span>info@studiotaf.xyz</span>
+                <ExternalLink className="w-3.5 h-3.5 text-amber-600" />
               </a>
             </div>
           </div>
@@ -129,10 +135,10 @@ export default function Footer() {
               © 1982 – {new Date().getFullYear()} <strong className="text-stone-900 font-semibold">Studio TAF</strong>. Sva prava zadržana.
             </span>
             <span
-              className="font-mono text-orange-700 select-none tracking-wider px-2 py-0.5 rounded bg-white border border-stone-200 shadow-xs font-bold"
-              title="StudioWEB Trenutni Build"
+              className="font-mono text-amber-800 select-none tracking-wider px-2 py-0.5 rounded bg-white border border-stone-200 shadow-xs font-bold"
+              title="StudioWEB Verzija"
             >
-              build {APP_CONFIG.build} • :1991
+              build {APP_CONFIG.build}
             </span>
           </div>
 

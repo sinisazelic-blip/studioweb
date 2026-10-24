@@ -73,7 +73,7 @@ const milestones: TimelineMilestone[] = [
 export default function HeritageStory() {
   return (
     <section
-      id="timeline"
+      id="heritage"
       className="relative py-28 sm:py-36 bg-fixed bg-cover bg-center overflow-hidden"
       style={{
         backgroundImage: "url('/images/equipment/studio-heritage-warm.jpg')",

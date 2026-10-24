@@ -38,46 +38,55 @@ export default function HeroStudio() {
 
   return (
     <section className="relative min-h-[92vh] flex flex-col justify-between overflow-hidden bg-stone-950 text-white">
-      {/* Background Studio Visual - Slightly Brightened & Optimistic Warmth */}
-      <div
-        className="absolute inset-0 bg-cover bg-center filter brightness-[0.88] contrast-[1.04] saturate-[1.06] pointer-events-none transition-transform duration-1000"
-        style={{
-          backgroundImage: "url('/images/equipment/hero-console.jpg')",
-        }}
-      />
+      {/* Background Studio Visual & Mathematically Pinned Display (SVG Locked Coordinates) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <svg
+          viewBox="0 0 2400 1600"
+          preserveAspectRatio="xMidYMid slice"
+          className="w-full h-full"
+        >
+          {/* Authentic Studio Hardware Console Photography */}
+          <image
+            href="/images/equipment/hero-console.jpg"
+            width="2400"
+            height="1600"
+            className="filter brightness-[0.88] contrast-[1.04] saturate-[1.06]"
+          />
+
+          {/* Desktop Pinned Video: Exact Physical Monitor Screen (500, 670, 500, 262) in 2400x1600 matrix */}
+          <foreignObject
+            x="500"
+            y="670"
+            width="500"
+            height="262"
+            className="hidden lg:block overflow-hidden"
+          >
+            <div className="w-full h-full bg-black rounded-[2px] overflow-hidden relative shadow-[inset_0_0_20px_rgba(0,0,0,0.95)]">
+              <video
+                ref={videoRef}
+                src="/TAFlogoMOVE.mp4"
+                autoPlay
+                muted
+                playsInline
+                onEnded={handleVideoEnded}
+                className="w-full h-full object-cover filter brightness-[0.74] contrast-[1.22] saturate-[0.85]"
+              />
+              {/* Soft screen phosphor / glare */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-black/50 via-transparent to-white/10 pointer-events-none" />
+            </div>
+          </foreignObject>
+        </svg>
+      </div>
 
       {/* Gentle transparent gradient so physical console and studio lighting remain authentic */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-stone-950/95 pointer-events-none" />
 
       {/* Top-Right Pill Tag: Studio TAF - A Member of Fluxa Group - Est. 1982 */}
-      <div className="absolute top-6 right-6 lg:top-8 lg:right-16 z-30 pointer-events-auto">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-stone-200 text-[11px] font-mono tracking-widest uppercase shadow-lg">
-          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+      <div className="absolute top-4 sm:top-6 right-4 sm:right-8 lg:right-12 z-30 pointer-events-auto">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-stone-200 text-[11px] font-mono tracking-widest uppercase shadow-lg">
+          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
           <span>Studio TAF • A Member of Fluxa Group • Est. 1982</span>
         </div>
-      </div>
-
-      {/* DESKTOP PERSPECTIVE-MAPPED VIDEO ON CONSOLE SCREEN (PIXEL-PERFECT INNER DISPLAY) */}
-      <div
-        className="hidden lg:flex absolute z-20 rounded-[2px] overflow-hidden bg-black pointer-events-none shadow-[inset_0_0_25px_rgba(0,0,0,0.98),0_2px_12px_rgba(0,0,0,0.9)] border border-black/80"
-        style={{
-          left: "26.33%",
-          top: "29.31%",
-          width: "15.17%",
-          height: "19.12%",
-        }}
-      >
-        <video
-          ref={videoRef}
-          src="/TAFlogoMOVE.mp4"
-          autoPlay
-          muted
-          playsInline
-          onEnded={handleVideoEnded}
-          className="w-full h-full object-cover filter brightness-[0.76] contrast-[1.22] saturate-[0.85]"
-        />
-        {/* CRT / Soft Inner Screen Glare and Phosphor Falloff */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-black/50 via-transparent to-white/10 pointer-events-none" />
       </div>
 
       {/* Main Hero Content Area */}
@@ -101,16 +110,16 @@ export default function HeroStudio() {
           {/* DESKTOP LEFT SPACER */}
           <div className="hidden lg:block lg:col-span-6 pointer-events-none" />
 
-          {/* RIGHT: Typography & Action Buttons in a Borderless Dark Translucent Glass Card */}
+          {/* RIGHT: Typography & Action Buttons in Exact Same Luminous Frosted Glass Box as Bottom Metrics */}
           <div className="lg:col-span-6 flex flex-col justify-center items-start lg:ml-auto max-w-xl z-20">
-            <div className="bg-black/60 backdrop-blur-xl p-8 sm:p-10 rounded-3xl shadow-2xl border border-white/5 space-y-6">
+            <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-3xl p-8 sm:p-10 shadow-2xl space-y-6">
               {/* Clean, Elegant, Minimalist Typography */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.1] font-sans drop-shadow-md">
                 Snimanje, miks <br />
                 <span className="font-semibold text-amber-400">i zvučni dizajn.</span>
               </h1>
 
-              <p className="text-stone-200 text-sm sm:text-base font-light leading-relaxed font-sans drop-shadow-sm">
+              <p className="text-stone-100 text-sm sm:text-base font-light leading-relaxed font-sans drop-shadow-sm">
                 Četiri decenije rada sa zvukom, analognom opremom i namenskom akustikom. 
                 Bez suvišnih riječi — posao radimo tiho, precizno i na vrijeme.
               </p>
@@ -126,7 +135,7 @@ export default function HeroStudio() {
                 </button>
                 <button
                   onClick={() => scrollTo("what-we-do")}
-                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md transition-all cursor-pointer shadow-sm"
+                  className="px-6 py-3.5 rounded-xl bg-white/15 hover:bg-white/25 text-white border border-white/25 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md transition-all cursor-pointer shadow-sm"
                 >
                   Usluge i Produkcija
                 </button>

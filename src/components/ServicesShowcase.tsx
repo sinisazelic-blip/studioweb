@@ -62,7 +62,7 @@ export default function ServicesShowcase() {
       id="what-we-do"
       className="relative py-24 sm:py-32 bg-fixed bg-cover bg-center overflow-hidden"
       style={{
-        backgroundImage: "url('/images/equipment/studio-analog-desk.jpg')",
+        backgroundImage: "url('/images/equipment/studio-vocal-recording.jpg')",
       }}
     >
       {/* Dark Translucent Tinted Overlay */}

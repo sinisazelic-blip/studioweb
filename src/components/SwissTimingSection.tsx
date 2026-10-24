@@ -183,24 +183,6 @@ export default function SwissTimingSection() {
           </div>
         </div>
 
-        {/* Direct Action Banner */}
-        <div className="max-w-4xl mx-auto bg-gradient-to-r from-red-600 via-red-700 to-red-800 rounded-3xl p-8 sm:p-10 shadow-2xl border border-red-400 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div>
-            <h4 className="text-xl sm:text-2xl font-black text-white">
-              Potrebno vam je profesionalno mjerenje za takmičenje?
-            </h4>
-            <p className="text-xs sm:text-sm text-red-100 mt-1">
-              Obezbjeđujemo kompletnu Swiss Timing opremu, sudijske table, semafore i licencirano vođenje.
-            </p>
-          </div>
-          <a
-            href="mailto:info@studiotaf.xyz?subject=Upit%20za%20elektronsko%20mjerenje%20takmičenja"
-            className="px-6 py-3.5 rounded-xl bg-white hover:bg-stone-100 text-red-700 font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg shrink-0 cursor-pointer"
-          >
-            Kontaktirajte Nas za Borilišta
-          </a>
-        </div>
-
       </div>
     </section>
   );

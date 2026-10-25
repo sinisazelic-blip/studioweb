@@ -11,8 +11,8 @@ echo.
 cd /d "%~dp0"
 
 echo [1/2] Provjera produkcijskog build-a...
-if not exist ".next" (
-    echo [.next folder ne postoji] Pokrecem kompajliranje...
+if not exist ".next\BUILD_ID" (
+    echo [.next produkcijski build ne postoji ili je neispravan] Pokrecem cisto kompajliranje...
     call npm run build
 )
 
@@ -21,7 +21,7 @@ echo [2/2] Pokrecem Next.js server na portu 1990...
 echo Adresa lokalno: http://localhost:1990
 echo.
 
-npm run start -- -p 1990
+npm run start
 
 if %errorlevel% neq 0 (
     echo.

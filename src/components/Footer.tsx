@@ -52,8 +52,8 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-amber-600" />
-                <a href="mailto:info@studiotaf.xyz" className="hover:text-amber-600 transition-colors">
-                  info@studiotaf.xyz
+                <a href="mailto:sinisa.zelic@gmail.com" className="hover:text-amber-600 transition-colors">
+                  sinisa.zelic@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
@@ -117,10 +117,10 @@ export default function Footer() {
             </p>
             <div className="pt-2">
               <a
-                href="mailto:info@studiotaf.xyz"
+                href="mailto:sinisa.zelic@gmail.com"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-stone-100 text-stone-900 font-mono text-xs font-semibold border border-stone-300 shadow-xs transition-all"
               >
-                <span>info@studiotaf.xyz</span>
+                <span>sinisa.zelic@gmail.com</span>
                 <ExternalLink className="w-3.5 h-3.5 text-amber-600" />
               </a>
             </div>

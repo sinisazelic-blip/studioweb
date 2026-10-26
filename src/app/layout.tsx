@@ -5,7 +5,9 @@ export const metadata: Metadata = {
   title: "Studio TAF • Četiri Decenije Zvuka, Muzičke Produkcije & Akustike",
   description: "Zvanični audio centar i distributivni hab Studija TAF: autorska muzička produkcija, 10 hardverskih sintisajzera, Moj Radio in-store audio infrastruktura, remote režija i klijentski vault.",
   icons: {
-    icon: "/logos/taf-logo.jpg",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/apple-touch-icon.png",
   },
 };
 

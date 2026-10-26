@@ -7,8 +7,18 @@ export default function SwissTimingSection() {
   return (
     <section
       id="omega"
-      className="relative py-24 sm:py-32 bg-gradient-to-b from-[#001e38] via-[#003b64] to-[#002240] text-white overflow-hidden border-b border-sky-800"
+      className="relative py-24 sm:py-32 bg-gradient-to-b from-[#001428] via-[#002240] to-[#001428] text-white overflow-hidden border-b border-sky-800"
     >
+      {/* Real Olympic Swimming Pool Background Image from GOB Banja Luka */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img
+          src="/images/gob-bazen-bg.jpg"
+          alt="Gradski Olimpijski Bazen Banja Luka"
+          className="w-full h-full object-cover object-center opacity-40 mix-blend-luminosity scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#001428] via-[#002240]/75 to-[#001428]" />
+      </div>
+
       {/* Olympic Pool Water Ambient Lighting & Caustics */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-400/20 via-sky-500/10 to-transparent pointer-events-none" />
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-cyan-400/15 rounded-full blur-[140px] pointer-events-none" />
@@ -47,7 +57,7 @@ export default function SwissTimingSection() {
               Zvanični Standardi, Mjerni Sistemi i Svjetske Federacije
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-center justify-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 items-center justify-center">
               {/* Badge 1: SWISS TIMING */}
               <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-center">
                 <div className="w-9 h-9 rounded-xl bg-[#E30613] text-white flex items-center justify-center font-black text-xs shadow-md mb-2">
@@ -84,16 +94,7 @@ export default function SwissTimingSection() {
                 <span className="text-[9px] text-cyan-200 font-mono">LEN Regulative</span>
               </div>
 
-              {/* Badge 5: SWIMRANKINGS */}
-              <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-center">
-                <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md mb-2">
-                  SR
-                </div>
-                <span className="text-[11px] font-bold text-white tracking-wide">SWIMRANKINGS</span>
-                <span className="text-[9px] text-emerald-200 font-mono">Official Lenex</span>
-              </div>
-
-              {/* Badge 6: MEET MANAGER */}
+              {/* Badge 5: MEET MANAGER */}
               <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-center">
                 <div className="w-9 h-9 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold text-xs shadow-md mb-2">
                   MM

@@ -22,15 +22,6 @@ export default function HeroStudio() {
       .catch(() => {});
   }, []);
 
-  const handleVideoEnded = () => {
-    setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.currentTime = 0;
-        videoRef.current.play().catch(() => {});
-      }
-    }, 25000);
-  };
-
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -38,48 +29,21 @@ export default function HeroStudio() {
 
   return (
     <section className="relative min-h-[92vh] flex flex-col justify-between overflow-hidden bg-stone-950 text-white">
-      {/* Background Studio Visual & Mathematically Pinned Display (SVG Locked Coordinates) */}
+      {/* Background Video covering the entire Hero page */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <svg
-          viewBox="0 0 2400 1600"
-          preserveAspectRatio="xMidYMid slice"
-          className="w-full h-full"
-        >
-          {/* Authentic Studio Hardware Console Photography */}
-          <image
-            href="/images/equipment/hero-console.jpg"
-            width="2400"
-            height="1600"
-            className="filter brightness-[0.88] contrast-[1.04] saturate-[1.06]"
-          />
-
-          {/* Desktop Pinned Video: Exact Physical Monitor Screen (500, 670, 500, 262) in 2400x1600 matrix */}
-          <foreignObject
-            x="500"
-            y="670"
-            width="500"
-            height="262"
-            className="hidden lg:block overflow-hidden"
-          >
-            <div className="w-full h-full bg-black rounded-[2px] overflow-hidden relative shadow-[inset_0_0_20px_rgba(0,0,0,0.95)]">
-              <video
-                ref={videoRef}
-                src="/studiotaf-heropage.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover"
-              />
-              {/* Soft screen phosphor / glare */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-black/50 via-transparent to-white/10 pointer-events-none" />
-            </div>
-          </foreignObject>
-        </svg>
+        <video
+          ref={videoRef}
+          src="/studiotaf-heropage.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        />
+        {/* Darkening & gradient overlays so text and frosted cards remain clear */}
+        <div className="absolute inset-0 bg-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-stone-950/95" />
       </div>
-
-      {/* Gentle transparent gradient so physical console and studio lighting remain authentic */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-stone-950/95 pointer-events-none" />
 
       {/* Top-Right Pill Tag: Studio TAF - A Member of Fluxa Group - Est. 1982 */}
       <div className="absolute top-4 sm:top-6 right-4 sm:right-8 lg:right-12 z-30 pointer-events-auto">
@@ -93,20 +57,6 @@ export default function HeroStudio() {
       <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 pt-8 sm:pt-12 my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* MOBILE/TABLET VIDEO FALLBACK */}
-          <div className="lg:hidden flex items-center justify-center">
-            <div className="relative w-full max-w-[320px] aspect-[16/10] rounded-xl overflow-hidden shadow-2xl border border-stone-800 bg-black flex items-center justify-center">
-              <video
-                src="/studiotaf-heropage.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
           {/* DESKTOP LEFT SPACER */}
           <div className="hidden lg:block lg:col-span-6 pointer-events-none" />
 

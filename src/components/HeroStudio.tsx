@@ -64,12 +64,12 @@ export default function HeroStudio() {
             <div className="w-full h-full bg-black rounded-[2px] overflow-hidden relative shadow-[inset_0_0_20px_rgba(0,0,0,0.95)]">
               <video
                 ref={videoRef}
-                src="/TAFlogoMOVE.mp4"
+                src="/studiotaf-heropage.mp4"
                 autoPlay
                 muted
+                loop
                 playsInline
-                onEnded={handleVideoEnded}
-                className="w-full h-full object-cover filter brightness-[0.74] contrast-[1.22] saturate-[0.85]"
+                className="w-full h-full object-cover"
               />
               {/* Soft screen phosphor / glare */}
               <div className="absolute inset-0 bg-gradient-to-tr from-black/50 via-transparent to-white/10 pointer-events-none" />
@@ -97,12 +97,12 @@ export default function HeroStudio() {
           <div className="lg:hidden flex items-center justify-center">
             <div className="relative w-full max-w-[320px] aspect-[16/10] rounded-xl overflow-hidden shadow-2xl border border-stone-800 bg-black flex items-center justify-center">
               <video
-                src="/TAFlogoMOVE.mp4"
+                src="/studiotaf-heropage.mp4"
                 autoPlay
                 muted
+                loop
                 playsInline
-                onEnded={handleVideoEnded}
-                className="w-full h-full object-cover filter brightness-[0.82] contrast-110"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>

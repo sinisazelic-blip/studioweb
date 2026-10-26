@@ -6,6 +6,7 @@ import { ExternalLink, Menu, X, Radio } from "lucide-react";
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isOnAir, setIsOnAir] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +14,22 @@ export default function Header() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const checkLiveStatus = async () => {
+      try {
+        const res = await fetch("/api/studio/status");
+        if (res.ok) {
+          const data = await res.json();
+          setIsOnAir(Boolean(data.isOnAir));
+        }
+      } catch (_) {}
+    };
+
+    checkLiveStatus();
+    const interval = setInterval(checkLiveStatus, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   const scrollTo = (id: string) => {
@@ -95,19 +112,29 @@ export default function Header() {
 
           {/* Right Action: Studio Live Status & FluxaX Redirection */}
           <div className="hidden sm:flex items-center gap-3">
-            {/* Subtle Studio Status Indicator */}
-            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-stone-100 border border-stone-200 text-[10px] font-mono text-stone-700">
-              <span className="w-2 h-2 rounded-full bg-slate-400" />
-              <span className="font-bold">STUDIO STANDBY</span>
-            </div>
+            {/* Dynamic Studio Status Indicator */}
+            {isOnAir ? (
+              <div
+                className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-600 text-white border border-red-500 text-[10px] font-mono font-bold shadow-md shadow-red-500/30 animate-pulse"
+                title="Studio TAF je u režimu aktivnog snimanja • Tišina u etru"
+              >
+                <span className="w-2 h-2 rounded-full bg-white animate-ping" />
+                <span className="tracking-wide">● REC (Silence)</span>
+              </div>
+            ) : (
+              <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-stone-100 border border-stone-200 text-[10px] font-mono text-stone-700">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span className="font-bold">STUDIO STANDBY</span>
+              </div>
+            )}
 
             {/* FluxaX Portal Link */}
             <a
-              href="https://fluxax.eu"
+              href="https://x.fluxa.ba"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs tracking-wide shadow-sm hover:shadow transition-all cursor-pointer flex items-center gap-1.5"
-              title="FluxaX Audio & Video Screening Platforma"
+              title="FluxaX Audio & Video Screening Platforma (x.fluxa.ba)"
             >
               <Radio className="w-3.5 h-3.5 text-teal-300" />
               <span>FluxaX</span>

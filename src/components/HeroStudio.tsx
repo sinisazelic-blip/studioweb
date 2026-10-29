@@ -5,7 +5,7 @@ import { ArrowDown } from "lucide-react";
 
 export default function HeroStudio() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [projectCount, setProjectCount] = useState<number | null>(6012);
+  const [projectCount, setProjectCount] = useState<number | null>(6017);
 
   useEffect(() => {
     if (videoRef.current) {

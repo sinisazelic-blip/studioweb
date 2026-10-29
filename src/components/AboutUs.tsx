@@ -6,7 +6,7 @@ import { Volume2, Music2 } from "lucide-react";
 export default function AboutUs() {
   const [activeCard, setActiveCard] = useState<0 | 1>(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [liveProjects, setLiveProjects] = useState<number | null>(6012);
+  const [liveProjects, setLiveProjects] = useState<number | null>(6017);
 
   useEffect(() => {
     fetch("/api/stats/projects")

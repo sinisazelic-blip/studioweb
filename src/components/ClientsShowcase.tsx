@@ -89,7 +89,7 @@ export default function ClientsShowcase() {
             <span>Četiri decenije kontinuirane audio produkcije, mjernih sistema i medijskog emitovanja</span>
           </div>
           <div className="flex items-center gap-6">
-            <strong className="text-stone-900 font-bold">6.012+ realizovanih projekata</strong>
+            <strong className="text-stone-900 font-bold">6.017+ realizovanih projekata</strong>
             <span className="text-stone-300">•</span>
             <span>160+ verifikovanih referenci</span>
           </div>

@@ -137,7 +137,7 @@ export default function AboutUs() {
                     Studio TAF je nastao iz četiri decenije profesionalnog rada sa zvukom, akustikom i radiodifuzijom. Osnovan na principima pedantne zvučne čistoće, postao je regionalni sinonim za vrhunsku audio postprodukciju, snimanje reklama, radio i TV džinglova, te namjenske muzike.
                   </p>
                   <p>
-                    Kroz namjenski građenu gluvozvučnu sobu sa linearnom akustikom i monitoringom, studio povezuje vrhunske lampaške i tranzistorske mikrofone (Neumann, AKG, Shure), RME hardverske interfejse i Chris Lord-Alge analogni režijski procesing.
+                    Kroz namjenski građenu gluvozvučnu sobu sa linearnom akustikom i monitoringom, studio povezuje vrhunske studijske mikrofone, profesionalne RME hardverske interfejse i analogni režijski procesing.
                   </p>
                   <p className="text-slate-800 font-medium bg-white/70 backdrop-blur-xs p-4 rounded-2xl border border-slate-200/80">
                     Preko 6.012 realizovanih komercijalnih projekata za vodeće domaće i regionalne brendove (m:tel, Ledo, Plazma, Smoki, Chipsi, Garnier, bankarski sektor) svjedoče o nepokolebljivoj tačnosti i povjerenju koje traje decenijama.

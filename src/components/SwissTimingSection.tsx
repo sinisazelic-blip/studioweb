@@ -7,7 +7,7 @@ export default function SwissTimingSection() {
   return (
     <section
       id="omega"
-      className="relative py-24 sm:py-32 bg-gradient-to-b from-[#001428] via-[#002240] to-[#001428] text-white overflow-hidden border-b border-sky-800"
+      className="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#001428] via-[#002240] to-[#001428] text-white overflow-hidden border-b border-sky-800"
     >
       {/* Real Olympic Swimming Pool Background Image from GOB Banja Luka */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -25,73 +25,73 @@ export default function SwissTimingSection() {
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-cyan-400/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[300px] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600/90 border border-red-400 text-white text-xs font-bold tracking-wider uppercase mb-5 shadow-lg shadow-red-900/30">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-red-600/90 border border-red-400 text-white text-[11px] sm:text-xs font-bold tracking-wider uppercase mb-4 sm:mb-5 shadow-lg shadow-red-900/30">
             <span className="font-serif font-black text-sm">Ω</span>
             <span>Swiss Timing Omega • 15+ Godina Zvaničnog Partnerstva</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight font-sans drop-shadow-md">
+          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white tracking-tight font-sans drop-shadow-md">
             Elektronsko Mjerenje & <span className="text-cyan-300">Sportska Borilišta</span>
           </h2>
-          <p className="text-sky-100 text-sm sm:text-base leading-relaxed mt-4 max-w-2xl mx-auto font-normal drop-shadow-sm">
+          <p className="text-sky-100 text-xs sm:text-base leading-relaxed mt-3 sm:mt-4 max-w-2xl mx-auto font-normal drop-shadow-sm">
             Vodeća regionalna podrška i vođenje međunarodnih plivačkih i sportskih takmičenja uz punu hardversku i softversku integraciju sa zvaničnim Swiss Timing Omega sistemima.
           </p>
         </div>
 
         {/* OFFICIAL FEDERATION & TIMING SYSTEMS BADGES ROW */}
-        <div className="max-w-5xl mx-auto mb-16">
-          <div className="bg-slate-900/60 backdrop-blur-xl border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl">
-            <div className="text-center text-xs font-mono font-bold uppercase tracking-[0.2em] text-cyan-200 mb-6">
+        <div className="max-w-5xl mx-auto mb-12 sm:mb-16">
+          <div className="bg-slate-900/60 backdrop-blur-xl border border-white/15 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl">
+            <div className="text-center text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.2em] text-cyan-200 mb-4 sm:mb-6">
               Zvanični Mjerni Sistemi i Međunarodne Krovne Federacije
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 items-center justify-center">
-              {/* Badge 1: SWISS TIMING (2-row stacked logo) */}
-              <div className="flex items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/95 border border-white/20 h-20 sm:h-24 shadow-sm hover:scale-105 transition-transform">
+              {/* Badge 1: SWISS TIMING */}
+              <div className="flex items-center justify-center p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 border border-white/20 h-18 sm:h-24 shadow-sm hover:scale-105 transition-transform">
                 <img
                   src="/SwimLogos/Swiss Timing logo.png"
                   alt="Swiss Timing"
-                  className="max-h-14 sm:max-h-16 max-w-[150px] w-auto h-auto object-contain"
+                  className="max-h-12 sm:max-h-16 max-w-[140px] w-auto h-auto object-contain"
                 />
               </div>
 
               {/* Badge 2: OMEGA */}
-              <div className="flex items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/95 border border-white/20 h-20 sm:h-24 shadow-sm hover:scale-105 transition-transform">
+              <div className="flex items-center justify-center p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 border border-white/20 h-18 sm:h-24 shadow-sm hover:scale-105 transition-transform">
                 <img
                   src="/SwimLogos/Omega.webp"
                   alt="Omega Timing"
-                  className="max-h-14 sm:max-h-16 max-w-[140px] w-auto h-auto object-contain"
+                  className="max-h-12 sm:max-h-16 max-w-[130px] w-auto h-auto object-contain"
                 />
               </div>
 
               {/* Badge 3: WORLD AQUATICS */}
-              <div className="flex items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/95 border border-white/20 h-20 sm:h-24 shadow-sm hover:scale-105 transition-transform">
+              <div className="flex items-center justify-center p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 border border-white/20 h-18 sm:h-24 shadow-sm hover:scale-105 transition-transform">
                 <img
                   src="/SwimLogos/world-aquatics-logo.png"
                   alt="World Aquatics"
-                  className="max-h-14 sm:max-h-16 max-w-[150px] w-auto h-auto object-contain"
+                  className="max-h-12 sm:max-h-16 max-w-[140px] w-auto h-auto object-contain"
                 />
               </div>
 
               {/* Badge 4: EUROPEAN AQUATICS (LEN) */}
-              <div className="flex items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/95 border border-white/20 h-20 sm:h-24 shadow-sm hover:scale-105 transition-transform">
+              <div className="flex items-center justify-center p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 border border-white/20 h-18 sm:h-24 shadow-sm hover:scale-105 transition-transform">
                 <img
                   src="/SwimLogos/Logo-Len.svg.webp"
                   alt="European Aquatics LEN"
-                  className="max-h-14 sm:max-h-16 max-w-[150px] w-auto h-auto object-contain"
+                  className="max-h-12 sm:max-h-16 max-w-[140px] w-auto h-auto object-contain"
                 />
               </div>
 
-              {/* Badge 5: EX-FINA HERITAGE */}
-              <div className="flex items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/95 border border-white/20 h-20 sm:h-24 shadow-sm hover:scale-105 transition-transform">
+              {/* Badge 5: EX-FINA HERITAGE (Centered on 2-col mobile) */}
+              <div className="col-span-2 sm:col-span-1 flex items-center justify-center p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 border border-white/20 h-18 sm:h-24 shadow-sm hover:scale-105 transition-transform max-w-[200px] sm:max-w-none mx-auto sm:mx-0 w-full">
                 <img
                   src="/SwimLogos/Old-FINA-Logo-380x480.jpg"
                   alt="FINA Heritage"
-                  className="max-h-14 sm:max-h-16 max-w-[130px] w-auto h-auto object-contain"
+                  className="max-h-12 sm:max-h-16 max-w-[120px] w-auto h-auto object-contain"
                 />
               </div>
             </div>

@@ -78,12 +78,6 @@ export default function Header() {
           {/* Desktop Nav Links */}
           <div className="hidden xl:flex items-center gap-7 text-xs font-bold text-stone-700">
             <button
-              onClick={() => scrollTo("about")}
-              className="hover:text-amber-600 transition-colors cursor-pointer"
-            >
-              O Nama
-            </button>
-            <button
               onClick={() => scrollTo("what-we-do")}
               className="hover:text-amber-600 transition-colors cursor-pointer"
             >
@@ -101,6 +95,12 @@ export default function Header() {
               className="hover:text-amber-600 transition-colors cursor-pointer"
             >
               Klijenti & Reference
+            </button>
+            <button
+              onClick={() => scrollTo("about")}
+              className="hover:text-amber-600 transition-colors cursor-pointer"
+            >
+              O Nama
             </button>
             <button
               onClick={() => scrollTo("heritage")}
@@ -155,12 +155,6 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="xl:hidden pt-4 pb-2 border-t border-stone-200 mt-3 space-y-2 text-sm text-stone-700">
             <button
-              onClick={() => scrollTo("about")}
-              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2 font-medium"
-            >
-              <span>O Nama</span>
-            </button>
-            <button
               onClick={() => scrollTo("what-we-do")}
               className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2 font-medium"
             >
@@ -180,6 +174,12 @@ export default function Header() {
               <span>Klijenti & Reference</span>
             </button>
             <button
+              onClick={() => scrollTo("about")}
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2 font-medium"
+            >
+              <span>O Nama</span>
+            </button>
+            <button
               onClick={() => scrollTo("heritage")}
               className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2 font-medium"
             >
@@ -187,7 +187,7 @@ export default function Header() {
             </button>
             <div className="pt-2">
               <a
-                href="https://fluxax.eu"
+                href="https://x.fluxa.ba"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs text-center flex items-center justify-center gap-2"

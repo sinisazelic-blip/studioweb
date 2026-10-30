@@ -30,7 +30,7 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className="py-20 md:py-32 relative overflow-hidden bg-slate-50 text-slate-900 border-t border-slate-200/80"
+      className="py-16 sm:py-24 lg:py-32 relative overflow-hidden bg-slate-50 text-slate-900 border-t border-slate-200/80"
     >
       {/* Real, Solid, Relaxed Studio Photography Foundation (Slika 1: Dnevna svetlost, akustična gitara & klavijatura) */}
       <div 
@@ -46,52 +46,52 @@ export default function AboutUs() {
       <div className="absolute top-1/4 right-1/4 w-[500px] h-[350px] bg-purple-200/25 rounded-full blur-[130px] pointer-events-none" />
 
       {/* Full-width Container */}
-      <div className="w-full px-5 sm:px-10 md:px-16 lg:px-20 xl:px-28 relative z-10">
+      <div className="w-full px-4 sm:px-8 md:px-12 lg:px-20 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-purple-200 text-purple-900 text-xs font-semibold tracking-wide mb-4 shadow-sm">
-            <Volume2 className="w-3.5 h-3.5 text-purple-700" />
-            <span>Četiri decenije akumuliranog zanata i zvučne discipline</span>
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-purple-200 text-purple-900 text-[11px] sm:text-xs font-semibold tracking-wide mb-3 sm:mb-4 shadow-sm">
+            <Volume2 className="w-3.5 h-3.5 text-purple-700 shrink-0" />
+            <span className="truncate">Četiri decenije akumuliranog zanata i zvučne discipline</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light text-slate-900 tracking-tight font-sans drop-shadow-sm">
+          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-light text-slate-900 tracking-tight font-sans drop-shadow-sm">
             O Nama • <span className="font-semibold text-purple-900">Studio TAF</span>
           </h2>
-          <p className="text-slate-700 text-sm sm:text-base leading-relaxed mt-3 max-w-2xl mx-auto font-normal drop-shadow-xs">
+          <p className="text-slate-700 text-xs sm:text-base leading-relaxed mt-2.5 sm:mt-3 max-w-2xl mx-auto font-normal drop-shadow-xs">
             Od analognog snimanja osamdesetih godina do savremenih digitalnih i mrežnih sistema — tradicija, pouzdanost i pedantnost u svakom sekundu zvučnog zapisa.
           </p>
         </div>
 
         {/* 2-Pill Switcher */}
-        <div className="max-w-2xl mx-auto mb-8 flex flex-col items-center gap-2.5">
-          <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm">
+        <div className="max-w-2xl mx-auto mb-8 flex flex-col items-center gap-2.5 w-full">
+          <div className="grid grid-cols-2 sm:flex sm:items-center gap-1.5 sm:gap-2 p-1.5 rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm w-full sm:w-auto">
             <button
               onClick={() => setActiveCard(0)}
-              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+              className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-[11px] sm:text-xs font-bold transition-all duration-300 cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 text-center ${
                 activeCard === 0
                   ? "bg-purple-800 text-white shadow-md scale-[1.02]"
                   : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
               }`}
             >
               <span>🎙️</span>
-              <span>1. Audio Centar & Istorijat</span>
+              <span className="truncate">1. Audio Centar</span>
             </button>
 
             <button
               onClick={() => setActiveCard(1)}
-              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+              className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-[11px] sm:text-xs font-bold transition-all duration-300 cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 text-center ${
                 activeCard === 1
                   ? "bg-purple-800 text-white shadow-md scale-[1.02]"
                   : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
               }`}
             >
               <span>🎸</span>
-              <span>2. Muzička Era & Zanat</span>
+              <span className="truncate">2. Muzička Era</span>
             </button>
           </div>
 
-          <div className="text-[11px] text-slate-700 font-medium flex items-center gap-2 bg-white/80 px-3 py-1 rounded-full shadow-2xs backdrop-blur-xs">
-            <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse" />
+          <div className="text-[10px] sm:text-[11px] text-slate-700 font-medium flex items-center gap-2 bg-white/80 px-3 py-1 rounded-full shadow-2xs backdrop-blur-xs text-center">
+            <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse shrink-0" />
             <span>
               {isPaused
                 ? "Pauzirano (čitanje u toku)"
@@ -104,11 +104,11 @@ export default function AboutUs() {
         <div
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          className="max-w-3xl lg:max-w-4xl mx-auto mb-16 sm:mb-20"
+          className="max-w-3xl lg:max-w-4xl mx-auto mb-12 sm:mb-20"
         >
           {activeCard === 0 ? (
             /* Container 1: Studio & Audio Heritage */
-            <div className="bg-white/85 backdrop-blur-md rounded-3xl p-6 sm:p-8 md:p-10 border border-white/60 shadow-xl flex flex-col justify-between transition-all duration-500">
+            <div className="bg-white/85 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 border border-white/60 shadow-xl flex flex-col justify-between transition-all duration-500">
               <div>
                 {/* Studio TAF Original Logo */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5 mb-6 pb-6 border-b border-slate-100/80">

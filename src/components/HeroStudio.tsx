@@ -28,7 +28,7 @@ export default function HeroStudio() {
   };
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-between overflow-hidden bg-stone-950 text-white">
+    <section className="relative min-h-[100dvh] flex flex-col justify-between overflow-hidden bg-stone-950 text-white py-4 sm:py-6">
       {/* Background Video covering the entire Hero page */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <video
@@ -41,53 +41,53 @@ export default function HeroStudio() {
           className="w-full h-full object-cover"
         />
         {/* Darkening & gradient overlays so text and frosted cards remain clear */}
-        <div className="absolute inset-0 bg-black/25" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-stone-950/95" />
+        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-stone-950/95" />
       </div>
 
       {/* Top-Right Pill Tag: Studio TAF - A Member of Fluxa Group - Est. 1982 */}
-      <div className="absolute top-4 sm:top-6 right-4 sm:right-8 lg:right-12 z-30 pointer-events-auto">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-stone-200 text-[11px] font-mono tracking-widest uppercase shadow-lg">
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-          <span>Studio TAF • A Member of Fluxa Group • Est. 1982</span>
+      <div className="relative sm:absolute sm:top-6 sm:right-8 lg:right-12 z-30 px-4 pt-2 sm:pt-0 flex justify-center sm:justify-end pointer-events-auto">
+        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-stone-200 text-[10px] sm:text-[11px] font-mono tracking-wider sm:tracking-widest uppercase shadow-lg">
+          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse shrink-0" />
+          <span className="truncate">Studio TAF • A Member of Fluxa Group • Est. 1982</span>
         </div>
       </div>
 
       {/* Main Hero Content Area */}
-      <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 pt-8 sm:pt-12 my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="relative z-10 w-full px-4 sm:px-8 lg:px-20 py-6 sm:py-10 my-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
           
           {/* DESKTOP LEFT SPACER */}
           <div className="hidden lg:block lg:col-span-6 pointer-events-none" />
 
-          {/* RIGHT: Typography & Action Buttons in Exact Same Luminous Frosted Glass Box as Bottom Metrics */}
-          <div className="lg:col-span-6 flex flex-col justify-center items-start lg:ml-auto max-w-xl z-20">
-            <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-3xl p-8 sm:p-10 shadow-2xl space-y-6">
+          {/* RIGHT: Typography & Action Buttons in Frosted Glass Box */}
+          <div className="lg:col-span-6 flex flex-col justify-center items-start lg:ml-auto max-w-xl z-20 w-full">
+            <div className="w-full bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 shadow-2xl space-y-4 sm:space-y-6">
               {/* Clean, Elegant, Minimalist Typography */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.1] font-sans drop-shadow-md">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.15] font-sans drop-shadow-md">
                 Snimanje, miks <br />
                 <span className="font-semibold text-amber-400">i zvučni dizajn.</span>
               </h1>
 
-              <p className="text-stone-100 text-sm sm:text-base font-light leading-relaxed font-sans drop-shadow-sm">
+              <p className="text-stone-100 text-xs sm:text-base font-light leading-relaxed font-sans drop-shadow-sm">
                 Četiri decenije rada sa zvukom, analognom opremom i namenskom akustikom. 
                 Bez suvišnih riječi — posao radimo tiho, precizno i na vrijeme.
               </p>
 
               {/* Action Links */}
-              <div className="flex items-center gap-4 flex-wrap pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
                 <button
-                  onClick={() => scrollTo("about")}
-                  className="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs sm:text-sm font-semibold tracking-wide transition-all cursor-pointer flex items-center gap-2 shadow-lg"
+                  onClick={() => scrollTo("what-we-do")}
+                  className="px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs sm:text-sm font-semibold tracking-wide transition-all cursor-pointer flex items-center justify-center gap-2 shadow-lg"
                 >
-                  <span>Upoznajte Tim & Istorijat</span>
+                  <span>Usluge i Produkcija</span>
                   <ArrowDown className="w-3.5 h-3.5" />
                 </button>
                 <button
-                  onClick={() => scrollTo("what-we-do")}
-                  className="px-6 py-3.5 rounded-xl bg-white/15 hover:bg-white/25 text-white border border-white/25 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md transition-all cursor-pointer shadow-sm"
+                  onClick={() => scrollTo("about")}
+                  className="px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl bg-white/15 hover:bg-white/25 text-white border border-white/25 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md transition-all cursor-pointer shadow-sm text-center"
                 >
-                  Usluge i Produkcija
+                  O Nama & Tim
                 </button>
               </div>
             </div>
@@ -97,43 +97,43 @@ export default function HeroStudio() {
       </div>
 
       {/* Glass Card: Key Credibility Pillars (40+ g, 6.012 projekata, 20+ g Studio TAF, 15+ g Omega) */}
-      <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 pb-10 sm:pb-14 pt-8">
-        <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      <div className="relative z-10 w-full px-4 sm:px-8 lg:px-20 pb-4 sm:pb-8 pt-4">
+        <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             <div>
-              <div className="text-2xl sm:text-4xl font-light text-white font-mono tracking-tight">
+              <div className="text-xl sm:text-3xl lg:text-4xl font-light text-white font-mono tracking-tight">
                 40+ Godina
               </div>
-              <div className="text-xs text-stone-300 font-sans mt-1">
+              <div className="text-[11px] sm:text-xs text-stone-300 font-sans mt-0.5 sm:mt-1">
                 Kontinuiteta i zanata (od 1982.)
               </div>
             </div>
 
             <div>
-              <div className="text-2xl sm:text-4xl font-light text-amber-400 font-mono tracking-tight flex items-center gap-2">
-                <span>{projectCount ? projectCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") : "6.012"}</span>
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <div className="text-xl sm:text-3xl lg:text-4xl font-light text-amber-400 font-mono tracking-tight flex items-center gap-1.5 sm:gap-2">
+                <span>{projectCount ? projectCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") : "6.017"}</span>
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
               </div>
-              <div className="text-xs text-stone-300 font-sans mt-1">
+              <div className="text-[11px] sm:text-xs text-stone-300 font-sans mt-0.5 sm:mt-1">
                 Završenih komercijalnih projekata
               </div>
             </div>
 
             <div>
-              <div className="text-2xl sm:text-4xl font-light text-white font-mono tracking-tight">
+              <div className="text-xl sm:text-3xl lg:text-4xl font-light text-white font-mono tracking-tight">
                 20+ Godina
               </div>
-              <div className="text-xs text-stone-300 font-sans mt-1">
+              <div className="text-[11px] sm:text-xs text-stone-300 font-sans mt-0.5 sm:mt-1">
                 Brenda i prepoznatljivosti Studio TAF
               </div>
             </div>
 
             <div>
-              <div className="text-2xl sm:text-4xl font-light text-red-400 font-mono tracking-tight flex items-center gap-1.5">
-                <span className="text-[#C4001A] font-serif font-black text-2xl sm:text-3xl">Ω</span>
+              <div className="text-xl sm:text-3xl lg:text-4xl font-light text-red-400 font-mono tracking-tight flex items-center gap-1.5">
+                <span className="text-[#C4001A] font-serif font-black text-xl sm:text-2xl lg:text-3xl">Ω</span>
                 <span>15+ Godina</span>
               </div>
-              <div className="text-xs text-stone-300 font-sans mt-1">
+              <div className="text-[11px] sm:text-xs text-stone-300 font-sans mt-0.5 sm:mt-1">
                 Swiss Timing Omega zvanični partner
               </div>
             </div>

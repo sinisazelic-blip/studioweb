@@ -12,13 +12,13 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0c1017] text-white flex flex-col selection:bg-amber-500/20 selection:text-amber-200">
+    <main className="min-h-screen bg-[#0c1017] text-white flex flex-col selection:bg-amber-500/20 selection:text-amber-200 overflow-x-hidden">
       <Header />
       <HeroStudio />
-      <AboutUs />
       <ServicesShowcase />
       <SwissTimingSection />
       <ClientsShowcase />
+      <AboutUs />
       <HeritageStory />
       <Footer />
     </main>

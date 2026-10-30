@@ -36,6 +36,17 @@ const milestones: TimelineMilestone[] = [
       "Izgrađena namjenska gluvozvučna komora i hibridni analogni/digitalni lanac koji garantuje tačan EBU R128 standard glasnoće.",
   },
   {
+    period: "2010.",
+    badge: "Sportska Borilišta & Nova Energija",
+    title: "Elektronsko Mjerenje i Bazen — Novi Pogled na Svijet",
+    context:
+      "Godina 2010. donosi ključnu prekretnicu: početak rada na bazenima i međunarodnim sportskim borilištima, što iz temelja mijenja 'pogled na svijet'. Taj teren je bio dijametralno različit od dotadašnjih terenskih snimanja — zahtijevao je rad u milisekundama, pod strogim međunarodnim pravilima, te je unio potpuno novu energiju u poslovanje Studio TAF tima.",
+    decision:
+      "Uspostavljeno je dugogodišnje partnerstvo sa zvaničnim Swiss Timing i Omega sistemima, uz razvoj vlastitih inženjerskih mostova za obradu rezultata i vođenje takmičenja.",
+    highlight:
+      "Puna integracija sa bazenskim dodirnim tablama (touchpads), startnim blokovima i Quantum tajmerom za hiljade plivača širom Evrope.",
+  },
+  {
     period: "2012.",
     badge: "B2B Poslovni Model",
     title: "Koncept 'MojRadio' — Vlastiti Radio za Svakog Klijenta",
@@ -74,7 +85,7 @@ export default function HeritageStory() {
   return (
     <section
       id="heritage"
-      className="relative py-28 sm:py-36 bg-fixed bg-cover bg-center overflow-hidden"
+      className="relative py-16 sm:py-24 lg:py-32 bg-cover bg-center sm:bg-fixed overflow-hidden"
       style={{
         backgroundImage: "url('/images/equipment/studio-heritage-warm.jpg')",
       }}
@@ -85,22 +96,22 @@ export default function HeritageStory() {
       {/* Decorative ambient lights */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-cyan-500/10 rounded-full blur-[160px] pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-16">
+      <div className="relative z-10 w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-16">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20 sm:mb-28">
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-cyan-400 font-bold block mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
+          <span className="text-xs font-mono uppercase tracking-[0.25em] text-cyan-400 font-bold block mb-2 sm:mb-3">
             Hronologija, Entuzijazam & Odluke
           </span>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase font-sans">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight uppercase font-sans">
             OUR STORY
           </h2>
           {/* Cyan glowing underline accent */}
-          <div className="w-20 h-1 bg-cyan-400 mx-auto mt-5 rounded-full shadow-[0_0_14px_rgba(34,211,238,0.9)]" />
+          <div className="w-16 sm:w-20 h-1 bg-cyan-400 mx-auto mt-4 rounded-full shadow-[0_0_14px_rgba(34,211,238,0.9)]" />
 
-          <p className="mt-6 text-stone-300 text-base sm:text-lg leading-relaxed font-light">
+          <p className="mt-4 sm:mt-6 text-stone-300 text-sm sm:text-base lg:text-lg leading-relaxed font-light">
             Od magnetofonske trake 1982. i ranih saradnji sa muzičkim velikanima, 
-            do specijalizacije za komercijalni audio, razvoja autonomnih zvučnih stubova i članstva u Fluxa Group.
+            do ulaska na sportska borilišta 2010, razvoja autonomnih audio stubova i članstva u Fluxa Group.
           </p>
         </div>
 
@@ -109,11 +120,11 @@ export default function HeritageStory() {
           {/* Vertical Glowing Timeline Guide Line */}
           <div className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-0.5 -translate-x-1/2 bg-gradient-to-b from-cyan-400 via-stone-600 to-cyan-500/40 pointer-events-none hidden sm:block" />
 
-          <div className="space-y-12 sm:space-y-16">
+          <div className="space-y-8 sm:space-y-14">
             {milestones.map((item, idx) => (
               <div
                 key={idx}
-                className={`relative flex flex-col sm:flex-row items-center gap-8 ${
+                className={`relative flex flex-col sm:flex-row items-center gap-6 sm:gap-8 ${
                   idx % 2 === 0 ? "sm:flex-row-reverse text-left" : "text-left"
                 }`}
               >
@@ -124,11 +135,11 @@ export default function HeritageStory() {
 
                 {/* Floating Content Card (Width 50% on desktop) */}
                 <div className="w-full sm:w-[calc(50%-2.5rem)]">
-                  <div className="group rounded-3xl bg-[#0e141d]/85 hover:bg-[#131b26]/95 border border-white/10 hover:border-cyan-400/50 backdrop-blur-md p-8 transition-all duration-300 shadow-2xl hover:shadow-[0_10px_35px_-10px_rgba(34,211,238,0.25)]">
+                  <div className="group rounded-3xl bg-[#0e141d]/85 hover:bg-[#131b26]/95 border border-white/10 hover:border-cyan-400/50 backdrop-blur-md p-6 sm:p-8 transition-all duration-300 shadow-2xl hover:shadow-[0_10px_35px_-10px_rgba(34,211,238,0.25)]">
                     
                     {/* Period and Badge */}
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="text-2xl sm:text-3xl font-mono font-light text-cyan-400 tracking-tight">
+                      <span className="text-xl sm:text-3xl font-mono font-light text-cyan-400 tracking-tight">
                         {item.period}
                       </span>
                       <span className="text-[10px] font-mono uppercase tracking-wider text-stone-300 px-3 py-1 rounded-full bg-white/5 border border-white/10">
@@ -137,17 +148,17 @@ export default function HeritageStory() {
                     </div>
 
                     {/* Milestone Title */}
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-cyan-300 transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight group-hover:text-cyan-300 transition-colors">
                       {item.title}
                     </h3>
 
                     {/* Context & What Pushed the Decision */}
-                    <p className="text-stone-300 text-sm leading-relaxed font-light mb-3">
+                    <p className="text-stone-300 text-xs sm:text-sm leading-relaxed font-light mb-3">
                       {item.context}
                     </p>
 
                     {/* The Strategic Decision */}
-                    <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs text-stone-300 leading-relaxed font-light mb-4">
+                    <div className="p-3 sm:p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs text-stone-300 leading-relaxed font-light mb-3 sm:mb-4">
                       <span className="text-cyan-400 font-semibold font-mono block mb-1 uppercase tracking-wider text-[10px]">
                         Prekretnica & Odluka:
                       </span>
@@ -156,7 +167,7 @@ export default function HeritageStory() {
 
                     {/* Highlights */}
                     {item.highlight ? (
-                      <div className="pt-3 border-t border-white/10 text-xs font-sans italic text-stone-400">
+                      <div className="pt-2 sm:pt-3 border-t border-white/10 text-xs font-sans italic text-stone-400">
                         <span className="text-cyan-400 font-bold not-italic mr-1.5">•</span>
                         {item.highlight}
                       </div>
@@ -172,7 +183,7 @@ export default function HeritageStory() {
         </div>
 
         {/* Signature Bottom Stamp */}
-        <div className="text-center max-w-xl mx-auto mt-20 pt-8 border-t border-white/15">
+        <div className="text-center max-w-xl mx-auto mt-14 sm:mt-20 pt-6 sm:pt-8 border-t border-white/15">
           <p className="text-xs font-mono text-stone-400 uppercase tracking-widest">
             Studio TAF • A Member of Fluxa Group • 1982–Danas
           </p>

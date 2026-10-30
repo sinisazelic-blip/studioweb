@@ -29,16 +29,11 @@ export default function SwissTimingSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-red-600/90 border border-red-400 text-white text-[11px] sm:text-xs font-bold tracking-wider uppercase mb-4 sm:mb-5 shadow-lg shadow-red-900/30">
-            <span className="font-serif font-black text-sm">Ω</span>
-            <span>Swiss Timing Omega • 15+ Godina Zvaničnog Partnerstva</span>
-          </div>
-
           <h2 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white tracking-tight font-sans drop-shadow-md">
             Elektronsko Mjerenje & <span className="text-cyan-300">Sportska Borilišta</span>
           </h2>
           <p className="text-sky-100 text-xs sm:text-base leading-relaxed mt-3 sm:mt-4 max-w-2xl mx-auto font-normal drop-shadow-sm">
-            Vodeća regionalna podrška i vođenje međunarodnih plivačkih i sportskih takmičenja uz punu hardversku i softversku integraciju sa zvaničnim Swiss Timing Omega sistemima.
+            Vodeća regionalna podrška i vođenje međunarodnih plivačkih i sportskih takmičenja uz punu hardversku i softversku integraciju sa zvaničnim SwissTiming/Omega sistemima.
           </p>
         </div>
 
@@ -50,11 +45,11 @@ export default function SwissTimingSection() {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 items-center justify-center">
-              {/* Badge 1: SWISS TIMING */}
+              {/* Badge 1: SWISSTIMING */}
               <div className="flex items-center justify-center p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 border border-white/20 h-18 sm:h-24 shadow-sm hover:scale-105 transition-transform">
                 <img
                   src="/SwimLogos/Swiss Timing logo.png"
-                  alt="Swiss Timing"
+                  alt="SwissTiming"
                   className="max-h-12 sm:max-h-16 max-w-[140px] w-auto h-auto object-contain"
                 />
               </div>
@@ -86,12 +81,12 @@ export default function SwissTimingSection() {
                 />
               </div>
 
-              {/* Badge 5: EX-FINA HERITAGE (Centered on 2-col mobile) */}
-              <div className="col-span-2 sm:col-span-1 flex items-center justify-center p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 border border-white/20 h-18 sm:h-24 shadow-sm hover:scale-105 transition-transform max-w-[200px] sm:max-w-none mx-auto sm:mx-0 w-full">
+              {/* Badge 5: EX-FINA HERITAGE (Posebna obojena podloga za bivšu asocijaciju) */}
+              <div className="col-span-2 sm:col-span-1 flex items-center justify-center p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#dbeefd] border-2 border-[#7fc1f9] h-18 sm:h-24 shadow-md hover:scale-105 transition-transform max-w-[200px] sm:max-w-none mx-auto sm:mx-0 w-full" title="FINA Heritage (Preteča World Aquatics)">
                 <img
                   src="/SwimLogos/Old-FINA-Logo-380x480.jpg"
                   alt="FINA Heritage"
-                  className="max-h-12 sm:max-h-16 max-w-[120px] w-auto h-auto object-contain"
+                  className="max-h-12 sm:max-h-16 max-w-[120px] w-auto h-auto object-contain rounded-md"
                 />
               </div>
             </div>
@@ -100,23 +95,36 @@ export default function SwissTimingSection() {
 
         {/* 3 Columns: Timekeeping Specs & Systems in Glass Cards over Olympic Blue Water */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-[1500px] mx-auto mb-16">
-          {/* Card 1: Quantum & Ares Timing */}
+          {/* Card 1: Quantum & Ares Timing sa SwissTiming i Omega ikonicama */}
           <div className="bg-[#002244]/85 border border-cyan-400/30 rounded-3xl p-8 hover:border-red-500/80 transition-all flex flex-col justify-between shadow-2xl backdrop-blur-md">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-[#E30613] text-white flex items-center justify-center mb-6 font-serif font-black text-2xl shadow-lg shadow-red-900/40">
-                Ω
+              {/* 2 Ikonice: SwissTiming amblem + Omega Ω */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-white border border-white/30 flex items-center justify-center shadow-lg shadow-black/20 overflow-hidden">
+                  <div className="w-7 h-7 overflow-hidden flex items-center justify-start">
+                    <img
+                      src="/SwimLogos/Swiss Timing logo.png"
+                      alt="SwissTiming Amblem"
+                      className="h-7 max-w-none object-contain -translate-x-[2px]"
+                    />
+                  </div>
+                </div>
+                <div className="w-12 h-12 rounded-2xl bg-[#E30613] text-white flex items-center justify-center font-serif font-black text-2xl shadow-lg shadow-red-900/40">
+                  Ω
+                </div>
               </div>
+
               <h3 className="text-xl font-bold text-white mb-2">
                 Quantum & Ares Mjerni Sistemi
               </h3>
               <p className="text-xs sm:text-sm text-sky-100 leading-relaxed mb-6 font-normal">
-                Swiss Timing Quantum Aquatics (EU) i Omega Ares (USA) elektronsko mjerenje stotinki i hiljaditinki sekunde preko kontaktnih dodirnih tabli (touchpads), startnih blokova sa detekcijom lažnog starta i video sudijske verifikacije.
+                SwissTiming/Omega Quantum Aquatics (EU) i Ares (USA) elektronsko mjerenje preko kontaktnih dodirnih tabli (touchpads), startnih blokova sa detekcijom lažnog starta i video sudijske verifikacije.
               </p>
             </div>
             <ul className="space-y-2.5 text-xs text-sky-100 pt-4 border-t border-cyan-500/20">
               <li className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-cyan-300 shrink-0" />
-                <span>Preciznost na nivou 1/10.000 sekunde</span>
+                <span>Zvanična certifikacija rekorda i rezultata</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-cyan-300 shrink-0" />

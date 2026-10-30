@@ -84,7 +84,7 @@ export default function Footer() {
               <li>
                 <button onClick={() => scrollTo("omega")} className="hover:text-red-700 transition-colors cursor-pointer text-left flex items-center gap-1.5">
                   <span className="text-[#C4001A] font-serif font-black text-xs">Ω</span>
-                  <span>Omega / Swiss Timing</span>
+                  <span>SwissTiming/Omega</span>
                 </button>
               </li>
               <li>
@@ -110,7 +110,7 @@ export default function Footer() {
           <div className="md:col-span-4 space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-800 border border-red-200 text-[10px] font-mono uppercase font-bold tracking-wider">
               <span className="text-[#C4001A] font-serif font-black text-xs leading-none">Ω</span>
-              <span>Swiss Timing Zvanični Partner</span>
+              <span>SwissTiming/Omega Zvanični Partner</span>
             </div>
             <p className="text-xs text-stone-600 leading-relaxed font-light">
               Specijalizovano vođenje borilišta i automatizacija plivačkih i sportskih takmičenja uz punu podršku za Quantum Timer, touchpads i live semafore.

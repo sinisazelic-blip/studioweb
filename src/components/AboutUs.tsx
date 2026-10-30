@@ -57,12 +57,12 @@ export default function AboutUs() {
           <h2 className="text-2xl sm:text-4xl lg:text-6xl font-light text-slate-900 tracking-tight font-sans drop-shadow-sm">
             O Nama • <span className="font-semibold text-purple-900">Studio TAF</span>
           </h2>
-          <p className="text-slate-700 text-xs sm:text-base leading-relaxed mt-2.5 sm:mt-3 max-w-2xl mx-auto font-normal drop-shadow-xs">
+          <p className="text-slate-950 text-xs sm:text-base leading-relaxed mt-2.5 sm:mt-3 max-w-2xl mx-auto font-medium [text-shadow:_0_1px_4px_rgba(255,255,255,0.95),_0_0_12px_rgba(255,255,255,0.9)]">
             Od analognog snimanja osamdesetih godina do savremenih digitalnih i mrežnih sistema — tradicija, pouzdanost i pedantnost u svakom sekundu zvučnog zapisa.
           </p>
         </div>
 
-        {/* 2-Pill Switcher */}
+        {/* 2-Pill Switcher (Muzička Era 1. - Audio Centar 2.) */}
         <div className="max-w-2xl mx-auto mb-8 flex flex-col items-center gap-2.5 w-full">
           <div className="grid grid-cols-2 sm:flex sm:items-center gap-1.5 sm:gap-2 p-1.5 rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm w-full sm:w-auto">
             <button
@@ -73,8 +73,8 @@ export default function AboutUs() {
                   : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
               }`}
             >
-              <span>🎙️</span>
-              <span className="truncate">1. Audio Centar</span>
+              <span>🎸</span>
+              <span className="truncate">1. Muzička Era & Zanat</span>
             </button>
 
             <button
@@ -85,147 +85,144 @@ export default function AboutUs() {
                   : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
               }`}
             >
-              <span>🎸</span>
-              <span className="truncate">2. Muzička Era</span>
+              <span>🎙️</span>
+              <span className="truncate">2. Audio Centar & Istorijat</span>
             </button>
-          </div>
-
-          <div className="text-[10px] sm:text-[11px] text-slate-700 font-medium flex items-center gap-2 bg-white/80 px-3 py-1 rounded-full shadow-2xs backdrop-blur-xs text-center">
-            <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse shrink-0" />
-            <span>
-              {isPaused
-                ? "Pauzirano (čitanje u toku)"
-                : "Automatska izmjena svakih 15s • prelazak mišem pauzira"}
-            </span>
           </div>
         </div>
 
-        {/* Single Centered Airy Container (Slika 1 Frosted White Aesthetic) */}
+        {/* Single Centered Airy Container sa elegantnim Crossfade efektom */}
         <div
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          className="max-w-3xl lg:max-w-4xl mx-auto mb-12 sm:mb-20"
+          className="max-w-3xl lg:max-w-4xl mx-auto mb-12 sm:mb-20 grid grid-cols-1 items-start"
         >
-          {activeCard === 0 ? (
-            /* Container 1: Studio & Audio Heritage */
-            <div className="bg-white/85 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 border border-white/60 shadow-xl flex flex-col justify-between transition-all duration-500">
-              <div>
-                {/* Studio TAF Original Logo */}
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5 mb-6 pb-6 border-b border-slate-100/80">
-                  <div className="inline-flex items-center justify-start shrink-0 bg-white p-2 rounded-2xl shadow-xs border border-slate-200 w-fit">
-                    <img
-                      src="/logos/taf-logo.jpg"
-                      alt="Studio TAF Logo"
-                      className="h-12 sm:h-16 w-auto object-contain"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900">
-                      Studio TAF • Glas i Zvuk koji Traje
-                    </h3>
-                    <div className="flex items-center gap-2 mt-1">
-                      <span className="text-[11px] sm:text-xs font-semibold text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded-full border border-purple-100 font-mono">
-                        Banja Luka • 4 decenije kontinuiteta (od 1982.)
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Story Paragraphs */}
-                <div className="space-y-4 text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed font-normal mb-8">
-                  <p>
-                    Studio TAF je nastao iz četiri decenije profesionalnog rada sa zvukom, akustikom i radiodifuzijom. Osnovan na principima pedantne zvučne čistoće, postao je regionalni sinonim za vrhunsku audio postprodukciju, snimanje reklama, radio i TV džinglova, te namjenske muzike.
-                  </p>
-                  <p>
-                    Kroz namjenski građenu gluvozvučnu sobu sa linearnom akustikom i monitoringom, studio povezuje vrhunske studijske mikrofone, profesionalne RME hardverske interfejse i analogni režijski procesing.
-                  </p>
-                  <p className="text-slate-800 font-medium bg-white/70 backdrop-blur-xs p-4 rounded-2xl border border-slate-200/80">
-                    Preko 6.012 realizovanih komercijalnih projekata za vodeće domaće i regionalne brendove (m:tel, Ledo, Plazma, Smoki, Chipsi, Garnier, bankarski sektor) svjedoče o nepokolebljivoj tačnosti i povjerenju koje traje decenijama.
-                  </p>
-                </div>
+          {/* Container 1: Muzička Era & Zanat (Prije Studio TAF) */}
+          <div
+            className={`col-start-1 row-start-1 bg-white/85 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 border border-white/60 shadow-xl flex flex-col justify-between transition-opacity duration-700 ease-in-out ${
+              activeCard === 0 ? "opacity-100 pointer-events-auto z-10" : "opacity-0 pointer-events-none z-0"
+            }`}
+          >
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-xs font-semibold mb-4">
+                <Music2 className="w-3.5 h-3.5" />
+                <span>Zlatno doba autorskog stvaralaštva i disciplina magnetofonske trake</span>
               </div>
 
-              {/* Metric Pills - Continuity & Heritage */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-6 border-t border-slate-100/80">
-                <div className="bg-white/75 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70">
-                  <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium">Početak Rada</div>
-                  <div className="text-xs sm:text-sm font-bold text-slate-900 font-mono">1982. godina</div>
-                </div>
-                <div className="bg-white/75 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70">
-                  <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium">Studio TAF</div>
-                  <div className="text-xs sm:text-sm font-bold text-slate-900 font-mono">20+ godina</div>
-                </div>
-                <div className="bg-white/75 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70">
-                  <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium">Završeni Projekti</div>
-                  <div className="text-xs sm:text-sm font-bold text-purple-700 flex items-center gap-1.5 font-mono">
-                    <span>{liveProjects ? liveProjects.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") : "6.012"}</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  </div>
-                </div>
-                <div className="bg-white/75 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70">
-                  <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium">Swiss Timing Partner</div>
-                  <div className="text-xs sm:text-sm font-bold text-slate-900 font-mono">15+ godina</div>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mb-3">
+                Muzička Era i Beskompromisna Disciplina
+              </h3>
+
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                Prije ere digitalnog „copy-paste“ montažerstva, snimanje zvuka na višekanalne magnetofonske trake zahtijevalo je apsolutnu koncentraciju. Svaka sekvenca morala je biti odsvirana i otpjevana bez greške. Ta stečena analogna disciplina danas čini razliku između prosječnog i savršenog audio miksa.
+              </p>
+
+              {/* Iconic Artists Roster Showcase */}
+              <div className="space-y-2.5 mb-6">
+                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
+                  Istaknute Saradnje & Producentura:
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Sanja Čolić Zelić",
+                    "Massimo Savić",
+                    "Đavoli (Neno Belan)",
+                    "Dino Dvornik",
+                    "Denis & Denis",
+                    "Oliver Mandić",
+                    "Big Bang (Kultni BL rock bend)",
+                    "Narodno & Dječije Pozorište",
+                    "Filmski Sound Design",
+                    "Revelation (Boris Relja project)",
+                    "Radio (BL Pop-Rock)",
+                    "Kovalsky Project",
+                    "BasDans",
+                    "Zvanične Sportske Himne",
+                  ].map((artist, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-[11px] sm:text-xs font-semibold shadow-2xs hover:border-purple-300 transition-colors"
+                    >
+                      {artist}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
-          ) : (
-            /* Container 2: Music Era & Studio Discipline */
-            <div className="bg-white/85 backdrop-blur-md rounded-3xl p-6 sm:p-8 md:p-10 border border-white/60 shadow-xl flex flex-col justify-between transition-all duration-500">
-              <div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-xs font-semibold mb-4">
-                  <Music2 className="w-3.5 h-3.5" />
-                  <span>Zlatno doba autorskog stvaralaštva i disciplina magnetofonske trake</span>
+
+            {/* Note Pill */}
+            <div className="bg-white/75 backdrop-blur-xs rounded-2xl p-4 sm:p-5 border border-purple-100/80 mt-6">
+              <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">
+                Iskustvo rada sa ovim muzičkim velikanima utkalo je u Studio TAF osjećaj za dinamiku, toplinu i emocionalnu težinu zvučne poruke.
+              </p>
+            </div>
+          </div>
+
+          {/* Container 2: Studio TAF Audio Centar */}
+          <div
+            className={`col-start-1 row-start-1 bg-white/85 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 border border-white/60 shadow-xl flex flex-col justify-between transition-opacity duration-700 ease-in-out ${
+              activeCard === 1 ? "opacity-100 pointer-events-auto z-10" : "opacity-0 pointer-events-none z-0"
+            }`}
+          >
+            <div>
+              {/* Studio TAF Original Logo */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5 mb-6 pb-6 border-b border-slate-100/80">
+                <div className="inline-flex items-center justify-start shrink-0 bg-white p-2 rounded-2xl shadow-xs border border-slate-200 w-fit">
+                  <img
+                    src="/logos/taf-logo.jpg"
+                    alt="Studio TAF Logo"
+                    className="h-12 sm:h-16 w-auto object-contain"
+                  />
                 </div>
-
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mb-3">
-                  Muzička Era i Beskompromisna Disciplina
-                </h3>
-
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-                  Prije ere digitalnog „copy-paste“ montažerstva, snimanje zvuka na višekanalne magnetofonske trake zahtijevalo je apsolutnu koncentraciju. Svaka sekvenca morala je biti odsvirana i otpjevana bez greške. Ta stečena analogna disciplina danas čini razliku između prosječnog i savršenog audio miksa.
-                </p>
-
-                {/* Iconic Artists Roster Showcase */}
-                <div className="space-y-2.5 mb-6">
-                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
-                    Istaknute Saradnje & Producentura:
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      "Sanja Čolić Zelić",
-                      "Massimo Savić",
-                      "Đavoli (Neno Belan)",
-                      "Dino Dvornik",
-                      "Denis & Denis",
-                      "Oliver Mandić",
-                      "Big Bang (Kultni BL rock bend)",
-                      "Narodno & Dječije Pozorište",
-                      "Filmski Sound Design",
-                      "Revelation (Boris Relja project)",
-                      "Radio (BL Pop-Rock)",
-                      "Kovalsky Project",
-                      "BasDans",
-                      "Zvanične Sportske Himne",
-                    ].map((artist, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-[11px] sm:text-xs font-semibold shadow-2xs hover:border-purple-300 transition-colors"
-                      >
-                        {artist}
-                      </span>
-                    ))}
+                <div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900">
+                    Studio TAF • Glas i Zvuk koji Traje
+                  </h3>
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="text-[11px] sm:text-xs font-semibold text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded-full border border-purple-100 font-mono">
+                      Banja Luka • 4 decenije kontinuiteta (od 1982.)
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {/* Note Pill */}
-              <div className="bg-white/75 backdrop-blur-xs rounded-2xl p-4 sm:p-5 border border-purple-100/80 mt-6">
-                <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">
-                  Iskustvo rada sa ovim muzičkim velikanima utkalo je u Studio TAF osjećaj za dinamiku, toplinu i emocionalnu težinu zvučne poruke.
+              {/* Story Paragraphs */}
+              <div className="space-y-4 text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed font-normal mb-8">
+                <p>
+                  Studio TAF je nastao iz četiri decenije profesionalnog rada sa zvukom, akustikom i radiodifuzijom. Osnovan na principima pedantne zvučne čistoće, postao je regionalni sinonim za vrhunsku audio postprodukciju, snimanje reklama, radio i TV džinglova, te namjenske muzike.
+                </p>
+                <p>
+                  Kroz namjenski građenu gluvozvučnu sobu sa linearnom akustikom i monitoringom, studio povezuje vrhunske studijske mikrofone, profesionalne RME hardverske interfejse i analogni režijski procesing.
+                </p>
+                <p className="text-slate-800 font-medium bg-white/70 backdrop-blur-xs p-4 rounded-2xl border border-slate-200/80">
+                  Preko 6.000 realizovanih komercijalnih projekata za vodeće domaće i regionalne brendove (m:tel, Ledo, Plazma, Smoki, Chipsi, Garnier, bankarski sektor) svjedoče o nepokolebljivoj tačnosti i povjerenju koje traje decenijama.
                 </p>
               </div>
             </div>
-          )}
+
+            {/* Metric Pills - Continuity & Heritage */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-6 border-t border-slate-100/80">
+              <div className="bg-white/75 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70">
+                <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium">Početak Rada</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-900 font-mono">1982. godina</div>
+              </div>
+              <div className="bg-white/75 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70">
+                <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium">Studio TAF</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-900 font-mono">20+ godina</div>
+              </div>
+              <div className="bg-white/75 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70">
+                <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium">Završeni Projekti</div>
+                <div className="text-xs sm:text-sm font-bold text-purple-700 flex items-center gap-1.5 font-mono">
+                  <span>{liveProjects ? liveProjects.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") : "6.017"}</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                </div>
+              </div>
+              <div className="bg-white/75 backdrop-blur-xs rounded-xl p-3 border border-slate-200/70">
+                <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium">SwissTiming/Omega</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-900 font-mono">15+ godina</div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

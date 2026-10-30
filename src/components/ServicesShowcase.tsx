@@ -85,7 +85,7 @@ export default function ServicesShowcase() {
           <div className="w-16 sm:w-20 h-1 bg-orange-500 mx-auto mt-4 rounded-full shadow-[0_0_14px_rgba(249,115,22,0.8)]" />
 
           <p className="mt-4 sm:mt-6 text-stone-300 text-sm sm:text-base lg:text-lg leading-relaxed font-light">
-            Od prve kompozicijske skice do emitovanja na radiju, televiziji i streaming platformama. 
+            Od prve analogne kompozicijske skice do kompleksnih digitalnih multiplaformskih nivoa. 
             Vrhunska oprema, namjenska akustika i 40 godina studijske prakse.
           </p>
         </div>

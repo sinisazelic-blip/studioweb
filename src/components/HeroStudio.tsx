@@ -45,14 +45,6 @@ export default function HeroStudio() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-stone-950/95" />
       </div>
 
-      {/* Top-Right Pill Tag: Studio TAF - A Member of Fluxa Group - Est. 1982 */}
-      <div className="relative sm:absolute sm:top-6 sm:right-8 lg:right-12 z-30 px-4 pt-2 sm:pt-0 flex justify-center sm:justify-end pointer-events-auto">
-        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-stone-200 text-[10px] sm:text-[11px] font-mono tracking-wider sm:tracking-widest uppercase shadow-lg">
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse shrink-0" />
-          <span className="truncate">Studio TAF • A Member of Fluxa Group • Est. 1982</span>
-        </div>
-      </div>
-
       {/* Main Hero Content Area */}
       <div className="relative z-10 w-full px-4 sm:px-8 lg:px-20 py-6 sm:py-10 my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
@@ -134,7 +126,7 @@ export default function HeroStudio() {
                 <span>15+ Godina</span>
               </div>
               <div className="text-[11px] sm:text-xs text-stone-300 font-sans mt-0.5 sm:mt-1">
-                Swiss Timing Omega zvanični partner
+                SwissTiming/Omega zvanični partner
               </div>
             </div>
           </div>

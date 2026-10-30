@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { Sparkles } from "lucide-react";
+import React, { useState, useEffect } from "react";
 import referenceLogos from "./referenceLogos.json";
 
 // Podjela na 4 naizmjenična reda
@@ -41,6 +40,19 @@ function MarqueeRow({ items, directionClass }: MarqueeRowProps) {
 }
 
 export default function ClientsShowcase() {
+  const [projectsCount, setProjectsCount] = useState<number | null>(6017);
+
+  useEffect(() => {
+    fetch("/api/stats/projects")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.ok && typeof data.count === "number") {
+          setProjectsCount(data.count);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <section id="clients" className="py-16 sm:py-24 lg:py-32 bg-[#faf9f5] text-stone-900 border-b border-stone-200/90 relative overflow-hidden">
       {/* Blagi pozadinski sjaj */}
@@ -50,10 +62,6 @@ export default function ClientsShowcase() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-amber-100 border border-amber-200 text-amber-900 text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-4 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-            <span>Referentna Lista • Preko 160 Stalnih Komitenata</span>
-          </div>
           <h2 className="text-2xl sm:text-4xl lg:text-6xl font-light text-stone-950 tracking-tight font-sans">
             Klijenti & <span className="font-semibold text-amber-600">Reference</span>
           </h2>
@@ -63,23 +71,23 @@ export default function ClientsShowcase() {
           </p>
         </div>
 
-        {/* 4-Row Infinite Alternating Marquee (mint.ba stil) */}
+        {/* 4-Row Infinite Alternating Marquee */}
         <div className="relative w-full overflow-hidden py-2 sm:py-4">
           {/* Edge Fades za blagi prelaz na ivicama ekrana */}
           <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-44 bg-gradient-to-r from-[#faf9f5] via-[#faf9f5]/80 to-transparent z-20" />
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-44 bg-gradient-to-l from-[#faf9f5] via-[#faf9f5]/80 to-transparent z-20" />
 
-          {/* Red 1: Ulijevo */}
-          <MarqueeRow items={row1} directionClass="animate-marquee-left" />
+          {/* Red 1: Udesno, lagano */}
+          <MarqueeRow items={row1} directionClass="[animation:marquee-right_130s_linear_infinite]" />
 
-          {/* Red 2: Udesno */}
-          <MarqueeRow items={row2} directionClass="animate-marquee-right" />
+          {/* Red 2: Udesno, puno brže */}
+          <MarqueeRow items={row2} directionClass="[animation:marquee-right_55s_linear_infinite]" />
 
-          {/* Red 3: Ulijevo (blago brži ritam) */}
-          <MarqueeRow items={row3} directionClass="animate-marquee-left-fast" />
+          {/* Red 3: Ulijevo, lagano */}
+          <MarqueeRow items={row3} directionClass="[animation:marquee-left_125s_linear_infinite]" />
 
-          {/* Red 4: Udesno */}
-          <MarqueeRow items={row4} directionClass="animate-marquee-right" />
+          {/* Red 4: Udesno, srednje (brže od r1, sporije od r2) */}
+          <MarqueeRow items={row4} directionClass="[animation:marquee-right_85s_linear_infinite]" />
         </div>
 
         {/* Bottom Trust Stat Bar */}
@@ -88,10 +96,10 @@ export default function ClientsShowcase() {
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
             <span>Četiri decenije kontinuirane audio produkcije, mjernih sistema i medijskog emitovanja</span>
           </div>
-          <div className="flex items-center gap-4 sm:gap-6">
-            <strong className="text-stone-900 font-bold">6.017+ realizovanih projekata</strong>
-            <span className="text-stone-300">•</span>
-            <span>160+ verifikovanih referenci</span>
+          <div>
+            <strong className="text-stone-900 font-bold">
+              {projectsCount ? `${projectsCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}+` : "6.017+"} realizovanih projekata
+            </strong>
           </div>
         </div>
 

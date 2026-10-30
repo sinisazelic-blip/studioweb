@@ -70,7 +70,7 @@ export default function Header() {
                 </span>
               </div>
               <div className="text-[11px] text-stone-500 font-medium tracking-wide hidden sm:block mt-0.5">
-                Master Audio Produkcija & Režija od 1982.
+                A member of Fluxa group • Est. 1982
               </div>
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function Header() {
               className="hover:text-red-700 transition-colors cursor-pointer flex items-center gap-1.5"
             >
               <span className="text-[#C4001A] font-serif font-black text-xs">Ω</span>
-              <span>Omega / Swiss Timing</span>
+              <span>SwissTiming/Omega</span>
             </button>
             <button
               onClick={() => scrollTo("clients")}
@@ -165,7 +165,7 @@ export default function Header() {
               className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 flex items-center gap-2 font-medium"
             >
               <span className="text-[#C4001A] font-serif font-black text-xs">Ω</span>
-              <span>Omega / Swiss Timing</span>
+              <span>SwissTiming/Omega</span>
             </button>
             <button
               onClick={() => scrollTo("clients")}
